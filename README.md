@@ -32,6 +32,8 @@
 
 ## 安装教程
 
+> [Stylus插件下载链接](https://www.crxsoso.com/webstore/detail/clngdbkpkpeebahjckkjfobafhncgmne)
+
 1. 先按照[此文章](https://www.luogu.com.cn/blog/fsy2017/material-luogu-material)的方式安装`Stylus`插件。
 2. 打开洛谷主页，点击右上角`Stylus`图标，为`www.luogu.com.cn`添加一个样式。
 3. 点击`导入`，将存储库中`main.css`的全部内容复制进文本框内。
