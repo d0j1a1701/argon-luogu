@@ -1,3 +1,4 @@
+@-moz-document regexp("^((?!blog).)*https://www.luogu.org((?!blog).)*$"), regexp("^((?!blog).)*http://www.luogu.org((?!blog).)*$"), regexp("^((?!blog).)*https://www2.luogu.org((?!blog).)*$"), regexp("^((?!blog).)*http://www2.luogu.org((?!blog).)*$"), regexp("^((?!blog).)*https://www.luogu.com.cn((?!blog).)*$"), regexp("^((?!blog).)*http://www.luogu.com.cn((?!blog).)*$") {
 /*---对于基本控件的处理*/
 /*--字体引用*/
 @font-face{font-family:'Open Sans';font-style:normal;font-weight:300;src:local('Open Sans Light'),local('OpenSans-Light'),url(https://fonts.gstatic.com/s/opensans/v15/mem5YaGs126MiZpBA-UN_r8OX-hpOqc.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Open Sans';font-style:normal;font-weight:300;src:local('Open Sans Light'),local('OpenSans-Light'),url(https://fonts.gstatic.com/s/opensans/v15/mem5YaGs126MiZpBA-UN_r8OVuhpOqc.woff2) format('woff2');unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Open Sans';font-style:normal;font-weight:300;src:local('Open Sans Light'),local('OpenSans-Light'),url(https://fonts.gstatic.com/s/opensans/v15/mem5YaGs126MiZpBA-UN_r8OXuhpOqc.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Open Sans';font-style:normal;font-weight:300;src:local('Open Sans Light'),local('OpenSans-Light'),url(https://fonts.gstatic.com/s/opensans/v15/mem5YaGs126MiZpBA-UN_r8OUehpOqc.woff2) format('woff2');unicode-range:U+0370-03FF}@font-face{font-family:'Open Sans';font-style:normal;font-weight:300;src:local('Open Sans Light'),local('OpenSans-Light'),url(https://fonts.gstatic.com/s/opensans/v15/mem5YaGs126MiZpBA-UN_r8OXehpOqc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Open Sans';font-style:normal;font-weight:300;src:local('Open Sans Light'),local('OpenSans-Light'),url(https://fonts.gstatic.com/s/opensans/v15/mem5YaGs126MiZpBA-UN_r8OXOhpOqc.woff2) format('woff2');unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Open Sans';font-style:normal;font-weight:300;src:local('Open Sans Light'),local('OpenSans-Light'),url(https://fonts.gstatic.com/s/opensans/v15/mem5YaGs126MiZpBA-UN_r8OUuhp.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Open Sans';font-style:normal;font-weight:400;src:local('Open Sans Regular'),local('OpenSans-Regular'),url(https://fonts.gstatic.com/s/opensans/v15/mem8YaGs126MiZpBA-UFWJ0bbck.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Open Sans';font-style:normal;font-weight:400;src:local('Open Sans Regular'),local('OpenSans-Regular'),url(https://fonts.gstatic.com/s/opensans/v15/mem8YaGs126MiZpBA-UFUZ0bbck.woff2) format('woff2');unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Open Sans';font-style:normal;font-weight:400;src:local('Open Sans Regular'),local('OpenSans-Regular'),url(https://fonts.gstatic.com/s/opensans/v15/mem8YaGs126MiZpBA-UFWZ0bbck.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Open Sans';font-style:normal;font-weight:400;src:local('Open Sans Regular'),local('OpenSans-Regular'),url(https://fonts.gstatic.com/s/opensans/v15/mem8YaGs126MiZpBA-UFVp0bbck.woff2) format('woff2');unicode-range:U+0370-03FF}@font-face{font-family:'Open Sans';font-style:normal;font-weight:400;src:local('Open Sans Regular'),local('OpenSans-Regular'),url(https://fonts.gstatic.com/s/opensans/v15/mem8YaGs126MiZpBA-UFWp0bbck.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Open Sans';font-style:normal;font-weight:400;src:local('Open Sans Regular'),local('OpenSans-Regular'),url(https://fonts.gstatic.com/s/opensans/v15/mem8YaGs126MiZpBA-UFW50bbck.woff2) format('woff2');unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Open Sans';font-style:normal;font-weight:400;src:local('Open Sans Regular'),local('OpenSans-Regular'),url(https://fonts.gstatic.com/s/opensans/v15/mem8YaGs126MiZpBA-UFVZ0b.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Open Sans';font-style:normal;font-weight:600;src:local('Open Sans SemiBold'),local('OpenSans-SemiBold'),url(https://fonts.gstatic.com/s/opensans/v15/mem5YaGs126MiZpBA-UNirkOX-hpOqc.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Open Sans';font-style:normal;font-weight:600;src:local('Open Sans SemiBold'),local('OpenSans-SemiBold'),url(https://fonts.gstatic.com/s/opensans/v15/mem5YaGs126MiZpBA-UNirkOVuhpOqc.woff2) format('woff2');unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Open Sans';font-style:normal;font-weight:600;src:local('Open Sans SemiBold'),local('OpenSans-SemiBold'),url(https://fonts.gstatic.com/s/opensans/v15/mem5YaGs126MiZpBA-UNirkOXuhpOqc.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Open Sans';font-style:normal;font-weight:600;src:local('Open Sans SemiBold'),local('OpenSans-SemiBold'),url(https://fonts.gstatic.com/s/opensans/v15/mem5YaGs126MiZpBA-UNirkOUehpOqc.woff2) format('woff2');unicode-range:U+0370-03FF}@font-face{font-family:'Open Sans';font-style:normal;font-weight:600;src:local('Open Sans SemiBold'),local('OpenSans-SemiBold'),url(https://fonts.gstatic.com/s/opensans/v15/mem5YaGs126MiZpBA-UNirkOXehpOqc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Open Sans';font-style:normal;font-weight:600;src:local('Open Sans SemiBold'),local('OpenSans-SemiBold'),url(https://fonts.gstatic.com/s/opensans/v15/mem5YaGs126MiZpBA-UNirkOXOhpOqc.woff2) format('woff2');unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Open Sans';font-style:normal;font-weight:600;src:local('Open Sans SemiBold'),local('OpenSans-SemiBold'),url(https://fonts.gstatic.com/s/opensans/v15/mem5YaGs126MiZpBA-UNirkOUuhp.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Open Sans';font-style:normal;font-weight:700;src:local('Open Sans Bold'),local('OpenSans-Bold'),url(https://fonts.gstatic.com/s/opensans/v15/mem5YaGs126MiZpBA-UN7rgOX-hpOqc.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Open Sans';font-style:normal;font-weight:700;src:local('Open Sans Bold'),local('OpenSans-Bold'),url(https://fonts.gstatic.com/s/opensans/v15/mem5YaGs126MiZpBA-UN7rgOVuhpOqc.woff2) format('woff2');unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Open Sans';font-style:normal;font-weight:700;src:local('Open Sans Bold'),local('OpenSans-Bold'),url(https://fonts.gstatic.com/s/opensans/v15/mem5YaGs126MiZpBA-UN7rgOXuhpOqc.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Open Sans';font-style:normal;font-weight:700;src:local('Open Sans Bold'),local('OpenSans-Bold'),url(https://fonts.gstatic.com/s/opensans/v15/mem5YaGs126MiZpBA-UN7rgOUehpOqc.woff2) format('woff2');unicode-range:U+0370-03FF}@font-face{font-family:'Open Sans';font-style:normal;font-weight:700;src:local('Open Sans Bold'),local('OpenSans-Bold'),url(https://fonts.gstatic.com/s/opensans/v15/mem5YaGs126MiZpBA-UN7rgOXehpOqc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Open Sans';font-style:normal;font-weight:700;src:local('Open Sans Bold'),local('OpenSans-Bold'),url(https://fonts.gstatic.com/s/opensans/v15/mem5YaGs126MiZpBA-UN7rgOXOhpOqc.woff2) format('woff2');unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Open Sans';font-style:normal;font-weight:700;src:local('Open Sans Bold'),local('OpenSans-Bold'),url(https://fonts.gstatic.com/s/opensans/v15/mem5YaGs126MiZpBA-UN7rgOUuhp.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
@@ -1181,4 +1182,239 @@ blockquote{
 /* 讨论列表 */
 .lg-content-table-left{
     background-color: #252d38 !important;
+}
+.am-pagination > li > a{
+    background-color: #252d38 !important;
+    border-color: rgba(150,150,200,.3) !important;
+}
+}
+
+@-moz-document regexp("^((?!blog).)*https://www.luogu.org((?!blog).)*$"), regexp("^((?!blog).)*http://www.luogu.org((?!blog).)*$"), regexp("^((?!blog).)*https://www2.luogu.org((?!blog).)*$"), regexp("^((?!blog).)*http://www2.luogu.org((?!blog).)*$"), regexp("^((?!blog).)*https://www.luogu.com.cn((?!blog).)*$"), regexp("^((?!blog).)*http://www.luogu.com.cn((?!blog).)*$") {
+/*此区域用来应用一些自定义设置*/
+/*--------------------背景图片，默认是颜色编码*/
+html > body{
+    background-image: url(https://cdn.jsdelivr.net/gh/dajia-1701/image-host@master/3.2ig0usnlvqe0.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+/*-------------------主题*/
+/*顶栏和侧栏自定义颜色/透明效果*/
+
+
+/*示例配色代码*/
+#app > .main-container > header{
+    background: none !important;
+}
+body #app > .lfe-body > a , body #app > .lfe-body > .popup-button{
+    /*color: #7474bf !important;*/
+}
+body #app > .lfe-body > div:first-of-type , ::-webkit-scrollbar-thumb:hover{
+    /*background-color: #7474bf !important;*/
+}
+
+/*--------------------夜间模式*/
+
+/*下面是夜间模式CSS
+.lg-article , .lg-summary , .lg-article-sub , .lg-content-table-left , html > body:first-of-type #app > .lfe-body{
+    background:#424242 !important;
+    color:#eee !important;
+}
+#app > .lfe-body * {
+    color: #eee !important;
+}
+html > body:first-of-type #app > .lfe-body div:first-of-type {
+    background: #353535 !important;
+}
+.popup , #app-header .content nav a[href^="/space/show"]+div.center , #app-header .content nav a[href^="/space/show"]+div.center *{
+    background:#424242 !important;
+    color: #eee !important;
+}
+.am-panel,.feed-selector>a,.am-nav-tabs li>a,.am-comment-bd,.lg-sub-article,code,.am-alert,#lg-tag-result,#lg-tag-select{
+    background:#454545 !important;
+    color:#eee !important;
+}
+.am-comment-hd{
+    background:#404040 !important;
+}
+textarea,input{
+    background:#666666 !important;
+    color:#eee !important;
+}
+html > body:first-of-type > #app-header , html > body:first-of-type > #app-header .content > header{
+    background:#212121 !important;
+    color:#eee !important;
+}
+#app-header h1:before{
+    content: "";
+    box-shadow: inset -15px 0 30px #212121;
+}
+body,html,html>body:first-of-type{
+    background:#303030 !important;
+}
+.lg-small,strong{
+    color:rgba(255,255,255,.6);
+}
+.highcharts-axis.highcharts-yaxis > text,.highcharts-axis-labels.highcharts-yaxis-labels > text,.highcharts-axis-labels.highcharts-xaxis-labels > text{
+    fill:#ddd !important;
+}
+.ace_content{
+    color:#eee;
+    background:#212121;
+}
+.ace-clouds .ace_keyword.ace_operator{
+    color:#aaa !important;
+}
+.ace-clouds .ace_storage, .ace-clouds .ace_support.ace_class, .ace-clouds .ace_support.ace_function, .ace-clouds .ace_support.ace_other, .ace-clouds .ace_support.ace_type {
+    color: #e778b0 !important;
+}
+.ace-clouds .ace_keyword, .ace-clouds .ace_meta, .ace-clouds .ace_support.ace_constant.ace_property-value {
+    color: #40c4ff !important;
+}
+.ace-clouds .ace_constant.ace_numeric {
+    color: #5af354 !important;
+}
+.ace-clouds .ace_marker-layer .ace_active-line {
+    background:#404040;
+}
+.ace_layer.ace_gutter-layer.ace_folding-enabled{
+    background: #303030;
+    color: #eee;
+}
+.ace-clouds .ace_gutter-active-line {
+    background-color: #666666;
+}
+body:before{
+    content:"";
+    position:fixed;
+    z-index:999999999999999;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background:rgba(0,0,0,0.2);
+    pointer-events:none;
+}
+.am-progress {
+    background-color: #e9ecef0d;
+}
+#mp-toolbar{
+    background:#212121;
+    border:none;
+}
+#mp-toolbar *,#mp-editor-area{
+    border:none !important;
+}
+.CodeMirror-cursor {
+    border-color: #ccc;
+}
+#mp-editor-area * {
+    background: #303030 !important;
+}
+.CodeMirror-gutters,#mp-editor-preview-area {
+    border-color: #555;
+}
+.cm-s-default .cm-link {
+    color: #444899;
+}
+.cm-s-default .cm-string {
+    color: #ca405b;
+}
+pre.CodeMirror-line {
+    color: #ddd;
+}
+.am-pagination>li>a {
+    background: #424242;
+    border: none;
+}
+#app-footer {
+    background: #212121 !important;
+}
+ul.am-dropdown-content>li>a {
+    color: #ddd;
+}
+.am-dropdown-header {
+    color: #ccc;
+}
+textarea, input, .am-dropdown-content {
+    background: #404040 !important;
+    color: #eee !important;
+}
+ul.am-dropdown-content .am-divider {
+    background-color: #555555;
+}
+.am-modal-dialog {
+    background-color: #424242;
+}
+.am-modal-dialog>#lg-alert-message, .am-modal-dialog>#memadmin {
+    color: #eee;
+}
+.am-modal-dialog>#lg-alert-title, .am-modal-dialog>#memtitle {
+    color: #eee;
+}
+pre {
+    background: transparent;
+    border-color: #555;
+    color: #eee !important;
+}
+hr {
+    border-color: #666;
+}
+.lg-sidebar-list li[class^="lg-nav"] a span[class^="am-icon"]:after {
+    background: #fff !important;
+    opacity: 0.95;
+}
+.lg-index-benben > div.lg-article:nth-of-type(2) {
+    background: #424242 !important;
+    box-shadow: 0 5px 15px rgba(50,50,93,.1),0 5px 8px rgba(0,0,0,.07)!important;
+}
+#home-center-nav {
+    background: #303030 !important;
+}
+.lg-fg-bluedark {
+    color: #678baf !important;
+}
+#app-header * {
+    color: #ddd !important;
+}
+#app > .lfe-body > div.popup-button {
+    color: #eee !important;
+}
+.lg-summary-content li {
+    background: transparent !important;
+}
+.lg-summary-content .fadeout {
+    background-image: linear-gradient(transparent 0%,rgb(69,69,69) 90%);
+}
+.lg-summary-content .comment-show-more {
+    color:#aaa;
+}
+.lg-article .pagination-centered:before{
+    background:#303030 !important;
+}
+#mp-editor-area div.CodeMirror-selected{
+    background:rgba(255,255,255,0.5) !important;
+}
+#mp-editor-area .CodeMirror-line,#mp-editor-area .CodeMirror-line *{
+    background:transparent !important;
+}
+*/
+/*--------------------侧栏颜色*/
+
+/*下面是侧栏颜色CSS
+#app > .lfe-body{
+    background: linear-gradient(30deg,#7795f8 15%,#6772e5 70%,#555abf 94%) !important;
+}
+#app > .lfe-body > a , .popup-button > i{
+    color: #fafafa !important;
+}
+*/
+/*--------------------禁用顶栏标题动画*/
+
+/*下面是禁用顶栏标题动画CSS
+.main-container > header > .header > h1{
+    animation:none !important;
+}
+*/
 }
