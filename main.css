@@ -1262,6 +1262,13 @@ div.message{
     background-color: #252d38 !important;
     color: #c4c6c9 !important;
 }
+/* 图床 */
+.radio-group > div > label{
+    color: #c4c6c9 !important;
+}
+.radio-group > span{
+    color: #c4c6c9 !important;
+}
 }
 
 @-moz-document regexp("^((?!blog).)*https://www.luogu.org((?!blog).)*$"), regexp("^((?!blog).)*http://www.luogu.org((?!blog).)*$"), regexp("^((?!blog).)*https://www2.luogu.org((?!blog).)*$"), regexp("^((?!blog).)*http://www2.luogu.org((?!blog).)*$"), regexp("^((?!blog).)*https://www.luogu.com.cn((?!blog).)*$"), regexp("^((?!blog).)*http://www.luogu.com.cn((?!blog).)*$") {
@@ -1280,6 +1287,6 @@ html > body{
 }
 
 /*
-version: 0.0.4
+version: 0.0.5
 */
 }
