@@ -1197,7 +1197,12 @@ blockquote{
 .info-content{
     color: #c4c6c9 !important;
 }
-
+/* 头像悬浮框 */
+.dropdown > .center{
+    color: #c4c6c9 !important;
+    background-color: #252d38 !important;
+    border-color: rgba(150,150,200,.3) !important;
+}
 /* 应用 */
 .popup{
     background-color: #252d38 !important;
@@ -1205,6 +1210,10 @@ blockquote{
 }
 .popup > div > .color-none{
     color: #c4c6c9 !important;
+}
+/* 题解与云剪贴板渐变 */
+.expand{
+    background: linear-gradient(rgba(255, 255, 255, 0), #252d38) !important;
 }
 }
 
@@ -1224,6 +1233,6 @@ html > body{
 }
 
 /*
-version: 0.0.2
+version: 0.0.3
 */
 }
