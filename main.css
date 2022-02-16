@@ -1206,7 +1206,6 @@ blockquote{
 /* 应用 */
 .popup{
     background-color: #252d38 !important;
-    
 }
 .popup > div > .color-none{
     color: #c4c6c9 !important;
@@ -1214,6 +1213,54 @@ blockquote{
 /* 题解与云剪贴板渐变 */
 .expand{
     background: linear-gradient(rgba(255, 255, 255, 0), #252d38) !important;
+}
+/* 我发布的帖子 */
+.block > .row-wrap > .row > .inner-card{
+    background-color: #252d38 !important;
+    border-color: rgba(150,150,200,.3) !important;
+}
+.item-title{
+    color: #c4c6c9 !important;
+}
+/* 我加入的团队 */
+.inner-card.item{
+    background-color: #252d38 !important;
+    border-color: rgba(150,150,200,.3) !important;
+}
+/* 互相关注 */
+.avatar-right > .lfe-caption{
+    background-color: #252d38 !important;
+    border-color: rgba(150,150,200,.3) !important;
+}
+/* 通知中心 */
+.content.marked > p{
+    color: #c4c6c9 !important;
+}
+.time{
+    color: #c4c6c9 !important;
+}
+/* 私信 */
+.block > .editor > textarea{
+    background-color: #2e3846 !important;
+    color: #c4c6c9 !important;
+}
+.list > .item{
+    border-color: rgba(150,150,200,.3) !important;
+}
+.list > .item:hover{
+    background-color: #2e3846 !important;
+}
+div.message{
+    background-color: #2e3846 !important;
+    color: #c4c6c9 !important;
+}
+.message:after{
+    border-right-color: #2e3846 !important;
+}
+/* 题解工具栏 */
+.operations.float{
+    background-color: #252d38 !important;
+    color: #c4c6c9 !important;
 }
 }
 
@@ -1233,6 +1280,6 @@ html > body{
 }
 
 /*
-version: 0.0.3
+version: 0.0.4
 */
 }
