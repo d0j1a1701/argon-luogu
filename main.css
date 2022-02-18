@@ -1269,6 +1269,19 @@ div.message{
 .radio-group > span{
     color: #c4c6c9 !important;
 }
+/* Extend-Luogu */
+.exlg-emo-btn{
+    background-color: rgba(150,150,200,.3) !important;
+    border:1px solid rgba(150,150,200,.3) !important;   
+}
+#exlg-dash{
+    background-color: rgba(150,150,200,.3) !important;
+    box-shadow: none !important;
+}
+/* 签到日历 */
+.lg-index-calendar.lg-fg-greendark{
+    color: rgba(10, 128, 31, .79) !important;
+}
 }
 
 @-moz-document regexp("^((?!blog).)*https://www.luogu.org((?!blog).)*$"), regexp("^((?!blog).)*http://www.luogu.org((?!blog).)*$"), regexp("^((?!blog).)*https://www2.luogu.org((?!blog).)*$"), regexp("^((?!blog).)*http://www2.luogu.org((?!blog).)*$"), regexp("^((?!blog).)*https://www.luogu.com.cn((?!blog).)*$"), regexp("^((?!blog).)*http://www.luogu.com.cn((?!blog).)*$") {
@@ -1287,6 +1300,6 @@ html > body{
 }
 
 /*
-version: 0.0.5
+version: 0.0.7
 */
 }
