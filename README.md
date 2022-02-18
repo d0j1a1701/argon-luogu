@@ -34,10 +34,22 @@
 
 > [Stylus插件下载链接](https://www.crxsoso.com/webstore/detail/clngdbkpkpeebahjckkjfobafhncgmne)
 
+### userstyles.world (推荐)
+
+1. 先按照[此文章](https://www.luogu.com.cn/blog/fsy2017/material-luogu-material)的方式安装`Stylus`插件。
+2. 打开[userstyles.world](https://userstyles.world/style/3238/default-slug)，点击蓝色的`Install`按钮。
+3. 在新页面中勾选"检查更新"，点击"安装样式"。
+
+**发布更新后会自动更新，无需手动安装**
+
+### 手动安装
+
 1. 先按照[此文章](https://www.luogu.com.cn/blog/fsy2017/material-luogu-material)的方式安装`Stylus`插件。
 2. 打开洛谷主页，点击右上角`Stylus`图标，为`www.luogu.com.cn`添加一个样式。
 3. 点击`导入`，将存储库中`main.css`的全部内容复制进文本框内。
 4. 依次点击`覆盖替换导入`，`保存`。
+
+**每当发布更新后需要重新执行3-4步**
 
 ## 背景图片修改
 
