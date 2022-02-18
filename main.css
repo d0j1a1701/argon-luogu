@@ -1283,11 +1283,11 @@ div.message{
     color: rgba(10, 128, 31, .79) !important;
 }
 /* 代码高亮 */
-code{
+p > code{
     background-color: rgba(62,75,94,.35) !important;
     transition: background-color .2s ease-in-out;
 }
-.marked code, .marked pre{
+code,pre{
     background: none !important;
     border-color: rgba(150,150,200,.3) !important;
 }
@@ -1301,7 +1301,7 @@ code.hljs {
 }
 .hljs {
 	color:#c9d1d9 !important;
-	background:#0d1117 !important;
+	background:none !important;
 }
 .hljs-doctag,.hljs-keyword,.hljs-meta .hljs-keyword,.hljs-template-tag,.hljs-template-variable,.hljs-type,.hljs-variable.language_ {
 	color:#ff7b72 !important;
@@ -1368,6 +1368,6 @@ html > body{
 }
 
 /*
-version: 0.1.1
+version: 0.1.2
 */
 }
