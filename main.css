@@ -1,3 +1,12 @@
+/* ==UserStyle==
+@name         氩洛谷 - 夜间模式 By d0j1a_1701
+@version      20220219.03.01
+@namespace    userstyles.world/user/dajia-1701
+@description  洛谷夜间模式美化样式。
+@author       dajia-1701
+@license      MIT
+==/UserStyle== */
+
 @-moz-document regexp("^((?!blog).)*https://www.luogu.org((?!blog).)*$"), regexp("^((?!blog).)*http://www.luogu.org((?!blog).)*$"), regexp("^((?!blog).)*https://www2.luogu.org((?!blog).)*$"), regexp("^((?!blog).)*http://www2.luogu.org((?!blog).)*$"), regexp("^((?!blog).)*https://www.luogu.com.cn((?!blog).)*$"), regexp("^((?!blog).)*http://www.luogu.com.cn((?!blog).)*$") {
 /*---对于基本控件的处理*/
 /*--字体引用*/
@@ -1371,6 +1380,11 @@ code.hljs {
 .dropdown > ul > li:hover{
     background-color: rgba(150,150,200,.3) !important;
 }
+/* 团队讨论 */
+.discuss-container > div > .discuss{
+    background: none !important;
+    border-color: rgba(150,150,200,.3) !important;
+}
 }
 
 @-moz-document regexp("^((?!blog).)*https://www.luogu.org((?!blog).)*$"), regexp("^((?!blog).)*http://www.luogu.org((?!blog).)*$"), regexp("^((?!blog).)*https://www2.luogu.org((?!blog).)*$"), regexp("^((?!blog).)*http://www2.luogu.org((?!blog).)*$"), regexp("^((?!blog).)*https://www.luogu.com.cn((?!blog).)*$"), regexp("^((?!blog).)*http://www.luogu.com.cn((?!blog).)*$") {
@@ -1389,6 +1403,6 @@ html > body{
 }
 
 /*
-version: 0.1.4
+version: 0.1.5
 */
 }
