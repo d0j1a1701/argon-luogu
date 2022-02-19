@@ -1350,6 +1350,27 @@ code.hljs {
 	color:#ffdcd7 !important;
 	background-color:#67060c !important;
 }
+/* 弹窗 */
+.swal2-popup{
+    background-color: #252d38 !important;
+}
+.swal2-popup .swal2-title{
+    color: #c4c6c9 !important;
+}
+.swal2-popup .swal2-content{
+    color: #c4c6c9 !important;
+}
+/* 加入题单 */
+.clone-card{
+    background-color: #252d38 !important;
+    color: #c4c6c9 !important;
+}
+.combo-wrapper > .text{
+    background: none !important;
+}
+.dropdown > ul > li:hover{
+    background-color: rgba(150,150,200,.3) !important;
+}
 }
 
 @-moz-document regexp("^((?!blog).)*https://www.luogu.org((?!blog).)*$"), regexp("^((?!blog).)*http://www.luogu.org((?!blog).)*$"), regexp("^((?!blog).)*https://www2.luogu.org((?!blog).)*$"), regexp("^((?!blog).)*http://www2.luogu.org((?!blog).)*$"), regexp("^((?!blog).)*https://www.luogu.com.cn((?!blog).)*$"), regexp("^((?!blog).)*http://www.luogu.com.cn((?!blog).)*$") {
