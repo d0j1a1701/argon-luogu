@@ -1352,7 +1352,7 @@ code.hljs {
 }
 /* 弹窗 */
 .swal2-popup{
-    background-color: #252d38 !important;
+    background-color: #252d38;
 }
 .swal2-popup .swal2-title{
     color: #c4c6c9 !important;
@@ -1389,6 +1389,6 @@ html > body{
 }
 
 /*
-version: 0.1.3
+version: 0.1.4
 */
 }
