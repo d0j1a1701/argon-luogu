@@ -1264,6 +1264,7 @@ div.message{
     color: #c4c6c9 !important;
 }
 .message:after{
+    border-left-color: #2e3846 !important;
     border-right-color: #2e3846 !important;
 }
 /* 题解工具栏 */
@@ -1385,6 +1386,16 @@ code.hljs {
     background: none !important;
     border-color: rgba(150,150,200,.3) !important;
 }
+/* 团队成员 */
+.member > .inner-card{
+    background: none !important;
+    border-color: rgba(150,150,200,.3) !important;
+}
+/* 题单 */
+.problem-order{
+    background: none !important;
+    border-color: rgba(150,150,200,.3) !important;
+}
 }
 
 @-moz-document regexp("^((?!blog).)*https://www.luogu.org((?!blog).)*$"), regexp("^((?!blog).)*http://www.luogu.org((?!blog).)*$"), regexp("^((?!blog).)*https://www2.luogu.org((?!blog).)*$"), regexp("^((?!blog).)*http://www2.luogu.org((?!blog).)*$"), regexp("^((?!blog).)*https://www.luogu.com.cn((?!blog).)*$"), regexp("^((?!blog).)*http://www.luogu.com.cn((?!blog).)*$") {
@@ -1403,6 +1414,6 @@ html > body{
 }
 
 /*
-version: 0.1.5
+version: 0.1.7
 */
 }
