@@ -1288,6 +1288,19 @@ div.message{
     background-color: rgba(150,150,200,.3) !important;
     box-shadow: none !important;
 }
+.mp-editor-menu.exlg-show-emo.exlg-show-emo-short{
+    background: none;
+}
+.ops>a:hover{
+    background-color: rgba(150,150,200,.3) !important;
+}
+.exlg-beautified-cbex{
+    background-color: rgba(150,150,200,.3) !important;
+}
+/* Luogu Search Anywhere */
+.searchAnywhereEntrance{
+    background-color: rgba(150,150,200,.3) !important;
+}
 /* 签到日历 */
 .lg-index-calendar.lg-fg-greendark{
     color: rgba(10, 128, 31, .79) !important;
@@ -1396,13 +1409,17 @@ code.hljs {
     background: none !important;
     border-color: rgba(150,150,200,.3) !important;
 }
+/* 右上角弹窗 */
+.swal2-popup.swal2-toast.swal2-show{
+    background-color: #252d38 !important;
+}
 }
 
 @-moz-document regexp("^((?!blog).)*https://www.luogu.org((?!blog).)*$"), regexp("^((?!blog).)*http://www.luogu.org((?!blog).)*$"), regexp("^((?!blog).)*https://www2.luogu.org((?!blog).)*$"), regexp("^((?!blog).)*http://www2.luogu.org((?!blog).)*$"), regexp("^((?!blog).)*https://www.luogu.com.cn((?!blog).)*$"), regexp("^((?!blog).)*http://www.luogu.com.cn((?!blog).)*$") {
 /*此区域用来应用一些自定义设置*/
 /*--------------------背景图片，默认是颜色编码*/
 html > body{
-    background-image: url(https://cdn.jsdelivr.net/gh/dajia-1701/image-host@master/3.2ig0usnlvqe0.webp);
+    background-image: url(https://cdn.luogu.com.cn/upload/image_hosting/7ludxt0p.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -1414,6 +1431,6 @@ html > body{
 }
 
 /*
-version: 0.1.7
+version: 0.1.11
 */
 }
