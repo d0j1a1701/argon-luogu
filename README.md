@@ -33,7 +33,7 @@
 ### userstyles.world (推荐)
 
 1. 先按照[此文章](https://www.luogu.com.cn/blog/fsy2017/material-luogu-material)的方式安装`Stylus`插件。
-2. 打开[userstyles.world](https://userstyles.world/style/3238/default-slug)，点击蓝色的`Install`按钮。
+2. 打开[userstyles.world](https://userstyles.world/style/12397/default-slug)，点击蓝色的`Install`按钮。
 3. 在新页面中勾选"检查更新"，点击"安装样式"。
 
 **发布更新后会自动更新，无需手动安装**
