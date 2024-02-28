@@ -13,7 +13,9 @@
 @var	checkbox header-acrylic "顶栏亚克力效果" 1
 @var	checkbox nav-acrylic "侧栏亚克力效果" 1
 @var	checkbox card-acrylic "卡片亚克力效果" 1
-@var	checkbox footer-acrylic "底栏亚克力效果" 0
+@var	checkbox footer-acrylic "底栏亚克力效果" 1
+@var	checkbox remove-ad "去除洛谷广告" 0
+@var	checkbox remove-reply-container "隐藏讨论区「编辑回复」栏" 0
 ==/UserStyle== */
 @-moz-document regexp("^((?!blog).)*https://www.luogu.com.cn((?!blog).)*$"), regexp("^((?!blog).)*http://www.luogu.com.cn((?!blog).)*$")
 
@@ -74,7 +76,7 @@
 		post_heading_color = #1a202c
 		post_link_color = #0366d6
 		link_hover_color = #30a9de
-		link_hover_bg_color = #f8f9fa
+		link_hover_bg_color = transparent
 		line_color = #eaecef
 		scrollbar_track_color = #eeeeee
 		scrollbar_thumb_color = #c4c6c9
@@ -119,23 +121,43 @@
 		font-family font-stack-codeblock, monospace !important
 
 	// d0j1a_1701 最爱的亚克力材质
+	// 基于伪元素的亚克力实现，不会造成层叠混乱
+	acrylic(arc-opacity=0.5,blur-radius=10px,no_shadow=false)
+		background none !important
+		&:before
+			acr-bgcolor = rgba(acrylic_bg_color, arc-opacity)
+			background acr-bgcolor !important
+			backdrop-filter blur(blur-radius) !important unless blur-radius == 0
+			box-shadow	0 10px	30px	rgba(0, 0, 0, 0.1),
+						0 1px	8px		rgba(0, 0, 0, 0.2) unless no_shadow !important
+			content	""
+			border-radius @border-radius if @border-radius
+			position absolute
+			pointer-events none
+			z-index -1
+			top 0
+			left 0
+			right 0
+			bottom 0
+
 	// https://stackoverflow.com/questions/44522299/css-only-acrylic-material-from-fluent-design-system
-	acrylic(arc-opacity=0.5,blur-radius=10px)
+	// 直接修改背景的亚克力实现，不需要修改 z-index，不会对 border-radius 造成影响，但可能造成层叠混乱
+	acrylic-bg(arc-opacity=0.5,blur-radius=10px,no_shadow=false)
 		acr-bgcolor = rgba(acrylic_bg_color, arc-opacity)
 		background acr-bgcolor !important
 		backdrop-filter blur(blur-radius) !important unless blur-radius == 0
 		box-shadow	0 10px	30px	rgba(0, 0, 0, 0.1),
-					0 1px	8px		rgba(0, 0, 0, 0.2) !important
+					0 1px	8px		rgba(0, 0, 0, 0.2) unless no_shadow !important
 
 	/* 页面布局 */
 
 	// 覆盖掉洛谷主题自带的背景
-	.background
-		background: none !important
-		filter: none !important
+	// 这几个排除是 mask
+	.background:not([data-v-14c11e75]):not([data-v-6b8e1cb0])
+		background none !important
+		filter none !important
 
-	// 主要容器（.header-layout, main.lfe-body, div.lfe-body 的容器）
-	#app
+	body
 		background main-background
 		background-repeat no-repeat
 		background-size cover
@@ -145,9 +167,6 @@
 	.header-layout
 		acrylic() if header-acrylic
 		color subtitle_color !important
-
-		// 由于「层叠上下文」的存在，z-index 需要设置在最外层元素上
-		z-index 10 // 否则 dropdown 会被遮挡
 
 		.header > h1
 			font-size 50px
@@ -164,15 +183,16 @@
 	// 题目页面的 header-layout
 	.header-layout.normal[data-v-7ddab1d5]
 		height auto !important // 覆盖原有的固定高度，否则标题放不下
-		padding-bottom .7em
+		padding-bottom .7em // 防止时限栏距离边缘太近
 	
 	// 讨论区/题解 的 header-layout
 	.header-layout.narrow[data-v-7ddab1d5]
-		height auto !important // 有两种 header-layout
+		height auto !important
 
-	// 主页的 headey-layout
+	// 首页的 headey-layout
 	.header-layout.tiny[data-v-7ddab1d5]
 		acrylic() if header-acrylic
+		color subtitle_color !important
 		color subtitle_color !important
 		a
 			color post_text_color
@@ -182,7 +202,7 @@
 	// 头像悬浮
 	.center[data-v-53887c7a]
 		color post_text_color
-		background board_color
+		acrylic()
 		border none
 		.ops > a.color-none:hover
 			background button_hover_bg_color
@@ -191,40 +211,47 @@
 	main.lfe-body
 		background none !important
 	
-	// 主页（祖传代码）
+	// 首页
 	#app-old
 		color post_text_color
-		.lg-article
+		.lg-article // 一堆块
 			if card-acrylic
-				acrylic(0.6,20px)
+				acrylic-bg(0.6,20px)
 			else
 				background board_color !important
 			border-radius 5px
 
-		.am-panel
-			acrylic(0.5,0)
+		.am-panel // 块里的块
+			acrylic-bg(0.5,0)
 			border none
 		
+		.highcharts-root
+			tspan
+				// 我也不知道为什么这个颜色不会变
+				// 随它去吧，反正我改了
+				color sec_text_color !important
+		
 		#feed // 犇犇
-			.am-comment-hd
-				if card-acrylic
-					acrylic(0.6,20px)
-				else
-					background board_color !important
-				border-bottom line_color 1px solid
-			.am-comment-bd
-				if card-acrylic
-					acrylic(0.6,20px)
-				else
-					background board_color !important
+			.am-comment-hd, .am-comment-bd // 上半个
+				background none
+
+			.am-comment-avatar
+				border none !important
+
 			.am-comment-main:before, .am-comment-main:after
 				display none // 隐藏犇犇箭头
+
 			.am-comment-main
 				border none !important
+				border-radius 6px
+				if card-acrylic
+					acrylic-bg(0.6,10px,true)
+				else
+					background board_color !important
 
 	// 卡片样式处理
 	.card
-		position relative
+		border-radius 6px
 
 		// 卡片背景材质
 		if card-acrylic
@@ -233,12 +260,16 @@
 			background board_color !important
 		
 		color post_text_color !important
+		position relative
 		
 		// 标签样式更改
 		h1, h2, h3, h4, h5, h6
 			font-weight 600 !important
 			color post_heading_color !important
-		
+
+		hr.horizon
+			background-color line_color !important
+
 		// 「提交记录」「查看题解」等超链接按钮
 		a.color-default
 			color post_link_color !important
@@ -253,12 +284,12 @@
 		.expand-tip > span[data-v-e4b7c2ca]
 			color sec_text_color !important
 		
-		// 题解「展开全文」
-		.expand[data-v-530f8b1f]
+		// 「展开全文」
+		.collapsed-wrapper > .expand > .expand
 			background linear-gradient(rgba(255, 255, 255, 0), rgba(line_color, 0.5))
 			border-radius 8px
 		
-		.lfe-caption //「创建时间」等说明性小字
+		.lfe-caption:not([data-v-f9624136]) //「创建时间」等说明性小字（data-v-f9624136 是个人简介）
 			color sec_text_color
 		
 		// 样例
@@ -362,10 +393,19 @@
 			code
 				background codeblock_bg_color !important
 
+	// 去除广告
+	if remove-ad
+		div[data-v-0a593618]
+			display none
+
 	// 讨论区
 	.row-space-between[data-v-70c65cc7]
 		color subtitle_color // sec_text_color 太浅看不清
 	
+	if remove-reply-container
+		.edit-reply-container
+			display none !important
+
 	.btn-edit-reply // 「编辑回复」（这按钮的位置很唐）
 		acrylic()
 		color post_text_color
@@ -373,9 +413,13 @@
 	.author
 		background none !important
 
-		// 分别匹配讨论区和陶片放逐
+		// 匹配各种时间小字（讨论区回帖，陶片放逐）
 		& > .left > .time, & > .time > time
 			color sec_text_color
+	
+	// 讨论区楼主
+	.grey[data-v-70c65cc7]
+		color sec_text_color
 
 	// 陶片放逐
 	.lfe-caption[data-v-71731098][data-v-19de5e77]
@@ -389,14 +433,78 @@
 
 	// 题目列表
 	div[currenttemplate="ProblemList"]
-		z-index 20
 		.title[data-v-04eb14e9]
 			color post_text_color
 		span[data-v-f9624136]
 			color sec_text_color !important
 		
+		// 分类窗口
 		.modal > .center[data-v-14c11e75]
-			position fixed
+			.container>.tag-select-area .section>.title[data-v-abfce16a]
+				color post_text_color !important
+			.tags > .tag:not(.selected)
+				background none !important
+	
+	// 题目列表翻页条容器
+	.bottom.float-bottom
+		acrylic-bg()
+	
+	// 翻页条
+	.page-bar
+		background transparent !important
+		button
+			border-color line_color !important
+			&:not(.selected)
+				background transparent !important
+			&.selected
+				& > span
+					color navbar_text_color !important
+		span
+			color sec_text_color !important
+		img
+			filter invert(1) !important
+	
+	// 个人主页
+	.stats > .field > div
+		display inline
+		border-radius 2px
+		box-sizing border-box
+		padding 3px
+		color post_link_color // 假装这是个链接...
+
+	// 个人主页「我的团队」的小栏
+	.inner-card
+		acrylic-bg()
+	
+	// 个人主页练习悬浮窗
+	.tooltip[data-v-05afcf76]
+		position absolute
+		margin -400px 0 0 -75px // 这个窗会莫名其妙飞走，为什么？我也不知道，反正这样能修好
+
+	// 一些小字	
+	.info-content[data-v-8b7f80ba], .caption[data-v-325cf452]
+		color sec_text_color
+
+	// 图床和提交答案的上传按钮
+	.upload-wrapper > .drop
+		acrylic-bg()
+		border none
+
+	// 图床小字
+	.radio-group > *[data-v-18fb1b28]
+		color sec_text_color
+
+	// 图床画廊
+	.image-list > .image-block
+		// 这里有很多复杂的样式 用亚克力容易出事 先用纯色糊弄一下吧
+		background rgba(board_color,0.5) !important
+		border none
+		.meta
+			color sec_text_color
+
+	// 图床筛选按钮
+	.filters[data-v-102fe30d]
+		acrylic()
 
 	// footer
 	div.lfe-body:not(.header-layout)
@@ -409,7 +517,6 @@
 		background board_color !important unless nav-acrylic
 		acrylic() if nav-acrylic
 		box-shadow none
-		z-index 20
 
 		& > a
 			color post_text_color !important
@@ -456,4 +563,3 @@
 				border-radius 8px
 				&:hover
 					background button_hover_bg_color
-
