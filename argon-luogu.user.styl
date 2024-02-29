@@ -1,7 +1,7 @@
 /* ==UserStyle==
-@name         氩洛谷 By d0j1a_1701
-@version      20240228.23.39
-@namespace    userstyles.world/user/d0j1a1701/argonluogu
+@name         氩洛谷 Re 2024
+@version      20240229.11.20
+@namespace    https://userstyles.world/style/12397/re-2024
 @description  洛谷美化样式。
 @author       d0j1a1701
 @license      MIT
@@ -17,84 +17,216 @@
 @var	checkbox remove-ad "去除洛谷广告" 0
 @var	checkbox remove-reply-container "隐藏讨论区「编辑回复」栏" 0
 ==/UserStyle== */
-@-moz-document regexp("^((?!blog).)*https://www.luogu.com.cn((?!blog).)*$"), regexp("^((?!blog).)*http://www.luogu.com.cn((?!blog).)*$")
+//! 自定义配置部分 ---------
 
-	//! 自定义配置部分 ---------
+// 调色板
+if dark-mode
+	// 全局颜色
+	body_bg_color = #181c27 // 全局背景色
+	navbar_bg_color = #1f3144 // 菜单栏背景色
+	navbar_text_color = #d0d0d0 // 菜单栏文字色
+	subtitle_color = #d0d0d0 // 副标题颜色（面板外）
+	text_color = #c4c6c9 // 全局字体色
+	sec_text_color = #a7a9ad // 次级字体色（摘要、简介等位置）
+	board_color = #252d38 // 面板背景色
+	post_text_color = #c4c6c9 // 面板字体色
+	post_heading_color = #c4c6c9 // 面板标题色（h1, h2, h3...）
+	post_link_color = #1589e9 // 超链接字体色
+	link_hover_color = #30a9de // 超链接悬浮字体色
+	link_hover_bg_color = transparent // 超链接悬浮背景色
+	line_color = #435266 // 分割线颜色
+	scrollbar_track_color = #181c27 // 滚动槽颜色
+	scrollbar_thumb_color = #687582 // 滚动条颜色
+	scrollbar_hover_color = #5e72e4 // 滚动条悬浮色
+	button_bg_color = transparent // 按钮背景色
+	button_hover_bg_color = #46647e // 按钮悬浮色
+	selection_bg_color = #9696c84d // 选中背景色
+	acrylic_bg_color = #000000 // 亚克力背景色
+	inlinecode_bg_color = #636e7b66 // 行内代码背景色
+	// 代码高亮
+	codeblock_bg_color = #0d1117
+	hljs_base_color = #c9d1d9
+	hljs_keyword_color = #ff7b72
+	hljs_function_color = #d2a8ff
+	hljs_variable_color = #79c0ff
+	hljs_string_color = #a5d6ff
+	hljs_symbol_color = #ffa657
+	hljs_comment_color = #8b949e
+	hljs_tag_color = #7ee787
+	hljs_subst_color = #c9d1d9
+	hljs_section_color = #1f6feb
+	hljs_bullet_color = #f2cc60
+	hljs_emphasis_color = #c9d1d9
+	hljs_strong_color = #c9d1d9
+	hljs_addition_color = #aff5b4
+	hljs_addition_bg_color = #033a16
+	hljs_deletion_color = #ffdcd7
+	hljs_deletion_bg_color = #67060c
+else
+	body_bg_color = #eee
+	navbar_bg_color = #2f4154
+	navbar_text_color = #fff
+	subtitle_color = #fff
+	text_color = #3c4858
+	board_color = #fff
+	post_text_color = #2c3e50
+	sec_text_color = #718096
+	post_heading_color = #1a202c
+	post_link_color = #0366d6
+	link_hover_color = #30a9de
+	link_hover_bg_color = transparent
+	line_color = #eaecef
+	scrollbar_track_color = #eeeeee
+	scrollbar_thumb_color = #c4c6c9
+	scrollbar_hover_color = #a6a6a6
+	button_hover_bg_color = #f2f3f5
+	button_bg_color = transparent
+	selection_bg_color = #264f78
+	acrylic_bg_color = #ffffff
 
-	// 调色板
-	if dark-mode
-		// 全局颜色
-		body_bg_color = #181c27 // 全局背景色
-		navbar_bg_color = #1f3144 // 菜单栏背景色
-		navbar_text_color = #d0d0d0 // 菜单栏文字色
-		subtitle_color = #d0d0d0 // 副标题颜色（面板外）
-		text_color = #c4c6c9 // 全局字体色
-		sec_text_color = #a7a9ad // 次级字体色（摘要、简介等位置）
-		board_color = #252d38 // 面板背景色
-		post_text_color = #c4c6c9 // 面板字体色
-		post_heading_color = #c4c6c9 // 面板标题色（h1, h2, h3...）
-		post_link_color = #1589e9 // 超链接字体色
-		link_hover_color = #30a9de // 超链接悬浮字体色
-		link_hover_bg_color = transparent // 超链接悬浮背景色
-		line_color = #435266 // 分割线颜色
-		scrollbar_track_color = #181c27 // 滚动槽颜色
-		scrollbar_thumb_color = #687582 // 滚动条颜色
-		scrollbar_hover_color = #5e72e4 // 滚动条悬浮色
-		button_bg_color = transparent // 按钮背景色
-		button_hover_bg_color = #46647e // 按钮悬浮色
-		selection_bg_color = #9696c84d // 选中背景色
-		acrylic_bg_color = #000000 // 亚克力背景色
-		inlinecode_bg_color = #636e7b66 // 行内代码背景色
-		// 代码高亮
-		codeblock_bg_color = #0d1117
-		hljs_base_color = #c9d1d9
-		hljs_keyword_color = #ff7b72
-		hljs_function_color = #d2a8ff
-		hljs_variable_color = #79c0ff
-		hljs_string_color = #a5d6ff
-		hljs_symbol_color = #ffa657
-		hljs_comment_color = #8b949e
-		hljs_tag_color = #7ee787
-		hljs_subst_color = #c9d1d9
-		hljs_section_color = #1f6feb
-		hljs_bullet_color = #f2cc60
-		hljs_emphasis_color = #c9d1d9
-		hljs_strong_color = #c9d1d9
-		hljs_addition_color = #aff5b4
-		hljs_addition_bg_color = #033a16
-		hljs_deletion_color = #ffdcd7
-		hljs_deletion_bg_color = #67060c
-	else
-		body_bg_color = #eee
-		navbar_bg_color = #2f4154
-		navbar_text_color = #fff
-		subtitle_color = #fff
-		text_color = #3c4858
-		board_color = #fff
-		post_text_color = #2c3e50
-		sec_text_color = #718096
-		post_heading_color = #1a202c
-		post_link_color = #0366d6
-		link_hover_color = #30a9de
-		link_hover_bg_color = transparent
-		line_color = #eaecef
-		scrollbar_track_color = #eeeeee
-		scrollbar_thumb_color = #c4c6c9
-		scrollbar_hover_color = #a6a6a6
-		button_hover_bg_color = #f2f3f5
-		button_bg_color = transparent
-		selection_bg_color = #264f78
-		acrylic_bg_color = #ffffff
+// ! 配置部分结束 ---------
 
-	// ! 配置部分结束 ---------
+main-background = body_bg_color unless main-background
 
-	main-background = body_bg_color unless main-background
+// d0j1a_1701 最爱的亚克力材质
+// 基于伪元素的亚克力实现，不会造成层叠混乱
+acrylic(arc-opacity=0.5,blur-radius=10px,no_shadow=false)
+	background none !important
+	&:before
+		acr-bgcolor = rgba(acrylic_bg_color, arc-opacity)
+		background acr-bgcolor !important
+		backdrop-filter blur(blur-radius) !important unless blur-radius == 0
+		box-shadow	0 10px	30px	rgba(0, 0, 0, 0.1),
+					0 1px	8px		rgba(0, 0, 0, 0.2) unless no_shadow !important
+		content	""
+		border-radius @border-radius if @border-radius
+		position absolute
+		pointer-events none
+		z-index -1
+		top 0
+		left 0
+		right 0
+		bottom 0
 
-	/* 全局样式 */
+// https://stackoverflow.com/questions/44522299/css-only-acrylic-material-from-fluent-design-system
+// 直接修改背景的亚克力实现，不需要修改 z-index，不会对 border-radius 造成影响，但可能造成层叠混乱
+acrylic-bg(arc-opacity=0.5,blur-radius=10px,no_shadow=false)
+	acr-bgcolor = rgba(acrylic_bg_color, arc-opacity)
+	background acr-bgcolor !important
+	backdrop-filter blur(blur-radius) !important unless blur-radius == 0
+	box-shadow	0 10px	30px	rgba(0, 0, 0, 0.1),
+				0 1px	8px		rgba(0, 0, 0, 0.2) unless no_shadow !important
+
+// 修改 Markdown 渲染内容样式
+markdown-patch()
+	.marked[data-v-e5ad98f0] 
+		a
+			color post_link_color
+
+		code // 内联代码
+			background inlinecode_bg_color
+			border none !important
+
+		// 代码块
+		& > pre:not([exlg-copy-code-block])
+			background codeblock_bg_color !important
+			border none
+			border-radius 5px
+	
+	// 标签样式更改
+	h1, h2, h3, h4, h5, h6
+		font-weight 600 !important
+		color post_heading_color !important
+
+	hr.horizon
+		background-color line_color !important
+
+	pre > code
+		background codeblock_bg_color !important
+		border-radius 5px
+		color hljs_base_color !important
+		box-shadow none !important
+		
+		.hljs-doctag,
+		.hljs-keyword,
+		.hljs-meta .hljs-keyword,
+		.hljs-template-tag,
+		.hljs-template-variable,
+		.hljs-type,
+		.hljs-variable.language_
+			color hljs_keyword_color if hljs_keyword_color
+		.hljs-title,
+		.hljs-title.class_,
+		.hljs-title.class_.inherited__,
+		.hljs-title.function_
+			color hljs_function_color if hljs_function_color
+		.hljs-attr,
+		.hljs-attribute,
+		.hljs-literal,
+		.hljs-meta,
+		.hljs-number,
+		.hljs-operator,
+		.hljs-selector-attr,
+		.hljs-selector-class,
+		.hljs-selector-id,
+		.hljs-variable
+			color hljs_variable_color if hljs_variable_color
+		.hljs-meta .hljs-string,
+		.hljs-regexp,
+		.hljs-string
+			color hljs_string_color if hljs_string_color
+		.hljs-built_in,
+		.hljs-symbol
+			color hljs_symbol_color if hljs_symbol_color
+		.hljs-code,
+		.hljs-comment,
+		.hljs-formula
+			color hljs_comment_color if hljs_comment_color
+		.hljs-name,
+		.hljs-quote,
+		.hljs-selector-pseudo,
+		.hljs-selector-tag
+			color hljs_tag_color if hljs_tag_color
+		.hljs-subst
+			color hljs_subst_color if hljs_subst_color
+		.hljs-section
+			color hljs_section_color if hljs_section_color
+			font-weight 700
+		.hljs-bullet
+			color hljs_bullet_color if hljs_bullet_color
+		.hljs-emphasis
+			color hljs_emphasis_color if hljs_emphasis_color
+			font-style italic
+		.hljs-strong
+			color hljs_strong_color if hljs_strong_color
+			font-weight 700
+		.hljs-addition
+			color hljs_addition_color if hljs_addition_color
+			background-color hljs_addition_bg_color if hljs_addition_bg_color
+		.hljs-deletion
+			color hljs_deletion_color if hljs_deletion_color
+			background-color hljs_deletion_bg_color if hljs_deletion_bg_color
+	
+	// exlg-代码块美化适配
+	h3.exlg-code-title.exlg-beautified-cbex 
+		background inlinecode_bg_color !important
+		box-shadow none !important
+		border none
+		padding .4rem .6rem .4rem 1rem !important
+	
+	pre[exlg-copy-code-block]
+		background inlinecode_bg_color !important
+		border none !important
+		box-shadow none !important
+		code
+			background codeblock_bg_color !important
+
+/* 全局样式 */
+@-moz-document regexp("^(https?://www.luogu.com(.cn)?/).*")
 	*
 		scrollbar-width thin
 		scrollbar-color scrollbar_thumb_color scrollbar_track_color
-	
+
 	*:not(button)
 		border-color line_color !important
 
@@ -104,13 +236,13 @@
 
 	::-webkit-scrollbar-thumb:hover
 		background scrollbar_hover_color
-	
+
 	::-webkit-scrollbar-corner
 		background-color transparent
 
 	::selection
 		background-color selection_bg_color
-	
+
 	// 这个字体必须改在这里
 	// body 会被洛谷字体（.lfe-body）覆盖
 	// 星号会把数学字体干掉
@@ -120,52 +252,57 @@
 	code, .hljs
 		font-family font-stack-codeblock, monospace !important
 
-	// d0j1a_1701 最爱的亚克力材质
-	// 基于伪元素的亚克力实现，不会造成层叠混乱
-	acrylic(arc-opacity=0.5,blur-radius=10px,no_shadow=false)
-		background none !important
-		&:before
-			acr-bgcolor = rgba(acrylic_bg_color, arc-opacity)
-			background acr-bgcolor !important
-			backdrop-filter blur(blur-radius) !important unless blur-radius == 0
-			box-shadow	0 10px	30px	rgba(0, 0, 0, 0.1),
-						0 1px	8px		rgba(0, 0, 0, 0.2) unless no_shadow !important
-			content	""
-			border-radius @border-radius if @border-radius
-			position absolute
-			pointer-events none
-			z-index -1
-			top 0
-			left 0
-			right 0
-			bottom 0
-
-	// https://stackoverflow.com/questions/44522299/css-only-acrylic-material-from-fluent-design-system
-	// 直接修改背景的亚克力实现，不需要修改 z-index，不会对 border-radius 造成影响，但可能造成层叠混乱
-	acrylic-bg(arc-opacity=0.5,blur-radius=10px,no_shadow=false)
-		acr-bgcolor = rgba(acrylic_bg_color, arc-opacity)
-		background acr-bgcolor !important
-		backdrop-filter blur(blur-radius) !important unless blur-radius == 0
-		box-shadow	0 10px	30px	rgba(0, 0, 0, 0.1),
-					0 1px	8px		rgba(0, 0, 0, 0.2) unless no_shadow !important
-
-	/* 页面布局 */
-
-	// 覆盖掉洛谷主题自带的背景
-	// 这几个排除是 mask
-	.background:not([data-v-14c11e75]):not([data-v-6b8e1cb0])
-		background none !important
-		filter none !important
-
+	// 背景修改
 	body
 		background main-background
 		background-repeat no-repeat
 		background-size cover
 		background-position center
 		background-attachment fixed
+	
+	// 输入框样式修改
+	input[type=text]
+		color sec_text_color !important
+		background none !important
+		border sec_text_color 1px solid !important
+		border-radius 6px !important
+		&:focus
+			border-color var(--l-simple-select--color,var(--lfe-color--primary,#3498db)) !important
+			box-shadow none !important
+			background none !important
+		&::placeholder
+			color sec_text_color
+
+	textarea
+		color post_text_color !important
+		background none !important
+		border sec_text_color 1px solid !important
+		border-radius 6px !important
+		&:focus
+			border-color var(--l-simple-select--color,var(--lfe-color--primary,#3498db)) !important
+			box-shadow none !important
+			background none !important
+	
+	*::placeholder, .lfe-placeholder
+		color sec_text_color !important
+
+	.text[data-v-4bbcea26]
+		color post_text_color !important
+		background none !important
+		border sec_text_color 1px solid !important
+
+// 主站
+@-moz-document regexp("^(https?://www.luogu.com(.cn)?/)(?!article/[A-Za-z0-9]{8}$).*")
+	/* 页面布局 */
+	// 覆盖掉洛谷主题自带的背景
+	// 这几个排除是 mask
+	.background:not([data-v-14c11e75]):not([data-v-6b8e1cb0])
+		background none !important
+		filter none !important
 
 	.header-layout
 		acrylic() if header-acrylic
+		// background navbar_bg_color unless header-acrylic
 		color subtitle_color !important
 
 		.header > h1
@@ -192,7 +329,7 @@
 	// 首页的 headey-layout
 	.header-layout.tiny[data-v-7ddab1d5]
 		acrylic() if header-acrylic
-		color subtitle_color !important
+		background navbar_bg_color !important unless header-acrylic 
 		color subtitle_color !important
 		a
 			color post_text_color
@@ -220,6 +357,8 @@
 			else
 				background board_color !important
 			border-radius 5px
+			strong //「友情链接」
+				color post_heading_color !important
 
 		.am-panel // 块里的块
 			acrylic-bg(0.5,0)
@@ -231,6 +370,12 @@
 				// 随它去吧，反正我改了
 				color sec_text_color !important
 		
+		.feed-selector > a // 「我关注的」「我发布的」
+			border-radius 6px
+			&:hover
+				background button_hover_bg_color
+				color sec_text_color
+
 		#feed // 犇犇
 			.am-comment-hd, .am-comment-bd // 上半个
 				background none
@@ -248,6 +393,9 @@
 					acrylic-bg(0.6,10px,true)
 				else
 					background board_color !important
+			
+			.feed-comment
+				markdown-patch() // 为什么犇犇里面能渲染代码块
 
 	// 卡片样式处理
 	.card
@@ -262,13 +410,7 @@
 		color post_text_color !important
 		position relative
 		
-		// 标签样式更改
-		h1, h2, h3, h4, h5, h6
-			font-weight 600 !important
-			color post_heading_color !important
-
-		hr.horizon
-			background-color line_color !important
+		markdown-patch()
 
 		// 「提交记录」「查看题解」等超链接按钮
 		a.color-default
@@ -279,16 +421,21 @@
 		a.color-default:hover
 			color link_hover_color !important
 			background link_hover_bg_color
-		
+
 		// 「查看算法标签」「查看讨论」等展开按钮
 		.expand-tip > span[data-v-e4b7c2ca]
 			color sec_text_color !important
 		
 		// 「展开全文」
 		.collapsed-wrapper > .expand > .expand
-			background linear-gradient(rgba(255, 255, 255, 0), rgba(line_color, 0.5))
+			background linear-gradient(rgba(255, 255, 255, 0), rgba(grey, 0.5))
 			border-radius 8px
+			padding-top 5em // 拉长一点
 		
+		// 把「展开全文」挪到一个更加阳间的地方
+		.collapsed + .expand[data-v-15e4f65b]
+			bottom -2.75em !important
+
 		.lfe-caption:not([data-v-f9624136]) //「创建时间」等说明性小字（data-v-f9624136 是个人简介）
 			color sec_text_color
 		
@@ -297,106 +444,89 @@
 			background inlinecode_bg_color
 			border none !important
 
-		// Markdown 渲染
-		.marked[data-v-e5ad98f0] 
-			a
-				color post_link_color
-
-
-			code // 内联代码
-				background inlinecode_bg_color
-				border none !important
-
-			// 代码块
-			& > pre:not([exlg-copy-code-block])
-				background codeblock_bg_color !important
-				border none
-				border-radius 5px
-
-		pre > code
-			background codeblock_bg_color !important
-			border-radius 5px
-			color hljs_base_color !important
-			box-shadow none !important
-			
-			.hljs-doctag,
-			.hljs-keyword,
-			.hljs-meta .hljs-keyword,
-			.hljs-template-tag,
-			.hljs-template-variable,
-			.hljs-type,
-			.hljs-variable.language_
-				color hljs_keyword_color if hljs_keyword_color
-			.hljs-title,
-			.hljs-title.class_,
-			.hljs-title.class_.inherited__,
-			.hljs-title.function_
-				color hljs_function_color if hljs_function_color
-			.hljs-attr,
-			.hljs-attribute,
-			.hljs-literal,
-			.hljs-meta,
-			.hljs-number,
-			.hljs-operator,
-			.hljs-selector-attr,
-			.hljs-selector-class,
-			.hljs-selector-id,
-			.hljs-variable
-				color hljs_variable_color if hljs_variable_color
-			.hljs-meta .hljs-string,
-			.hljs-regexp,
-			.hljs-string
-				color hljs_string_color if hljs_string_color
-			.hljs-built_in,
-			.hljs-symbol
-				color hljs_symbol_color if hljs_symbol_color
-			.hljs-code,
-			.hljs-comment,
-			.hljs-formula
-				color hljs_comment_color if hljs_comment_color
-			.hljs-name,
-			.hljs-quote,
-			.hljs-selector-pseudo,
-			.hljs-selector-tag
-				color hljs_tag_color if hljs_tag_color
-			.hljs-subst
-				color hljs_subst_color if hljs_subst_color
-			.hljs-section
-				color hljs_section_color if hljs_section_color
-				font-weight 700
-			.hljs-bullet
-				color hljs_bullet_color if hljs_bullet_color
-			.hljs-emphasis
-				color hljs_emphasis_color if hljs_emphasis_color
-				font-style italic
-			.hljs-strong
-				color hljs_strong_color if hljs_strong_color
-				font-weight 700
-			.hljs-addition
-				color hljs_addition_color if hljs_addition_color
-				background-color hljs_addition_bg_color if hljs_addition_bg_color
-			.hljs-deletion
-				color hljs_deletion_color if hljs_deletion_color
-				background-color hljs_deletion_bg_color if hljs_deletion_bg_color
-		
-		// exlg-代码块美化适配
-		h3.exlg-code-title.exlg-beautified-cbex 
-			background inlinecode_bg_color !important
-			box-shadow none !important
-			border none
-			padding .4rem .6rem .4rem 1rem !important
-		
-		pre[exlg-copy-code-block]
-			background inlinecode_bg_color !important
-			border none !important
-			box-shadow none !important
-			code
-				background codeblock_bg_color !important
-
 	// 去除广告
 	if remove-ad
 		div[data-v-0a593618]
 			display none
+
+	// 提交代码
+	.light-black[data-v-64ec303c]
+		color sec_text_color !important
+	
+	// 评测结果
+	// 这一段从旧版贺来的，好看！
+	// 我并不是很想改动这一坨
+	.test-case-wrap > .wrapper
+		width 100px
+		height 100px
+		margin-right 16px
+		margin-bottom 12px
+	.test-case-wrap
+		margin-top 25px
+	.test-case-wrap > .wrapper .test-case
+		width 100px
+		height 100px
+		transition all 0.2s ease
+		box-shadow 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08)
+		border-radius 3px
+		padding 3px
+	.test-case-wrap > .wrapper .test-case:hover
+		transform translateY(-5px)
+		box-shadow 0 10px 30px rgba(50, 50, 93, 0.1),
+			0 5px 15px rgba(0, 0, 0, 0.07)
+	.test-case-wrap > .wrapper .test-case .info
+		width calc(100% - 10px)
+		line-height 15px
+		font-size 10px
+		white-space nowrap
+		overflow hidden
+		text-overflow ellipsis
+	.test-case-wrap > .wrapper .test-case:hover .info
+		white-space normal
+	.test-case-wrap > .wrapper .test-case .id
+		margin-left 3px
+	.test-case-wrap > .wrapper .test-case .status
+		font-weight bold
+		font-size 22px
+		margin-bottom 5px
+	.test-case-wrap > .wrapper .message
+		transition all 0.25s ease !important
+		display block !important
+		border-radius 3px
+		box-shadow 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08)
+		min-width 105px
+		min-height 105px
+		width 105px
+		padding 0
+		margin-top 40px
+		opacity 0
+		color transparent
+		acrylic-bg()
+		pointer-events none
+	// 唐氏一样的 Stylus 解析器似乎会把 rgb 里的逗号当作选择器
+	// 因此只能用这种奇怪的方法匹配
+	// 氩洛谷 AC 的绿色很丑，所以去掉了
+	.test-case-wrap > .wrapper
+		.test-case[style*='rgb(231']
+			background-color #fb6340 !important
+		.test-case[style*='rgb(157']
+			background-color #8e44ad !important
+		.test-case[style*='rgb(5']
+			background-color #001277 !important
+		.test-case[style*='rgb(14']
+			background-color #34495e !important
+		.test-case[style*='rgb(20']
+			background-color #3498db !important
+		&:hover .message
+			border-radius 6px
+			margin-top -30px
+			min-width 12em
+			min-height 1em
+			width unset
+			height unset
+			padding 5px 18px
+			opacity 0.8
+			color sec_text_color
 
 	// 讨论区
 	.row-space-between[data-v-70c65cc7]
@@ -421,6 +551,21 @@
 	.grey[data-v-70c65cc7]
 		color sec_text_color
 
+	// 私信
+	.frame[data-v-66fcc50b] // 唐氏搜索框
+		background none !important
+		color sec_text_color !important
+
+	// 私信列表
+	.item[data-v-4d6dca7a]:hover
+		background button_hover_bg_color !important
+
+	// 聊天页面
+	.message-block > .message[data-v-5c0627c6]
+		acrylic-bg()
+		&:after
+			display none // 藏掉三角形
+
 	// 陶片放逐
 	.lfe-caption[data-v-71731098][data-v-19de5e77]
 		background none !important
@@ -431,6 +576,10 @@
 		& > .number
 			color sec_text_color
 
+	// 题解
+	.solution-article > .operations.float[data-v-530f8b1f]
+		acrylic-bg()
+
 	// 题目列表
 	div[currenttemplate="ProblemList"]
 		.title[data-v-04eb14e9]
@@ -438,6 +587,20 @@
 		span[data-v-f9624136]
 			color sec_text_color !important
 		
+		// 搜索框的放大镜图标
+		.frame[data-v-66fcc50b]
+			border none !important
+		
+		.search-icon[data-v-04eb14e9]
+			color sec_text_color !important
+			position relative
+			left -2.625em !important
+			top .07em
+
+		// 放大镜图标旁边那个勾选框
+		.search-option
+			margin-left -2em !important
+
 		// 分类窗口
 		.modal > .center[data-v-14c11e75]
 			.container>.tag-select-area .section>.title[data-v-abfce16a]
@@ -464,6 +627,16 @@
 		img
 			filter invert(1) !important
 	
+	// 通知中心
+	.title[data-v-71e80b39]
+		color post_heading_color
+	
+	.time[data-v-71e80b39]
+		color sec_text_color
+	
+	.content[data-v-71e80b39]
+		color post_text_color
+
 	// 个人主页
 	.stats > .field > div
 		display inline
@@ -472,14 +645,23 @@
 		padding 3px
 		color post_link_color // 假装这是个链接...
 
-	// 个人主页「我的团队」的小栏
+	// 个人主页「我的团队」等页面的小栏
 	.inner-card
 		acrylic-bg()
+		border none !important
+		[data-v-c0f00ef2] > .lfe-caption[data-v-71731098]
+			background none !important
 	
 	// 个人主页练习悬浮窗
 	.tooltip[data-v-05afcf76]
 		position absolute
 		margin -400px 0 0 -75px // 这个窗会莫名其妙飞走，为什么？我也不知道，反正这样能修好
+
+	// 个人主页「我的专栏」中小字
+	.select-header-tiny[data-v-429fbdfe]
+		color sec_text_color !important
+		.selected > span
+			color var(--l-simple-select--color,var(--lfe-color--primary,#3498db))
 
 	// 一些小字	
 	.info-content[data-v-8b7f80ba], .caption[data-v-325cf452]
@@ -508,13 +690,13 @@
 
 	// footer
 	div.lfe-body:not(.header-layout)
-		acrylic() if footer-acrylic
+		acrylic-bg() if footer-acrylic
 		.footer > .qr-img
 			display none
 
 	// 侧栏
 	#app > nav.lfe-body
-		background board_color !important unless nav-acrylic
+		background navbar_bg_color !important unless nav-acrylic
 		acrylic() if nav-acrylic
 		box-shadow none
 
@@ -550,16 +732,67 @@
 		
 		& > div:first-child
 			background none !important if dark-mode
-			background post_text_color !important unless dark-mode
+			background navbar_text_color !important unless dark-mode
 
 		.popup-button
 			margin-top 8px
-			color post_text_color !important
-		
+			color navbar_text_color !important
+
 		.popup
-			background board_color
+			acrylic()
+			border none
+			border-radius 6px
 			a
-				color post_text_color !important
+				color navbar_text_color !important
 				border-radius 8px
 				&:hover
 					background button_hover_bg_color
+
+// 洛谷专栏
+@-moz-document regexp("^https?://www.luogu.com(.cn)?/article/[A-Za-z0-9]{8}$")
+	.header-layout
+		acrylic() if header-acrylic
+		background navbar_bg_color unless header-acrylic !important
+		color subtitle_color !important
+		.user-nav > a
+			color post_text_color
+			&:hover
+				color post_link_color
+
+
+	main[data-v-2e49942c]
+		acrylic-bg() // 这个毛玻璃去掉会导致所有样式爆炸，别问我为什么
+		.banner-content // 作者栏
+			color subtitle_color !important
+			.meta .label[data-v-498561a9]
+				color sec_text_color !important
+	main[data-v-2e49942c] > div:nth-child(2) // 正文
+		background main-background !important
+		background-repeat no-repeat !important
+		background-size cover !important
+		background-position center !important
+		background-attachment fixed !important
+		padding-top 2em // 与顶栏和底栏分开
+		padding-bottom 2em
+		.article-content
+			color post_text_color
+			acrylic-bg() if card-acrylic
+			background board_color unless card-acrylic
+			border-radius 6px
+
+			// 「提交记录」「查看题解」等超链接按钮
+			a.color-default
+				color post_link_color !important
+				border-radius 2px // 这些背景相关属性在设置 link_hover_bg_color 后才生效
+				box-sizing border-box
+				padding 3px
+			a.color-default:hover
+				color link_hover_color !important
+				background link_hover_bg_color
+			
+			// 样例
+			.input > pre, .output > pre
+				background inlinecode_bg_color
+				border none !important
+
+			markdown-patch()
