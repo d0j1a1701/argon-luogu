@@ -119,7 +119,7 @@ acrylic-bg(arc-opacity=0.5,blur-radius=10px,no_shadow=false)
 
 // 修改 Markdown 渲染内容样式
 markdown-patch()
-	.marked[data-v-e5ad98f0] 
+	.marked
 		a
 			color post_link_color
 
@@ -286,7 +286,8 @@ markdown-patch()
 	*::placeholder, .lfe-placeholder
 		color sec_text_color !important
 
-	.text[data-v-4bbcea26]
+	// 题目列表的难度选择框
+	.combo-wrapper > .text
 		color post_text_color !important
 		background none !important
 		border sec_text_color 1px solid !important
@@ -751,8 +752,8 @@ markdown-patch()
 // 洛谷专栏
 @-moz-document regexp("^https?://www.luogu.com(.cn)?/article/[A-Za-z0-9]{8}$")
 	.header-layout
-		acrylic() if header-acrylic
-		background navbar_bg_color unless header-acrylic !important
+		acrylic-bg() if header-acrylic
+		background navbar_bg_color !important unless header-acrylic 
 		color subtitle_color !important
 		.user-nav > a
 			color post_text_color
@@ -761,38 +762,70 @@ markdown-patch()
 
 
 	main[data-v-2e49942c]
-		acrylic-bg() // 这个毛玻璃去掉会导致所有样式爆炸，别问我为什么
+		acrylic()
+		// 没想到吧 这个栏本来和 .header-layout 是堆在一块的
+		// 所以不加这个 position 会导致毛玻璃重叠
+		position relative !important
+		top 1em
+		
+		// 将标题栏变成卡片式布局
+		border-radius 6px
+		box-sizing border-box
+		width 100%
+		min-width 448px
+		max-width 768px
+		margin-left auto
+		margin-right auto
+
 		.banner-content // 作者栏
 			color subtitle_color !important
 			.meta .label[data-v-498561a9]
 				color sec_text_color !important
+			padding-left 1em // 作者栏和正文对齐，更整齐
+			padding-right 1em
+
 	main[data-v-2e49942c] > div:nth-child(2) // 正文
-		background main-background !important
-		background-repeat no-repeat !important
-		background-size cover !important
-		background-position center !important
-		background-attachment fixed !important
-		padding-top 2em // 与顶栏和底栏分开
-		padding-bottom 2em
+		background none
+
 		.article-content
 			color post_text_color
-			acrylic-bg() if card-acrylic
-			background board_color unless card-acrylic
-			border-radius 6px
-
-			// 「提交记录」「查看题解」等超链接按钮
-			a.color-default
-				color post_link_color !important
-				border-radius 2px // 这些背景相关属性在设置 link_hover_bg_color 后才生效
-				box-sizing border-box
-				padding 3px
-			a.color-default:hover
-				color link_hover_color !important
-				background link_hover_bg_color
-			
-			// 样例
-			.input > pre, .output > pre
-				background inlinecode_bg_color
-				border none !important
-
 			markdown-patch()
+			.update-info[data-v-329107f5] // 正文底部信息栏
+				color sec_text_color !important
+
+			.button-2line>*[data-v-d85ccd1e] // 正文底部点赞等按钮
+				top 1em
+				position relative
+				color sec_text_color !important
+				&:hover
+					color button_hover_bg_color !important
+		
+	
+	.lfe-h1, .lfe-h2, .lfe-h3, .lfe-h4, .lfe-h5, .lfe-h6
+		color post_heading_color
+
+	// 评论区
+	.article-comment
+		position relative
+
+	// 评论区用卡片，为什么正文不用卡片？不知道前端在想什么
+	.card 
+		acrylic-bg()
+	
+	.comment-filter-line // 评论计数
+		color sec_text_color !important
+	
+	footer
+		color sec_text_color !important
+		.combo-wrapper > .text // 下拉框「默认评论」
+			color post_text_color !important
+			background none !important
+			border sec_text_color 1px solid !important
+	
+	// 这个 dropdown 的结构和主站的不一样
+	.dropdown
+		acrylic-bg()
+		color sec_text_color !important
+		border none !important
+		& > ul > li:hover
+			background button_hover_bg_color !important
