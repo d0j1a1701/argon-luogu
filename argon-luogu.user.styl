@@ -65,7 +65,7 @@ if dark-mode
 else
 	body_bg_color = #eee
 	navbar_bg_color = #2f4154
-	navbar_text_color = #fff
+	navbar_text_color = #3c4858
 	subtitle_color = #fff
 	text_color = #3c4858
 	board_color = #fff
@@ -221,6 +221,20 @@ markdown-patch()
 		code
 			background codeblock_bg_color !important
 
+// 修改 Sweetalert 弹窗样式
+swal-patch()
+	.swal2-popup
+		acrylic-bg()
+		h1, h2, h3, h4, h5, h6
+			color post_heading_color !important
+		color text_color !important
+	
+	// 一些带动画的图标
+	// 选择器的只写了一半是因为逆天 Stylus 编译器会把逗号当作选择器
+	.swal2-icon > *[style*='rgba(0']
+		background none !important
+
+
 /* 全局样式 */
 @-moz-document regexp("^(https?://www.luogu.com(.cn)?/).*")
 	*
@@ -300,6 +314,8 @@ markdown-patch()
 	.background:not([data-v-14c11e75]):not([data-v-6b8e1cb0])
 		background none !important
 		filter none !important
+
+	swal-patch()
 
 	.header-layout
 		acrylic() if header-acrylic
@@ -751,6 +767,8 @@ markdown-patch()
 
 // 洛谷专栏
 @-moz-document regexp("^https?://www.luogu.com(.cn)?/article/[A-Za-z0-9]{8}$")
+	swal-patch()
+
 	.header-layout
 		acrylic-bg() if header-acrylic
 		background navbar_bg_color !important unless header-acrylic 
@@ -808,9 +826,17 @@ markdown-patch()
 	.article-comment
 		position relative
 
+	// 评论
+	.reply-item[data-v-65a77fa1]
+		.meta
+			background none !important
+			.time[data-v-65a77fa1]
+				color sec_text_color
+
 	// 评论区用卡片，为什么正文不用卡片？不知道前端在想什么
 	.card 
 		acrylic-bg()
+		color post_text_color
 	
 	.comment-filter-line // 评论计数
 		color sec_text_color !important
