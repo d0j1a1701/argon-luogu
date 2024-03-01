@@ -229,6 +229,9 @@ swal-patch()
 			color post_heading_color !important
 		color text_color !important
 	
+	.swal2-content
+		color text_color !important
+	
 	// 一些带动画的图标
 	// 选择器的只写了一半是因为逆天 Stylus 编译器会把逗号当作选择器
 	.swal2-icon > *[style*='rgba(0']
@@ -300,11 +303,22 @@ swal-patch()
 	*::placeholder, .lfe-placeholder
 		color sec_text_color !important
 
-	// 题目列表的难度选择框
-	.combo-wrapper > .text
-		color post_text_color !important
-		background none !important
-		border sec_text_color 1px solid !important
+	// 题目列表的难度选择框等
+	.combo-wrapper
+		& > .text
+			color post_text_color !important
+			background none !important
+			border sec_text_color 1px solid !important
+		svg
+			color post_text_color !important
+	
+	// 选择框掉出来的下拉框
+	.dropdown:not([data-v-1f03983a])
+		acrylic()
+		color sec_text_color !important
+		border none !important
+		& > ul > li:hover
+			background button_hover_bg_color !important
 
 // 主站
 @-moz-document regexp("^(https?://www.luogu.com(.cn)?/)(?!article/[A-Za-z0-9]{8}$).*")
@@ -817,6 +831,20 @@ swal-patch()
 				color sec_text_color !important
 				&:hover
 					color button_hover_bg_color !important
+			
+			// 右侧目录
+			.toc-wrapper[data-v-329107f5]
+				right -180px !important
+
+				.toc[data-v-329107f5]
+					border-radius 6px
+					padding 1em
+					acrylic()
+					top 1em
+				
+				.toc>ul>li[data-v-329107f5]:hover::before,
+				.article-content .toc>ul>li.active[data-v-329107f5]::before
+					background-color button_hover_bg_color !important
 		
 	
 	.lfe-h1, .lfe-h2, .lfe-h3, .lfe-h4, .lfe-h5, .lfe-h6
@@ -843,15 +871,3 @@ swal-patch()
 	
 	footer
 		color sec_text_color !important
-		.combo-wrapper > .text // 下拉框「默认评论」
-			color post_text_color !important
-			background none !important
-			border sec_text_color 1px solid !important
-	
-	// 这个 dropdown 的结构和主站的不一样
-	.dropdown
-		acrylic-bg()
-		color sec_text_color !important
-		border none !important
-		& > ul > li:hover
-			background button_hover_bg_color !important
