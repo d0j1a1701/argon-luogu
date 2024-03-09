@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         氩洛谷 Re 2024
-@version      20240301.21.50
+@version      20240309.15.43
 @namespace    https://userstyles.world/style/12397/re-2024
 @description  洛谷美化样式。
 @author       d0j1a1701
@@ -17,6 +17,7 @@
 @var	checkbox remove-ad "去除洛谷广告" 0
 @var	checkbox remove-reply-container "隐藏讨论区「编辑回复」栏" 0
 ==/UserStyle== */
+
 //! 自定义配置部分 ---------
 
 // 调色板
@@ -132,6 +133,7 @@ markdown-patch()
 			background codeblock_bg_color !important
 			border none
 			border-radius 5px
+			margin-bottom 10px
 	
 	// 标签样式更改
 	h1, h2, h3, h4, h5, h6
@@ -796,7 +798,7 @@ swal-patch()
 				color post_link_color
 
 
-	main[data-v-2e49942c]
+	main[data-v-109cf7a0]
 		acrylic()
 		// 没想到吧 这个栏本来和 .header-layout 是堆在一块的
 		// 所以不加这个 position 会导致毛玻璃重叠
@@ -814,18 +816,18 @@ swal-patch()
 
 		.banner-content // 作者栏
 			color subtitle_color !important
-			.meta .label[data-v-498561a9]
+			.meta .label[data-v-29bb62a5]
 				color sec_text_color !important
 			padding-left 1em // 作者栏和正文对齐，更整齐
 			padding-right 1em
 
-	main[data-v-2e49942c] > div:nth-child(2) // 正文
+	main[data-v-109cf7a0] > div:nth-child(2) // 正文
 		background none !important
 
 		.article-content
 			color post_text_color
 			markdown-patch()
-			.update-info[data-v-329107f5] // 正文底部信息栏
+			.update-info[data-v-8ecb5afc] // 正文底部信息栏
 				color sec_text_color !important
 
 			.button-2line>*[data-v-d85ccd1e] // 正文底部点赞等按钮
@@ -836,17 +838,17 @@ swal-patch()
 					color button_hover_bg_color !important
 			
 			// 右侧目录
-			.toc-wrapper[data-v-329107f5]
-				right -180px !important
+			.toc-wrapper[data-v-8ecb5afc]
+				right -200px !important
 
-				.toc[data-v-329107f5]
+				.toc[data-v-8ecb5afc]
 					border-radius 6px
 					padding 1em
 					acrylic()
 					top 1em
 				
-				.toc>ul>li[data-v-329107f5]:hover::before,
-				.article-content .toc>ul>li.active[data-v-329107f5]::before
+				.toc>ul>li[data-v-8ecb5afc]:hover::before,
+				.article-content .toc>ul>li.active[data-v-8ecb5afc]::before
 					background-color button_hover_bg_color !important
 		
 	
@@ -858,10 +860,10 @@ swal-patch()
 		position relative
 
 	// 评论
-	.reply-item[data-v-65a77fa1]
+	.reply-item[data-v-85ede732]
 		.meta
 			background none !important
-			.time[data-v-65a77fa1]
+			.time[data-v-85ede732]
 				color sec_text_color
 
 	// 评论区用卡片，为什么正文不用卡片？不知道前端在想什么
