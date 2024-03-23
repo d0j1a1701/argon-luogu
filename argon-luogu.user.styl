@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         氩洛谷 Re 2024
-@version      20240309.15.43
+@version      20240323.21.56
 @namespace    https://userstyles.world/style/12397/re-2024
 @description  洛谷美化样式。
 @author       d0j1a1701
@@ -804,7 +804,7 @@ swal-patch()
 				color post_link_color
 
 
-	main[data-v-109cf7a0]
+	main[data-v-8fa9eb20]
 		acrylic()
 		// 没想到吧 这个栏本来和 .header-layout 是堆在一块的
 		// 所以不加这个 position 会导致毛玻璃重叠
@@ -827,13 +827,13 @@ swal-patch()
 			padding-left 1em // 作者栏和正文对齐，更整齐
 			padding-right 1em
 
-	main[data-v-109cf7a0] > div:nth-child(2) // 正文
+	main[data-v-8fa9eb20] > div:nth-child(2) // 正文
 		background none !important
 
 		.article-content
 			color post_text_color
 			markdown-patch()
-			.update-info[data-v-8ecb5afc] // 正文底部信息栏
+			.update-info[data-v-318b4974] // 正文底部信息栏
 				color sec_text_color !important
 
 			.button-2line>*[data-v-d85ccd1e] // 正文底部点赞等按钮
@@ -844,17 +844,17 @@ swal-patch()
 					color button_hover_bg_color !important
 			
 			// 右侧目录
-			.toc-wrapper[data-v-8ecb5afc]
+			.toc-wrapper[data-v-318b4974]
 				right -200px !important
 
-				.toc[data-v-8ecb5afc]
+				.toc[data-v-318b4974]
 					border-radius 6px
 					padding 1em
 					acrylic()
 					top 1em
 				
-				.toc>ul>li[data-v-8ecb5afc]:hover::before,
-				.article-content .toc>ul>li.active[data-v-8ecb5afc]::before
+				.toc>ul>li[data-v-318b4974]:hover::before,
+				.article-content .toc>ul>li.active[data-v-318b4974]::before
 					background-color button_hover_bg_color !important
 		
 	
@@ -873,7 +873,7 @@ swal-patch()
 				color sec_text_color
 
 	// 评论区用卡片，为什么正文不用卡片？不知道前端在想什么
-	.card 
+	.l-card 
 		acrylic-bg()
 		color post_text_color
 	
