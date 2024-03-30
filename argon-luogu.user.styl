@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         氩洛谷 Re 2024
-@version      20240330.10.23
+@version      20240330.15.02
 @namespace    https://userstyles.world/style/12397/re-2024
 @description  洛谷美化样式。
 @author       d0j1a1701
@@ -341,8 +341,9 @@ swal-patch()
 		// background navbar_bg_color unless header-acrylic
 		color subtitle_color !important
 
-		.header > h1
+		.header > h1 // 导航栏标题大字
 			font-size 50px
+			color #ffffff
 
 		.functional[data-v-2dfcfd35] // 题目页面的按钮和时限栏
 			padding-top .7em // 这样不会显得离边太近
@@ -472,9 +473,14 @@ swal-patch()
 		.collapsed + .expand[data-v-15e4f65b]
 			bottom -2.75em !important
 
-		.lfe-caption:not([data-v-f9624136]) //「创建时间」等说明性小字（data-v-f9624136 是个人简介）
+		//「创建时间」等说明性小字（data-v-f9624136 是个人简介）
+		.lfe-caption:not([data-v-f9624136])
 			color sec_text_color
 		
+		//「统计数据不实时更新」等小字
+		.caption[data-v-1c7f56df]
+			color sec_text_color
+
 		// 样例
 		.input > pre, .output > pre
 			background inlinecode_bg_color
@@ -694,10 +700,11 @@ swal-patch()
 		padding 3px
 		color post_link_color // 假装这是个链接...
 
-	// 个人主页「我的团队」等页面的小栏
+	// 个人主页「我的团队」等页面的栏
 	.inner-card
 		acrylic-bg()
 		border none !important
+		border-radius 6px
 		[data-v-c0f00ef2] > .lfe-caption[data-v-71731098]
 			background none !important
 	
