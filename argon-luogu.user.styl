@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         氩洛谷 Re 2024
-@version      20240323.21.56
+@version      20240330.10.23
 @namespace    https://userstyles.world/style/12397/re-2024
 @description  洛谷美化样式。
 @author       d0j1a1701
@@ -571,6 +571,13 @@ swal-patch()
 	if remove-reply-container
 		.edit-reply-container
 			display none !important
+
+	// 「全部版块」页面
+	.forum-name[data-v-594581ef]
+		color sec_text_color !important
+	
+	.time[data-v-b0d342de]
+		color sec_text_color !important
 
 	.btn-edit-reply // 「编辑回复」（这按钮的位置很唐）
 		acrylic()
