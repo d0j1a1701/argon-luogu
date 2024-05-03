@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         氩洛谷 Re 2024
-@version      20240414.22.31
+@version      20240503.22.50
 @namespace    https://userstyles.world/style/12397/re-2024
 @description  洛谷美化样式。
 @author       d0j1a1701
@@ -359,10 +359,14 @@ swal-patch()
 	.header-layout.normal[data-v-7ddab1d5]
 		height auto !important // 覆盖原有的固定高度，否则标题放不下
 		padding-bottom .7em // 防止时限栏距离边缘太近
+		a:hover
+				color post_link_color
 	
 	// 讨论区/题解 的 header-layout
 	.header-layout.narrow[data-v-7ddab1d5]
 		height auto !important
+		a:hover
+				color post_link_color
 
 	// 首页的 headey-layout
 	.header-layout.tiny[data-v-7ddab1d5]
@@ -615,6 +619,9 @@ swal-patch()
 	// 私信列表
 	.item[data-v-4d6dca7a]:hover
 		background button_hover_bg_color !important
+	
+	.side > .panel-content[data-v-7821ddd5]
+		max-width 60em
 
 	// 聊天页面
 	.message-block > .message[data-v-5c0627c6]
