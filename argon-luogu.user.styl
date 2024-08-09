@@ -137,7 +137,7 @@ markdown-patch()
 		background-color line_color !important
 
 	// 代码块
-	pre
+	pre[not(mp-editor-container)]
 		background codeblock_bg_color !important
 		border none
 		border-radius 5px
@@ -227,6 +227,30 @@ swal-patch()
 		background none !important
 
 
+mdeditor-patch()
+	.mp-editor-container
+		.mp-editor-toolbar
+			acrylic-bg()
+			.mp-editor-menu > li > *
+				border none !important
+				&:hover
+					color link_hover_color !important
+					background link_hover_bg_color !important
+			.mp-divider
+				color line_color !important
+	.CodeMirror
+		background codeblock_bg_color !important
+		color text_color !important
+	.CodeMirror-gutters
+		background codeblock_bg_color !important
+	.mp-preview-area
+		acrylic-bg()
+		.mp-preview-content
+			color text_color !important
+			markdown-patch()
+	::selection, .CodeMirror-selected
+			background selection_bg_color !important
+
 /* 全局样式 */
 @-moz-document regexp("^(https?://www.luogu.com(.cn)?/).*")
 	*
@@ -260,6 +284,8 @@ swal-patch()
 
 	code, .hljs
 		font-family font-stack-codeblock, monospace !important
+
+	mdeditor-patch()
 
 	// 背景修改
 	body
