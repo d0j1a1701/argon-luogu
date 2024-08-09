@@ -137,77 +137,77 @@ markdown-patch()
 		background-color line_color !important
 
 	// 代码块
-	& > pre
+	pre
 		background codeblock_bg_color !important
 		border none
 		border-radius 5px
 		margin-bottom 10px
-
-	pre > code
-		background codeblock_bg_color !important
-		border-radius 5px
-		color hljs_base_color !important
-		box-shadow none !important
 		
-		.hljs-doctag,
-		.hljs-keyword,
-		.hljs-meta .hljs-keyword,
-		.hljs-template-tag,
-		.hljs-template-variable,
-		.hljs-type,
-		.hljs-variable.language_
-			color hljs_keyword_color if hljs_keyword_color
-		.hljs-title,
-		.hljs-title.class_,
-		.hljs-title.class_.inherited__,
-		.hljs-title.function_
-			color hljs_function_color if hljs_function_color
-		.hljs-attr,
-		.hljs-attribute,
-		.hljs-literal,
-		.hljs-meta,
-		.hljs-number,
-		.hljs-operator,
-		.hljs-selector-attr,
-		.hljs-selector-class,
-		.hljs-selector-id,
-		.hljs-variable
-			color hljs_variable_color if hljs_variable_color
-		.hljs-meta .hljs-string,
-		.hljs-regexp,
-		.hljs-string
-			color hljs_string_color if hljs_string_color
-		.hljs-built_in,
-		.hljs-symbol
-			color hljs_symbol_color if hljs_symbol_color
-		.hljs-code,
-		.hljs-comment,
-		.hljs-formula
-			color hljs_comment_color if hljs_comment_color
-		.hljs-name,
-		.hljs-quote,
-		.hljs-selector-pseudo,
-		.hljs-selector-tag
-			color hljs_tag_color if hljs_tag_color
-		.hljs-subst
-			color hljs_subst_color if hljs_subst_color
-		.hljs-section
-			color hljs_section_color if hljs_section_color
-			font-weight 700
-		.hljs-bullet
-			color hljs_bullet_color if hljs_bullet_color
-		.hljs-emphasis
-			color hljs_emphasis_color if hljs_emphasis_color
-			font-style italic
-		.hljs-strong
-			color hljs_strong_color if hljs_strong_color
-			font-weight 700
-		.hljs-addition
-			color hljs_addition_color if hljs_addition_color
-			background-color hljs_addition_bg_color if hljs_addition_bg_color
-		.hljs-deletion
-			color hljs_deletion_color if hljs_deletion_color
-			background-color hljs_deletion_bg_color if hljs_deletion_bg_color
+		code
+			background codeblock_bg_color !important
+			border-radius 5px
+			color hljs_base_color !important
+			box-shadow none !important
+			
+			.hljs-doctag,
+			.hljs-keyword,
+			.hljs-meta .hljs-keyword,
+			.hljs-template-tag,
+			.hljs-template-variable,
+			.hljs-type,
+			.hljs-variable.language_
+				color hljs_keyword_color if hljs_keyword_color
+			.hljs-title,
+			.hljs-title.class_,
+			.hljs-title.class_.inherited__,
+			.hljs-title.function_
+				color hljs_function_color if hljs_function_color
+			.hljs-attr,
+			.hljs-attribute,
+			.hljs-literal,
+			.hljs-meta,
+			.hljs-number,
+			.hljs-operator,
+			.hljs-selector-attr,
+			.hljs-selector-class,
+			.hljs-selector-id,
+			.hljs-variable
+				color hljs_variable_color if hljs_variable_color
+			.hljs-meta .hljs-string,
+			.hljs-regexp,
+			.hljs-string
+				color hljs_string_color if hljs_string_color
+			.hljs-built_in,
+			.hljs-symbol
+				color hljs_symbol_color if hljs_symbol_color
+			.hljs-code,
+			.hljs-comment,
+			.hljs-formula
+				color hljs_comment_color if hljs_comment_color
+			.hljs-name,
+			.hljs-quote,
+			.hljs-selector-pseudo,
+			.hljs-selector-tag
+				color hljs_tag_color if hljs_tag_color
+			.hljs-subst
+				color hljs_subst_color if hljs_subst_color
+			.hljs-section
+				color hljs_section_color if hljs_section_color
+				font-weight 700
+			.hljs-bullet
+				color hljs_bullet_color if hljs_bullet_color
+			.hljs-emphasis
+				color hljs_emphasis_color if hljs_emphasis_color
+				font-style italic
+			.hljs-strong
+				color hljs_strong_color if hljs_strong_color
+				font-weight 700
+			.hljs-addition
+				color hljs_addition_color if hljs_addition_color
+				background-color hljs_addition_bg_color if hljs_addition_bg_color
+			.hljs-deletion
+				color hljs_deletion_color if hljs_deletion_color
+				background-color hljs_deletion_bg_color if hljs_deletion_bg_color
 
 // 修改 Sweetalert 弹窗样式
 swal-patch()
