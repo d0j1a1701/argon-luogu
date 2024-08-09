@@ -127,13 +127,6 @@ markdown-patch()
 		code // 内联代码
 			background inlinecode_bg_color
 			border none !important
-
-		// 代码块
-		& > pre:not([exlg-copy-code-block])
-			background codeblock_bg_color !important
-			border none
-			border-radius 5px
-			margin-bottom 10px
 	
 	// 标签样式更改
 	h1, h2, h3, h4, h5, h6
@@ -142,6 +135,13 @@ markdown-patch()
 
 	hr.horizon
 		background-color line_color !important
+
+	// 代码块
+	& > pre
+		background codeblock_bg_color !important
+		border none
+		border-radius 5px
+		margin-bottom 10px
 
 	pre > code
 		background codeblock_bg_color !important
@@ -208,20 +208,6 @@ markdown-patch()
 		.hljs-deletion
 			color hljs_deletion_color if hljs_deletion_color
 			background-color hljs_deletion_bg_color if hljs_deletion_bg_color
-	
-	// exlg-代码块美化适配
-	h3.exlg-code-title.exlg-beautified-cbex 
-		background inlinecode_bg_color !important
-		box-shadow none !important
-		border none
-		padding .4rem .6rem .4rem 1rem !important
-	
-	pre[exlg-copy-code-block]
-		background inlinecode_bg_color !important
-		border none !important
-		box-shadow none !important
-		code
-			background codeblock_bg_color !important
 
 // 修改 Sweetalert 弹窗样式
 swal-patch()
