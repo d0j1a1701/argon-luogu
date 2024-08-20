@@ -18,6 +18,64 @@
 @var	checkbox remove-reply-container "隐藏讨论区「编辑回复」栏" 0
 ==/UserStyle== */
 
+//! 字体导入 ---------
+
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Fira Code';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/firacode/v22/uU9NCBsR6Z2vfE9aq3bh0NSDulI.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Fira Code';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/firacode/v22/uU9NCBsR6Z2vfE9aq3bh2dSDulI.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Fira Code';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/firacode/v22/uU9NCBsR6Z2vfE9aq3bh0dSDulI.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Fira Code';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/firacode/v22/uU9NCBsR6Z2vfE9aq3bh3tSDulI.woff2) format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Fira Code';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/firacode/v22/uU9NCBsR6Z2vfE9aq3bh09SDulI.woff2) format('woff2');
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Fira Code';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/firacode/v22/uU9NCBsR6Z2vfE9aq3bh3dSD.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+
 //! 自定义配置部分 ---------
 
 // 调色板
@@ -137,7 +195,7 @@ markdown-patch()
 		background-color line_color !important
 
 	// 代码块
-	pre[not(mp-editor-container)]
+	pre:not([mp-editor-container])
 		background codeblock_bg_color !important
 		border none
 		border-radius 5px
@@ -339,7 +397,7 @@ mdeditor-patch()
 			background button_hover_bg_color !important
 
 // 主站
-@-moz-document regexp("^(https?://www.luogu.com(.cn)?/)(?!article/[A-Za-z0-9]{8}$).*")
+@-moz-document regexp("^(https?://www.luogu.com(.cn)?/)(?!article/).*")
 	/* 页面布局 */
 	// 覆盖掉洛谷主题自带的背景
 	// 这几个排除是 mask
@@ -739,12 +797,6 @@ mdeditor-patch()
 		position absolute
 		margin -400px 0 0 -75px // 这个窗会莫名其妙飞走，为什么？我也不知道，反正这样能修好
 
-	// 个人主页「我的专栏」中小字
-	.select-header-tiny[data-v-429fbdfe]
-		color sec_text_color !important
-		.selected > span
-			color var(--l-simple-select--color,var(--lfe-color--primary,#3498db))
-
 	// 一些小字	
 	.info-content[data-v-8b7f80ba], .caption[data-v-325cf452]
 		color sec_text_color
@@ -834,7 +886,21 @@ mdeditor-patch()
 @-moz-document regexp("^https?://www.luogu.com(.cn)?/article/[A-Za-z0-9]{8}$")
 	swal-patch()
 
-	.header-layout
+	.lside
+		background navbar_bg_color !important unless nav-acrylic
+		acrylic() if nav-acrylic
+		li
+			color navbar_text_color !important
+			border-radius 8px
+			&:hover
+				color navbar_text_color !important
+				background button_hover_bg_color
+				a
+					filter none !important
+		.title
+			color navbar_text_color !important
+
+	.top-bar
 		acrylic-bg() if header-acrylic
 		background navbar_bg_color !important unless header-acrylic 
 		color subtitle_color !important
@@ -844,9 +910,14 @@ mdeditor-patch()
 				color post_link_color
 
 
-	main[data-v-8fa9eb20]
-		acrylic()
-		// 没想到吧 这个栏本来和 .header-layout 是堆在一块的
+	.main-container > main
+		// 卡片背景材质
+		if card-acrylic
+			acrylic()
+		else
+			background board_color !important
+		
+		// 这个栏本来和 .top-bar 是堆在一块的
 		// 所以不加这个 position 会导致毛玻璃重叠
 		position relative !important
 		top 1em
@@ -867,43 +938,52 @@ mdeditor-patch()
 			padding-left 1em // 作者栏和正文对齐，更整齐
 			padding-right 1em
 
-	main[data-v-8fa9eb20] > div:nth-child(2) // 正文
-		background none !important
+		div[data-v-75c8fc68]:nth-child(2) // 正文
+			background none !important
 
-		.article-content
-			color post_text_color
-			markdown-patch()
-			.update-info[data-v-318b4974] // 正文底部信息栏
-				color sec_text_color !important
+			.article-content
+				color post_text_color
+				markdown-patch()
+				.update-info[data-v-318b4974] // 正文底部信息栏
+					color sec_text_color !important
 
-			.button-2line>*[data-v-d85ccd1e] // 正文底部点赞等按钮
-				top 1em
-				position relative
-				color sec_text_color !important
-				&:hover
-					color button_hover_bg_color !important
-			
-			// 右侧目录
-			.toc-wrapper[data-v-318b4974]
-				right -200px !important
-
-				.toc[data-v-318b4974]
-					border-radius 6px
-					padding 1em
-					acrylic()
+				.button-2line>*[data-v-d85ccd1e] // 正文底部点赞等按钮
 					top 1em
+					position relative
+					color sec_text_color !important
+					&:hover
+						color button_hover_bg_color !important
 				
-				.toc>ul>li[data-v-318b4974]:hover::before,
-				.article-content .toc>ul>li.active[data-v-318b4974]::before
-					background-color button_hover_bg_color !important
-		
-	
-	.lfe-h1, .lfe-h2, .lfe-h3, .lfe-h4, .lfe-h5, .lfe-h6
-		color post_heading_color
+				// 右侧目录
+				.toc-wrapper[data-v-318b4974]
+					right -200px !important
+
+					.toc[data-v-318b4974]
+						border-radius 6px
+						padding 1em
+						acrylic()
+						top 1em
+					
+					.toc>ul>li[data-v-318b4974]:hover::before,
+					.article-content .toc>ul>li.active[data-v-318b4974]::before
+						background-color button_hover_bg_color !important
+
+	// 点赞按钮
+	.actions
+		.button-2line[data-v-1ddadd0a] > *
+			color post_text_color
+		.button-2line[data-v-1ddadd0a]:hover > *
+			color link_hover_color
 
 	// 评论区
 	.article-comment
 		position relative
+		.lfe-h3
+			color post_text_color
+		.l-card
+			acrylic-bg()
+			.lfe-h4
+				color post_text_color
 
 	// 评论
 	.reply-item[data-v-85ede732]
@@ -920,5 +1000,57 @@ mdeditor-patch()
 	.comment-filter-line // 评论计数
 		color sec_text_color !important
 	
-	footer
+	.label, .lfe-caption
 		color sec_text_color !important
+
+	footer
+		hr
+			display none !important
+		background none !important
+		color sec_text_color !important
+
+// 洛谷专栏编辑
+@-moz-document regexp("^https?://www.luogu.com(.cn)?/article/.*$")
+	swal-patch()
+
+	.lside
+		background navbar_bg_color !important unless nav-acrylic
+		acrylic() if nav-acrylic
+		li
+			color navbar_text_color !important
+			border-radius 8px
+			&:hover
+				color navbar_text_color !important
+				background button_hover_bg_color
+				a
+					filter none !important
+		.title
+			color navbar_text_color !important
+
+	.top-bar
+		acrylic-bg() if header-acrylic
+		background navbar_bg_color !important unless header-acrylic 
+		color subtitle_color !important
+		.user-nav > a
+			color post_text_color
+			&:hover
+				color post_link_color
+	
+	.theme-bg
+		background none !important
+
+	.theme-fg
+		acrylic-bg() if header-acrylic
+		background navbar_bg_color !important unless header-acrylic
+	
+	main
+		background none !important
+		.l-card
+			// 卡片背景材质
+			if card-acrylic
+				acrylic-bg(0.6,20px)
+			else
+				background board_color !important
+			
+			color post_text_color
+			
