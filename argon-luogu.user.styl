@@ -121,6 +121,7 @@ if dark-mode
 	hljs_addition_bg_color = #033a16
 	hljs_deletion_color = #ffdcd7
 	hljs_deletion_bg_color = #67060c
+	line_colore = #a6a6a6
 else
 	body_bg_color = #eee
 	navbar_bg_color = #eeeeee
@@ -142,6 +143,7 @@ else
 	button_bg_color = transparent
 	selection_bg_color = #264f78
 	acrylic_bg_color = #ffffff
+	line_colore = #595959
 
 // ! 配置部分结束 ---------
 
@@ -540,7 +542,7 @@ mdeditor-patch()
 		
 		// 「展开全文」
 		.collapsed-wrapper > .expand > .expand
-			background linear-gradient(rgba(255, 255, 255, 0), rgba(grey, 0.5))
+			background none
 			border-radius 8px
 			padding-top 5em // 拉长一点
 		
@@ -560,7 +562,6 @@ mdeditor-patch()
 		.input > pre, .output > pre
 			background inlinecode_bg_color
 			border none !important
-
 	// 去除广告
 	if remove-ad
 		div[data-v-0a593618]
@@ -938,7 +939,7 @@ mdeditor-patch()
 			padding-left 1em // 作者栏和正文对齐，更整齐
 			padding-right 1em
 
-		div[data-v-75c8fc68]:nth-child(2) // 正文
+		div[data-v-5b390a88]:nth-child(2) // 正文
 			background none !important
 
 			.article-content
@@ -955,10 +956,10 @@ mdeditor-patch()
 						color button_hover_bg_color !important
 				
 				// 右侧目录
-				.toc-wrapper[data-v-318b4974]
+				.toc-wrapper
 					right -200px !important
 
-					.toc[data-v-318b4974]
+					.toc[data-v-463b40c0]
 						border-radius 6px
 						padding 1em
 						acrylic()
@@ -1054,10 +1055,40 @@ mdeditor-patch()
 				background board_color !important
 			
 			color post_text_color
-   .expand[data-v-9f81deee]
-      background #fff0
+			transition:box-shadow 0.1s linear
 	a[data-v-29ea9268-s]
-      background #ffffff
-      acrylic-bg(0.6,20px)
+      z-index 100
+      position absolute
+      top 0
+      bottom 0
+      left 0
+      right 0
+      acrylic-bg(0.6,2px)
       padding: 4pt 4pt 4pt 4pt
       border-radius 5pt
+      display: flex;
+      align-items: center;
+      justify-content: center;
+   a[data-v-29ea9268-s]:hover
+      z-index 100
+      position absolute
+      top 0
+      bottom 0
+      left 0
+      right 0
+      acrylic-bg(0.6,2px)
+      padding: 4pt 4pt 4pt 4pt
+      border-radius 5pt
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+   .row[data-v-83fd4045]
+      acrylic-bg(0.8,20px)
+      padding 8pt 8pt 8pt 8pt
+      margin-top 8pt !important
+      border-radius 5pt
+      transition:box-shadow 0.1s linear
+   .expand
+      height 2em
+      padding 0pt 0pt 0pt 0pt !important
