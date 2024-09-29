@@ -397,7 +397,7 @@ mdeditor-patch()
 			background button_hover_bg_color !important
 
 // 主站
-@-moz-document regexp("^(https?://www.luogu.com(.cn)?/)(?!article/).*")
+@-moz-document regexp("^(https?://www.luogu.com(.cn)?/)(?!(article/|problem/solution/|ranking)).*")
 	/* 页面布局 */
 	// 覆盖掉洛谷主题自带的背景
 	// 这几个排除是 mask
@@ -1010,10 +1010,11 @@ mdeditor-patch()
 		color sec_text_color !important
 
 // 洛谷专栏编辑
-@-moz-document regexp("^https?://www.luogu.com(.cn)?/article/.*$")
+@-moz-document regexp("^https?://www.luogu.com(.cn)?/(article|problem/solution|ranking).*$")
 	swal-patch()
 
-	.lside
+	.lside,
+   .rside
 		background navbar_bg_color !important unless nav-acrylic
 		acrylic() if nav-acrylic
 		li
@@ -1053,4 +1054,10 @@ mdeditor-patch()
 				background board_color !important
 			
 			color post_text_color
-			
+   .expand[data-v-9f81deee]
+      background #fff0
+	a[data-v-29ea9268-s]
+      background #ffffff
+      acrylic-bg(0.6,20px)
+      padding: 4pt 4pt 4pt 4pt
+      border-radius 5pt
