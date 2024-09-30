@@ -631,8 +631,13 @@ mdeditor-patch()
 		margin-top 40px
 		opacity 0
 		color transparent
-		acrylic-bg()
+		background #00000070 !important
+		backdrop-filter blur(10px) !important
+		box-shadow	0 10px	30px	rgba(0, 0, 0, 0.1),
+				0 1px	8px		rgba(0, 0, 0, 0.2)
 		pointer-events none
+		//洛谷真的纯唐，先向右偏移50%再向左便宜50%这不脱裤子放屁吗
+                transform translateX(50%) translateZ(0) !important
 	// 唐氏一样的 Stylus 解析器似乎会把 rgb 里的逗号当作选择器
 	// 因此只能用这种奇怪的方法匹配
 	// 氩洛谷 AC 的绿色很丑，所以去掉了
