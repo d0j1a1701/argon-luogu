@@ -14,6 +14,7 @@
 @var	checkbox nav-acrylic "侧栏亚克力效果" 1
 @var	checkbox card-acrylic "卡片亚克力效果" 1
 @var	checkbox footer-acrylic "底栏亚克力效果" 1
+@var	checkbox anymore-acrylic "其余亚克力效果" 1
 @var	checkbox remove-ad "去除洛谷广告" 0
 @var	checkbox remove-reply-container "隐藏讨论区「编辑回复」栏" 0
 ==/UserStyle== */
@@ -166,6 +167,7 @@ acrylic(arc-opacity=0.5,blur-radius=10px,no_shadow=false)
 		left 0
 		right 0
 		bottom 0
+		transform: translateZ(0);
 
 // https://stackoverflow.com/questions/44522299/css-only-acrylic-material-from-fluent-design-system
 // 直接修改背景的亚克力实现，不需要修改 z-index，不会对 border-radius 造成影响，但可能造成层叠混乱
@@ -175,6 +177,7 @@ acrylic-bg(arc-opacity=0.5,blur-radius=10px,no_shadow=false)
 	backdrop-filter blur(blur-radius) !important unless blur-radius == 0
 	box-shadow	0 10px	30px	rgba(0, 0, 0, 0.1),
 				0 1px	8px		rgba(0, 0, 0, 0.2) unless no_shadow !important
+	transform: translateZ(0);
 
 // 修改 Markdown 渲染内容样式
 markdown-patch()
@@ -395,8 +398,13 @@ mdeditor-patch()
 		border none !important
 		& > ul > li:hover
 			background button_hover_bg_color !important
+	if remove-ad
+		div[data-v-5d92dbda]
+        display none
+   .drop[data-v-64ec303c]
+		acrylic-bg()
 
-// 主站
+   // 主站
 @-moz-document regexp("^(https?://www.luogu.com(.cn)?/)(?!(article/|problem/solution/|ranking)).*")
 	/* 页面布局 */
 	// 覆盖掉洛谷主题自带的背景
@@ -560,6 +568,12 @@ mdeditor-patch()
 		.input > pre, .output > pre
 			background inlinecode_bg_color
 			border none !important
+     //提交代码
+		.drop
+        if anymore-acrylic
+            acrylic()
+        else
+            background board_color
 	// 去除广告
 	if remove-ad
 		div[data-v-0a593618]
@@ -960,7 +974,10 @@ mdeditor-patch()
 					.toc[data-v-463b40c0]
 						border-radius 6px
 						padding 1em
-						acrylic()
+						if card-acrylic
+                    acrylic()
+                else
+                    background board_color
 						top 1em
 					
 					.toc>ul>li[data-v-318b4974]:hover::before,
@@ -1053,7 +1070,6 @@ mdeditor-patch()
 				background board_color !important
 			
 			color post_text_color
-			transition:box-shadow 0.1s linear
 	a[data-v-29ea9268-s]
       z-index 100
       position absolute
@@ -1061,7 +1077,10 @@ mdeditor-patch()
       bottom 0
       left 0
       right 0
-      acrylic-bg(0.6,2px)
+      if anymore-acrylic
+          acrylic-bg(0.6,2px)
+      else
+          background board_color !important
       padding: 4pt 4pt 4pt 4pt
       border-radius 5pt
       display: flex;
@@ -1074,19 +1093,29 @@ mdeditor-patch()
       bottom 0
       left 0
       right 0
-      acrylic-bg(0.6,2px)
+      if anymore-acrylic
+          acrylic-bg(0.6,2px)
+      else
+          background board_color !important
       padding: 4pt 4pt 4pt 4pt
       border-radius 5pt
       display: flex;
       align-items: center;
       justify-content: center;
-      
-   .row[data-v-83fd4045]
-      acrylic-bg(0.8,20px)
+   a[data-v-9f81deee]
+      color text_color !important
+	div[data-v-83fd4045] .list-wrap .row-wrap .row[data-v-83fd4045]
+      if anymore-acrylic
+          acrylic-bg(0.6,2px)
+      else
+          background board_color !important
       padding 8pt 8pt 8pt 8pt
       margin-top 8pt !important
       border-radius 5pt
-      transition:box-shadow 0.1s linear
-   .expand
+      markdown-patch()
+   .expand[data-v-9f81deee]
+      background none
       height 2em
       padding 0pt 0pt 0pt 0pt !important
+   .lside
+     overflow none
