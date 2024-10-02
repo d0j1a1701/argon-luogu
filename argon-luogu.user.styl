@@ -35,6 +35,7 @@
   font-family: 'Fira Code';
   font-style: normal;
   font-weight: 300 700;
+  
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/firacode/v22/uU9NCBsR6Z2vfE9aq3bh2dSDulI.woff2) format('woff2');
   unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
@@ -298,7 +299,7 @@ markdown-patch()
 		code // 内联代码
 			background #fff0 !important
 			border none !important
-            background codeblock_bg_color !important
+            background block_bg_color !important
 			border-radius 5px
 			color hljs_base_color !important
 			box-shadow none !important
@@ -362,6 +363,10 @@ markdown-patch()
 				color hljs_deletion_color if hljs_deletion_color
 				background-color hljs_deletion_bg_color if hljs_deletion_bg_color
 		pre
+			&[exlg-copy-code-block]
+				border-top-left-radius: 0 !important
+				border-top-right-radius: 0 !important
+				border-top: none !important
 			background codeblock_bg_color !important
 			border none
 			border-radius 5px
@@ -380,6 +385,11 @@ markdown-patch()
 		border none
 		border-radius 5px
 		margin-bottom 10px
+
+		&[exlg-copy-code-block]
+			border-top-left-radius: 0 !important
+			border-top-right-radius: 0 !important
+			border-top: none !important
 		
 		code
 			background codeblock_bg_color !important
