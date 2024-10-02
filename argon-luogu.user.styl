@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         氩洛谷 Re 2024
-@version      20241001.11.23
+@version      20241002.18.45
 @namespace    https://userstyles.world/style/12397/re-2024
 @description  洛谷美化样式。
 @author       d0j1a1701
@@ -122,6 +122,8 @@ if dark-mode
 	hljs_addition_bg_color = #033a16
 	hljs_deletion_color = #ffdcd7
 	hljs_deletion_bg_color = #67060c
+	text_area_color = #eaecef
+
 else
 	body_bg_color = #eee
 	navbar_bg_color = #eeeeee
@@ -143,6 +145,7 @@ else
 	button_bg_color = transparent
 	selection_bg_color = #264f78
 	acrylic_bg_color = #ffffff
+	text_area_color = #435266
 if dark-mode
     .ace_gutter {
     background: #25282c !important;
@@ -286,9 +289,13 @@ markdown-patch()
 			color post_link_color
 
 		code // 内联代码
-			background inlinecode_bg_color
+			background #fff0
 			border none !important
-	
+		pre
+			background codeblock_bg_color !important
+			border none
+			border-radius 5px
+			margin-bottom 10px
 	// 标签样式更改
 	h1, h2, h3, h4, h5, h6
 		font-weight 600 !important
@@ -298,7 +305,7 @@ markdown-patch()
 		background-color line_color !important
 
 	// 代码块
-	pre:not([mp-editor-container])
+	pre:not([.mp-editor-container])
 		background codeblock_bg_color !important
 		border none
 		border-radius 5px
@@ -418,9 +425,11 @@ mdeditor-patch()
 		scrollbar-width thin
 		scrollbar-color scrollbar_thumb_color scrollbar_track_color
 
-	*:not(button)
+	*:not(button):not(.CodeMirror-cursor)
 		border-color line_color !important
 
+	.CodeMirror-cursor
+		border-color text_area_color !important
 	body
 		overflow-x hidden
 		background body_bg_color
@@ -490,6 +499,11 @@ mdeditor-patch()
 			border sec_text_color 1px solid !important
 		svg
 			color post_text_color !important
+	button[data-v-04eb14e9]
+		color sec_text_color !important
+		background none !important
+		border sec_text_color 1px solid !important
+   
 	
 	// 选择框掉出来的下拉框
 	.dropdown:not([data-v-1f03983a])
@@ -501,8 +515,7 @@ mdeditor-patch()
 	if remove-ad
 		div[data-v-5d92dbda]
         display none
-   .drop[data-v-64ec303c]
-		acrylic-bg()
+
 
    // 主站
 @-moz-document regexp("^(https?://www.luogu.com(.cn)?/)(?!(article/|problem/solution/|ranking)).*")
@@ -673,11 +686,7 @@ mdeditor-patch()
         if anymore-acrylic
             acrylic()
         else
-            background board_color
-	// 去除广告
-	if remove-ad
-		div[data-v-0a593618]
-			display none
+            background board_color !important
 
 	// 提交代码
 	.light-black[data-v-64ec303c]
@@ -719,6 +728,7 @@ mdeditor-patch()
 		font-weight bold
 		font-size 22px
 		margin-bottom 5px
+
 	.test-case-wrap > .wrapper .message
 		transition all 0.25s ease !important
 		display block !important
