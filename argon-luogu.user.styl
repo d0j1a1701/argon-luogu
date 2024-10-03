@@ -1216,7 +1216,13 @@ acrylic-bg(arc-opacity=0.5,blur-radius=10px,no_shadow=false)
 	box-shadow	0 10px	30px	rgba(0, 0, 0, 0.1),
 				0 1px	8px		rgba(0, 0, 0, 0.2) unless no_shadow !important
 	transform: translateZ(0);
-
+.exlg-code-title
+    acrylic-bg()
+.exlg-emo
+    acrylic-bg()
+    .exlg-emo-btn
+        background board_color
+        color text_color
 // 修改 Markdown 渲染内容样式
 markdown-patch()
 	.marked
@@ -1290,6 +1296,10 @@ markdown-patch()
 				color hljs_deletion_color if hljs_deletion_color
 				background-color hljs_deletion_bg_color if hljs_deletion_bg_color
 		pre
+			&[exlg-copy-code-block]
+				border-top-left-radius: 0 !important
+				border-top-right-radius: 0 !important
+				border-top: none !important
 			background codeblock_bg_color !important
 			border none
 			border-radius 5px
@@ -1308,6 +1318,10 @@ markdown-patch()
 		border none
 		border-radius 5px
 		margin-bottom 10px
+		&[exlg-copy-code-block]
+		    border-top-left-radius: 0 !important
+		    border-top-right-radius: 0 !important
+		    border-top: none !important
 		
 		code
 			background codeblock_bg_color !important
