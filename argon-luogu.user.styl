@@ -655,7 +655,12 @@ mdeditor-patch()
     // 页面主体（所有卡片的容器）
     main.lfe-body
         background none !important
-    
+    ul[data-v-01f8a102]
+        color text_color !important
+    .selected[data-v-01f8a102] > span
+        color sec_text_color !important
+    .lfe-caption[data-v-71731098]
+        background board_color !important
     // 首页
     #app-old
         color post_text_color
