@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name                 氩洛谷 Re 2024
-@version            20241003.22.36
+@version            20241003.20.55
 @namespace        https://userstyles.world/style/12397/re-2024
 @description    洛谷美化样式。
 @author             d0j1a1701
@@ -317,7 +317,57 @@ swal-patch()
     .swal2-icon > *[style*='rgba(255']
         background none !important
 
+cseditor-patch()
+    .cs-main
+    .cs-header
+        background rgba(acrylic_bg_color,0.5) !important
 
+    .cs-toolbar
+        & > div > span > span > span > svg
+            border none !important
+            color text_color
+            &:hover
+                color link_hover_color !important
+                background link_hover_bg_color !important
+    .cs-content
+        .cs-main { background: #2e3440!important; color: #d8dee9!important;font-family font-stack-codeblock !important; }
+        div.cm-selected { background: #434c5e!important; }
+        .cm-line { font-family: font-stack-codeblock !important; }
+        .cm-line::selection, .cm-line > span::selection, .cm-line > span > span::selection { background: #3b4252!important; }
+        .cm-line::-moz-selection, .cm-line > span::-moz-selection, .cm-line > span > span::-moz-selection { background: #3b4252!important; }
+        .cm-gutters { background: #2e3440!important; border-right: 0px!important; font-family: font-stack-codeblock !important;}
+        .cm-guttermarker { color: #4c566a!important; }
+        .cm-guttermarker-subtle { color: #4c566a!important; }
+        .cm-linenumber { color: #4c566a!important; }
+        .cm-cursor { border-left: 1px solid #f8f8f0!important; }
+        span.cm-comment { color: #4c566a!important; }
+        span.cm-atom { color: #b48ead!important; }
+        span.cm-number { color: #b48ead!important; }
+        span.cm-comment.cm-attribute { color: #97b757!important; }
+        span.cm-comment.cm-def { color: #bc9262!important; }
+        span.cm-comment.cm-tag { color: #bc6283!important; }
+        span.cm-comment.cm-type { color: #5998a6!important; }
+        span.cm-property, span.cm-attribute { color: #8FBCBB!important; }
+        span.cm-keyword { color: #81A1C1!important; }
+        span.cm-builtin { color: #81A1C1!important; }
+        span.cm-matchingBracket { color: #A3BE8C!important; }
+        span.cm-variable { color: #d8dee9!important; }
+        span.cm-variable-2 { color: #d8dee9!important; }
+        span.cm-variable-3, span.cm-type { color: #d8dee9!important; }
+        span.cm-def { color: #8FBCBB!important; }
+        span.cm-bracket { color: #81A1C1!important; }
+        span.cm-tag { color: #bf616a!important; }
+        span.ͼ7 { color: #b48ead!important; }
+        span.ͼ6.ͼ5 { color: #b48ead!important; }
+        span.cm-error { background: #bf616a!important; color: #f8f8f0!important; }
+        .cm-activeLine { background: #3b4252!important; }
+        .cm-matchingbracket {
+            text-decoration: underline!important;
+            color: white !important;
+        }
+        .cm-activeLineGutter { background: none !important;}
+    .cs-footer
+        acrylic-bg()
 mdeditor-patch()
     .mp-editor-container
         .mp-editor-toolbar
@@ -329,11 +379,14 @@ mdeditor-patch()
                     background link_hover_bg_color !important
             .mp-divider
                 color line_color !important
+
     /*.CodeMirror
         background codeblock_bg_color !important
         color text_color !important
     .CodeMirror-gutters
         background codeblock_bg_color !important*/
+    if dark-mode
+        cseditor-patch()
     .mp-preview-area
         acrylic-bg()
         .mp-preview-content
@@ -405,6 +458,7 @@ mdeditor-patch()
 
     textarea
         color post_text_color !important
+        font-family font-stack
         background none !important
         border sec_text_color 1px solid !important
         border-radius 6px !important
@@ -437,6 +491,8 @@ mdeditor-patch()
         border none !important
         & > ul > li:hover
             background button_hover_bg_color !important
+    .user-stat-data > div > div > span
+        color sec_text_color !important
     if remove-ad
         div[data-v-0a593618],
                 div[data-v-5d92dbda]
@@ -555,9 +611,9 @@ mdeditor-patch()
                 color: #969896!important
             }
             .ace_indent-guide {
-                background: url("../tomorrow_night-1.png") right repeat-y!important
+                background: url("https://cdn.jsdelivr.net/npm/ace-builds@1.36.2/css/tomorrow_night-1.png") right repeat-y!important
              }
-            .CodeMirror { background: #2e3440!important; color: #d8dee9!important;font-family font-stack-codeblock !important; }
+            .CodeMirror,.cs-main { background: #2e3440!important; color: #d8dee9!important;font-family font-stack-codeblock !important; }
             div.CodeMirror-selected { background: #434c5e!important; }
             .CodeMirror-line::selection, .CodeMirror-line > span::selection, .CodeMirror-line > span > span::selection { background: #3b4252!important; }
             .CodeMirror-line::-moz-selection, .CodeMirror-line > span::-moz-selection, .CodeMirror-line > span > span::-moz-selection { background: #3b4252!important; }
@@ -591,6 +647,9 @@ mdeditor-patch()
                 text-decoration: underline!important;
                 color: white !important;
             }
+    .name[style*="color: var(--lfe-color--purple-3);"],
+    span[data-v-0640126c][style*="color: rgb(157"]
+        color #c14aff !important
 
      // 主站
 @-moz-document regexp("^(https?://www.luogu.com(.cn)?/)(?!(article/|problem/solution/|ranking)).*")
@@ -838,7 +897,7 @@ mdeditor-patch()
                 0 1px    8px        rgba(0, 0, 0, 0.2)
         pointer-events none
         //洛谷真的纯唐，先向右偏移50%再向左便宜50%这不脱裤子放屁吗
-        transform translateX(50%) translateZ(0) !important
+        transform translateX(-50%) translateZ(0) !important
     // 唐氏一样的 Stylus 解析器似乎会把 rgb 里的逗号当作选择器
     // 因此只能用这种奇怪的方法匹配
     // 氩洛谷 AC 的绿色很丑，所以去掉了
@@ -998,9 +1057,9 @@ mdeditor-patch()
         color post_link_color // 假装这是个链接...
     
     // ⚡系统维护，该内容暂不可见⚡
-    div[data-v-429fbdfe][data-v-f9624136][style*="border: 1px solid rgb(225"] // 妈的这 Styl 编译器什么垃圾
+    div[data-v-fe28b16c][data-v-f9624136][style*="border: 1px solid rgb(225"] // 妈的这 Styl 编译器什么垃圾
         display none !important
-    .introduction[data-v-429fbdfe][style="display: none;"]
+    .introduction[data-v-e5ad98f0][style="display: none;"]
         display block !important
 
     // 个人主页「我的团队」等页面的栏
@@ -1323,6 +1382,7 @@ mdeditor-patch()
             margin-top 8pt !important
             border-radius 5pt
             markdown-patch()
+            font-family font-stack
      .expand[data-v-9f81deee]
             background none
             height 2em
@@ -1337,3 +1397,19 @@ mdeditor-patch()
                     background board_color !important
      .lfe-h2:not(.lcolor--red-3)
             color text_color
+     div[data-v-83fd4045-s] > div > *
+            color text_color !important
+     .row.info > span[data-v-c83b85a7]
+            background board_color
+     .l-card
+            if card-acrylic
+                acrylic-bg()
+            else
+                background board_color !important
+            
+            & > div > h3,
+            & > div > div > h4
+                color text_color !important
+                font-family font-stack
+            & > div > div > svg
+                color text_color
