@@ -1,22 +1,22 @@
 /* ==UserStyle==
 @name                 氩洛谷 Re 2024
-@version            202410004.18.27
-@namespace        https://userstyles.world/style/12397/re-2024
-@description    洛谷美化样式。
-@author             d0j1a1701
-@license            MIT
-@preprocessor stylus
-@var    checkbox dark-mode "深色模式" 1
-@var    text font-stack    "全局字体" "'Noto Sans SC'"
-@var    text font-stack-codeblock "代码块字体" "'Fira Code', 'Source Code Pro', 'Noto Sans SC'"
-@var    text main-background "自定义背景" "url(https://cdn.luogu.com.cn/upload/image_hosting/7ludxt0p.png)"
-@var    checkbox header-acrylic "顶栏亚克力效果" 1
-@var    checkbox nav-acrylic "侧栏亚克力效果" 1
-@var    checkbox card-acrylic "卡片亚克力效果" 1
-@var    checkbox footer-acrylic "底栏亚克力效果" 1
-@var    checkbox anymore-acrylic "其余亚克力效果" 1
-@var    checkbox remove-ad "去除洛谷广告" 0
-@var    checkbox remove-reply-container "隐藏讨论区「编辑回复」栏" 0
+@version              202410004.18.27
+@namespace            https://userstyles.world/style/12397/re-2024
+@description          洛谷美化样式。
+@author               d0j1a1701
+@license              MIT
+@preprocessor         stylus
+@var                  checkbox dark-mode "深色模式" 1
+@var                  text font-stack    "全局字体" "'Noto Sans SC'"
+@var                  text font-stack-codeblock "代码块字体" "'Fira Code', 'Source Code Pro', 'Noto Sans SC'"
+@var                  text main-background "自定义背景" "url(https://cdn.luogu.com.cn/upload/image_hosting/7ludxt0p.png)"
+@var                  checkbox header-acrylic "顶栏亚克力效果" 1
+@var                  checkbox nav-acrylic "侧栏亚克力效果" 1
+@var                  checkbox card-acrylic "卡片亚克力效果" 1
+@var                  checkbox footer-acrylic "底栏亚克力效果" 1
+@var                  checkbox anymore-acrylic "其余亚克力效果" 1
+@var                  checkbox remove-ad "去除洛谷广告" 0
+@var                  checkbox remove-reply-container "隐藏讨论区「编辑回复」栏" 0
 ==/UserStyle== */
 
 //! 字体导入 ---------
@@ -49,7 +49,7 @@ if dark-mode
     selection_bg_color = #9696c84d // 选中背景色
     acrylic_bg_color = #000000 // 亚克力背景色
     inlinecode_bg_color = #636e7b66 // 行内代码背景色
-    // 代码高亮
+    // 代码高亮配色：
     codeblock_bg_color = #0d1117
     hljs_base_color = #c9d1d9
     hljs_keyword_color = #ff7b72
@@ -126,13 +126,6 @@ acrylic-bg(arc-opacity=0.5,blur-radius=10px,no_shadow=false)
     box-shadow    0 10px    30px    rgba(0, 0, 0, 0.1),
                 0 1px    8px        rgba(0, 0, 0, 0.2) unless no_shadow !important
     transform: translateZ(0);
-.exlg-code-title
-        acrylic-bg()
-.exlg-emo
-        acrylic-bg()
-        .exlg-emo-btn
-                background board_color
-                color text_color
 // 修改 Markdown 渲染内容样式
 markdown-patch()
     .marked
