@@ -391,7 +391,7 @@ mdeditor-patch()
         scrollbar-color scrollbar_thumb_color scrollbar_track_color
         word-wrap break-word
         word-break break-all
-    *:not(button):not(.CodeMirror-cursor):not(.frac-line)
+    *:not(button):not(.CodeMirror-cursor):not(.frac-line):not(.combo-wrapper > .text)
         border-color line_color !important
 
     body
@@ -1153,20 +1153,26 @@ mdeditor-patch()
                     background button_hover_bg_color
     // 小bug
     .lfe-h1[data-v-2dfcfd35]
-             height 1.5em !important
-             width 100%
-             display flex
-             flex-direction row
-             align-items center
-             white-space nowrap !important
-             overflow hidden !important
-             text-overflow ellipsis !important
+            height 1.5em !important
+            width 100%
+            display flex
+            flex-direction row
+            align-items center
+            white-space nowrap !important
+            overflow hidden !important
+            text-overflow ellipsis !important
     // 讨论区bug
     .row.reply-info[data-v-6febb0e8]
-             padding 5pt 5pt 5pt 5pt
-             acrylic-bg(0.6,10px)
-             border-radius 6px
-             
+            padding 5pt 5pt 5pt 5pt
+            acrylic-bg(0.6,10px)
+            border-radius 6px
+            & > *
+                padding 0pt 5pt 0pt 5pt
+            & > .row,
+            & > .row > *
+                border-color text_color !important
+    .combo-wrapper > .text
+        border-color text_color !important
 
 // 洛谷专栏
 @-moz-document regexp("^https?://www.luogu.com(.cn)?/article/[A-Za-z0-9]{8}$")
