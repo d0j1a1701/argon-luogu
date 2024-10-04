@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name                 氩洛谷 Re 2024
-@version              202410004.18.27
+@version              202410004.19.37
 @namespace            https://userstyles.world/style/12397/re-2024
 @description          洛谷美化样式。
 @author               d0j1a1701
@@ -391,7 +391,7 @@ mdeditor-patch()
         scrollbar-color scrollbar_thumb_color scrollbar_track_color
         word-wrap break-word
         word-break break-all
-    *:not(button):not(.CodeMirror-cursor)
+    *:not(button):not(.CodeMirror-cursor):not(.frac-line)
         border-color line_color !important
 
     body
@@ -641,6 +641,8 @@ mdeditor-patch()
     div[data-v-bbdab89a]
         border-color text_color text_color #fff0 text_color !important
         border-left none
+    .frac-line
+        border-color text_color !important
      // 主站
 @-moz-document regexp("^(https?://www.luogu.com(.cn)?/)(?!(article/|problem/solution/|ranking)).*")
     /* 页面布局 */
