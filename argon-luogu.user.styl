@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name                 氩洛谷 Re 2024
-@version              202410004.20.16
+@version              202410005.17.28
 @namespace            https://userstyles.world/style/12397/re-2024
 @description          洛谷美化样式。
 @author               d0j1a1701
@@ -34,6 +34,7 @@ if dark-mode
     subtitle_color = #d0d0d0 // 副标题颜色（面板外）
     text_color = #c4c6c9 // 全局字体色
     sec_text_color = #a7a9ad // 次级字体色（摘要、简介等位置）
+    time_text_color = rgba(126,241,147,0.62) //主页时间字体色
     board_color = #252d38 // 面板背景色
     post_text_color = #c4c6c9 // 面板字体色
     post_heading_color = #c4c6c9 // 面板标题色（h1, h2, h3...）
@@ -76,6 +77,7 @@ else
     navbar_text_color = #3c4858
     subtitle_color = #fff
     text_color = #3c4858
+    time_text_color = rgba(5, 67, 16, 0.79)
     board_color = #fff
     post_text_color = #2c3e50
     sec_text_color = #718096
@@ -89,7 +91,7 @@ else
     scrollbar_hover_color = #a6a6a6
     button_hover_bg_color = #f2f3f5
     button_bg_color = transparent
-    selection_bg_color = #264f78
+    selection_bg_color = #95bce3
     acrylic_bg_color = #ffffff
     text_area_color = #435266
 // ! 配置部分结束 ---------
@@ -311,7 +313,7 @@ swal-patch()
         background none !important
 
 cseditor-patch()
-    .cs-main
+    .cs-main,
     .cs-header
         background rgba(acrylic_bg_color,0.5) !important
 
@@ -374,6 +376,10 @@ mdeditor-patch()
                 color line_color !important
     if dark-mode
         cseditor-patch()
+    .cs-main
+        font-family font-stack-codeblock
+    .CodeMirror
+        font-family font-stack-codeblock
     .mp-preview-area
         acrylic-bg()
         .mp-preview-content
@@ -391,7 +397,7 @@ mdeditor-patch()
         scrollbar-color scrollbar_thumb_color scrollbar_track_color
         word-wrap break-word
         word-break break-all
-    *:not(button):not(.CodeMirror-cursor):not(.frac-line):not(.combo-wrapper > .text):not(.cm-cursor)
+    *:not(button,.CodeMirror-cursor,.frac-line,.combo-wrapper > .text.cm-cursor,div[data-v-bbdab89a][style*="border-width: 4px;"],.refined-input)
         border-color line_color !important
 
     body
@@ -441,6 +447,9 @@ mdeditor-patch()
             background none !important
         &::placeholder
             color sec_text_color
+    .refined-input
+        background transparent !important
+        border-color transparent !important
 
     textarea
         color post_text_color !important
@@ -599,7 +608,7 @@ mdeditor-patch()
             .ace_indent-guide {
                 background: url("https://cdn.jsdelivr.net/npm/ace-builds@1.36.2/css/tomorrow_night-1.png") right repeat-y!important
              }
-            .CodeMirror,.cs-main { background: #2e3440!important; color: #d8dee9!important;font-family font-stack-codeblock !important; }
+            .CodeMirror { background: #2e3440!important; color: #d8dee9!important;font-family font-stack-codeblock !important; }
             div.CodeMirror-selected { background: #434c5e!important; }
             .CodeMirror-line::selection, .CodeMirror-line > span::selection, .CodeMirror-line > span > span::selection { background: #3b4252!important; }
             .CodeMirror-line::-moz-selection, .CodeMirror-line > span::-moz-selection, .CodeMirror-line > span > span::-moz-selection { background: #3b4252!important; }
@@ -633,16 +642,36 @@ mdeditor-patch()
                 text-decoration: underline!important;
                 color: white !important;
             }
+    // 高贵紫名
     .name[style*="color: var(--lfe-color--purple-3);"],
     span[data-v-0640126c][style*="color: rgb(157"]
         color #c14aff !important
+    // 黑题
     span[style*="color: rgb(14\, 29\, 105);"][data-v-263e39b8]
         color rgb(82 105 221) !important
+    // 旋转动画
     div[data-v-bbdab89a]
         border-color text_color text_color #fff0 text_color !important
         border-left none
+    // 分数线
     .frac-line
         border-color text_color !important
+    // 灰名
+    span[data-v-0640126c][style*="color: rgb(191\, 191\, 191);"]
+        color #9b9b9b !important
+    div[style*="margin: 0 auto; width: 100vw; padding: 2em 0; box-sizing: border-box; max-width: 680px; height: 100%; min-height: 100vh; display: flex; flex-flow: column; justify-content: center;"] > .card
+        acrylic-bg()
+        border-radius 6px
+        & > pre
+            color hljs_base_color !important
+            border 1px solid line_color !important
+            border-radius 6px
+        & > h3,
+        & > p
+            color text_color
+    span[data-v-beeebc6e][title]
+        color text_color !important
+        white-space nowrap !important
      // 主站
 @-moz-document regexp("^(https?://www.luogu.com(.cn)?/)(?!(article/|problem/solution/|ranking)).*")
     /* 页面布局 */
@@ -913,7 +942,7 @@ mdeditor-patch()
             height unset
             padding 5px 18px
             opacity 0.8
-            color sec_text_color
+            color #c4c6c9
 
     // 讨论区
     .row-space-between[data-v-70c65cc7]
@@ -987,8 +1016,9 @@ mdeditor-patch()
     div[currenttemplate="ProblemList"]
         .title[data-v-04eb14e9]
             color post_text_color
-        span[data-v-f9624136]
-            color sec_text_color !important
+        span[data-v-beeebc6e][title]
+            color text_color !important
+            white-space nowrap !important
         
         // 搜索框的放大镜图标
         .frame[data-v-66fcc50b]
@@ -1168,12 +1198,33 @@ mdeditor-patch()
             border-radius 6px
             & > *
                 padding 0pt 5pt 0pt 5pt
+                color text_color
             & > .row,
             & > .row > *
                 border-color text_color !important
     .combo-wrapper > .text
         border-color text_color !important
-
+    // 主页bug
+    .highcharts-axis-labels > *
+        color sec_text_color !important
+        fill sec_text_color !important
+    .highcharts-axis-title > *
+        color sec_text_color !important
+        fill sec_text_color !important
+    .lg-fg-greendark
+        color time_text_color !important
+    // 适配exlg随机题目
+    .lg-index-content > .am-g:nth-child(2)
+        z-index 999999
+        position relative
+    .exlg-window
+        background board_color !important
+        color text_color
+        box-shadow    0 10px    30px    rgba(0, 0, 0, 0.1),
+                0 1px    8px        rgba(0, 0, 0, 0.2) !important
+    div[data-v-a92a583a] > button
+        position relative
+        bottom 2px
 // 洛谷专栏
 @-moz-document regexp("^https?://www.luogu.com(.cn)?/article/[A-Za-z0-9]{8}$")
     swal-patch()
@@ -1428,6 +1479,40 @@ mdeditor-patch()
             color text_color
     .refined-input[data-v-33028704]
         background transparent !important
-        border none !important
+        border-color transparent !important
         & > .east > svg
             padding-left 5pt
+@-moz-document regexp("^https?://www.luogu.com(.cn)?/ranking.*$")
+    // 咕值列表大大大大大大大大大大大改动（约等于重构
+    .list-wrap.table
+        display grid !important
+    .header-wrap
+        display grid !important
+    .header-wrap > .header
+        display grid !important
+        grid-template-columns auto auto 3.4% 3.4% 3.4% 3.4% 3.4% 3.4% 7.1%
+        grid-column-gap 2.5%
+    .header-wrap > .header > *:not(:last-child)
+        align-self center
+        justify-self center
+        padding .5em 0pt .5em 0pt !important
+        white-space nowrap !important
+    .header-wrap > .header > *:last-child
+        align-self center
+        padding .5em 0pt .5em 3pt !important
+        white-space nowrap !important
+    .header-wrap > .header > .small > span > svg[data-icon="sort"]
+        color sec_text_color !important
+    .row-wrap
+        display grid !important
+    .row[data-v-83fd4045]
+        display grid !important
+        grid-template-columns 6% auto 4% 4% 4% 4% 4% 4% 6.6%
+        grid-column-gap 2%
+    .row > *:not(.uname-row)
+        place-self center
+        padding 0pt 0pt 0pt 0pt
+        white-space nowrap !important
+    .row[data-v-83fd4045] > div[data-v-cc5276c4]
+        padding-left 8pt
+        padding-bottom .5em
