@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name                 氩洛谷 Re 2024
-@version              202410006.15.59
+@version              202410006.19.50
 @namespace            https://userstyles.world/style/12397/re-2024
 @description          洛谷美化样式。
 @author               d0j1a1701
@@ -393,8 +393,6 @@ mdeditor-patch()
 /* 全局样式 */
 @-moz-document regexp("^(https?://www.luogu.com(.cn)?/).*")
     *
-        scrollbar-width thin
-        scrollbar-color scrollbar_thumb_color scrollbar_track_color
         word-wrap break-word
         word-break break-all
     *:not(button,.CodeMirror-cursor,.frac-line,.combo-wrapper > .text.cm-cursor,div[data-v-bbdab89a][style*="border-width: 4px;"],.refined-input)
@@ -406,15 +404,16 @@ mdeditor-patch()
     
     html, body
         scroll-behavior smooth
-
+    ::-webkit-scrollbar
+        background scrollbar_track_color
+        width 7px
+    ::-webkit-scrollbar-thumb
+        background scrollbar_thumb_color
     ::-webkit-scrollbar-thumb:hover
         background scrollbar_hover_color
 
     ::-webkit-scrollbar-corner
         background-color transparent
-
-    ::selection
-        background-color selection_bg_color
 
     // 这个字体必须改在这里
     // body 会被洛谷字体（.lfe-body）覆盖
