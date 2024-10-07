@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name                 氩洛谷 Re 2024
-@version              202410007.11.56
+@version              202410007.15.28
 @namespace            https://userstyles.world/style/12397/re-2024
 @description          洛谷美化样式。
 @author               d0j1a1701
@@ -389,6 +389,7 @@ mdeditor-patch()
                         padding 5pt 5pt 5pt 5pt
                         border-radius 5px
                         border-color line_color
+
 /* 全局样式 */
 @-moz-document regexp("^(https?://www.luogu.com(.cn)?/).*")
     *
@@ -404,8 +405,8 @@ mdeditor-patch()
     html, body
         scroll-behavior smooth
     ::-webkit-scrollbar
-        width 6px
         background scrollbar_track_color
+        width 7px
     ::-webkit-scrollbar-thumb
         background scrollbar_thumb_color
     ::-webkit-scrollbar-thumb:hover
@@ -413,9 +414,6 @@ mdeditor-patch()
 
     ::-webkit-scrollbar-corner
         background-color transparent
-
-    ::selection
-        background-color selection_bg_color
 
     // 这个字体必须改在这里
     // body 会被洛谷字体（.lfe-body）覆盖
@@ -673,6 +671,8 @@ mdeditor-patch()
     span[data-v-beeebc6e][title]
         color text_color !important
         white-space nowrap !important
+    .footer
+        padding-bottom 1.5em !important
      // 主站
 @-moz-document regexp("^(https?://www.luogu.com(.cn)?/)(?!(article/|problem/solution/|ranking)).*")
     /* 页面布局 */
@@ -1128,9 +1128,6 @@ mdeditor-patch()
         acrylic-bg() if footer-acrylic
         .footer > .qr-img
             display none
-        .footer
-            margin-top .9em
-            margin-bottom .9em
 
     // 侧栏
     #app > nav.lfe-body
@@ -1219,7 +1216,7 @@ mdeditor-patch()
         color time_text_color !important
     // 适配exlg随机题目
     .lg-index-content > .am-g:nth-child(2)
-        z-index 5
+        z-index 4
         position relative
     .exlg-window
         background board_color !important
@@ -1356,9 +1353,10 @@ mdeditor-patch()
     footer
         hr
             display none !important
-        background none !important
-        color sec_text_color 
-
+        acrylic-bg()
+        position relative
+        top 5em
+        color sec_text_color !important
 // 洛谷专栏编辑
 @-moz-document regexp("^https?://www.luogu.com(.cn)?/(article|problem/solution|ranking).*$")
     swal-patch()
