@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name                 氩洛谷 Re 2024
-@version              202410007.16.52
+@version              202410007.17.55
 @namespace            https://userstyles.world/style/12397/re-2024
 @description          洛谷美化样式。
 @author               d0j1a1701
@@ -1091,7 +1091,7 @@ mdeditor-patch()
 
     // 个人主页「我的团队」等页面的栏
     .inner-card
-        acrylic-bg()
+        background rgba(acrylic_bg_color,0.5) !important
         border none !important
         border-radius 6px
         [data-v-c0f00ef2] > .lfe-caption[data-v-71731098]
@@ -1228,6 +1228,23 @@ mdeditor-patch()
     div[data-v-a92a583a] > button
         position relative
         bottom 2px
+    .bottom-inner[data-v-b5709dda]
+        position relative
+        margin-bottom 1em
+    .bottom-inner[data-v-b5709dda] > .page-bar
+        acrylic-bg()
+        padding 1.2em
+        border-radius 6px
+        position absolute
+        top 0
+        bottom 0
+        left 0
+        right 0
+        display flex
+        flex-flow row
+        justify-content flex-end
+    .bottom-inner[data-v-b5709dda] > .page-bar > div[data-v-453d795e] > button
+        border-color sec_text_color !important
 // 洛谷专栏
 @-moz-document regexp("^https?://www.luogu.com(.cn)?/article/[A-Za-z0-9]{8}$")
     swal-patch()
