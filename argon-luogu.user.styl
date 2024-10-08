@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name                 氩洛谷 Re 2024
-@version              202410008.16.02
+@version              202410008.17.02
 @namespace            https://userstyles.world/style/12397/re-2024
 @description          洛谷美化样式。
 @author               d0j1a1701
@@ -1291,6 +1291,18 @@ mdeditor-patch()
     div[data-v-a92a583a] > button
         position relative
         bottom 2px
+//讨论区
+@-moz-document regexp("^(https?://www.luogu.com(.cn)?/discuss).*")
+    .card:not(.reply-editor):hover
+        z-index 6
+        transition-property z-index,transform
+        transition-delay .12s,0s
+    .card:not(.reply-editor)
+        z-index 5
+        transition-property z-index,transform
+        transition-delay .3s,0s
+    .edit-reply-container
+        z-index 7 !important
 // 洛谷专栏
 @-moz-document regexp("^https?://www.luogu.com(.cn)?/article/[A-Za-z0-9]{8}$")
     swal-patch()
