@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name                 氩洛谷 Re 2024
-@version              202410008.14.35
+@version              202410008.14.02
 @namespace            https://userstyles.world/style/12397/re-2024
 @description          洛谷美化样式。
 @author               d0j1a1701
@@ -117,7 +117,6 @@ acrylic(arc-opacity=0.5,blur-radius=10px,no_shadow=false)
         left 0
         right 0
         bottom 0
-        transform: translateZ(0);
 
 // https://stackoverflow.com/questions/44522299/css-only-acrylic-material-from-fluent-design-system
 // 直接修改背景的亚克力实现，不需要修改 z-index，不会对 border-radius 造成影响，但可能造成层叠混乱
@@ -127,7 +126,6 @@ acrylic-bg(arc-opacity=0.5,blur-radius=10px,no_shadow=false)
     backdrop-filter blur(blur-radius) !important unless blur-radius == 0
     box-shadow    0 10px    30px    rgba(0, 0, 0, 0.1),
                 0 1px    8px        rgba(0, 0, 0, 0.2) unless no_shadow !important
-    transform: translateZ(0);
 // 修改 Markdown 渲染内容样式
 markdown-patch()
     .marked
@@ -392,12 +390,35 @@ mdeditor-patch()
 
 /* 全局样式 */
 @-moz-document regexp("^(https?://www.luogu.com(.cn)?/).*")
+    @keyframes show
+        0%
+            transform translateY(2em)
+        100%
+            transform translateY(0em)
+    @keyframes inner-show
+        0%
+            transform translateY(1em)
+        100%
+            transform translateY(0em)
+    @keyframes title-show
+        0%
+            transform translateX(-1em)
+        100%
+            transform translateX(0em)
+    @keyframes textarea-checked
+        0%
+            transform scale(1)
+        30%
+            transform scale(1.05)
+        70%
+            transform scale(0.95)
+        100%
+            transform scale(1)
     *
         word-wrap break-word
         word-break break-all
     *:not(button,.CodeMirror-cursor,.frac-line,.combo-wrapper > .text,.cm-cursor,div[data-v-bbdab89a][style*="border-width: 4px;"],.refined-input,input)
         border-color line_color !important
-
     body
         overflow-x hidden
         background body_bg_color
@@ -460,6 +481,7 @@ mdeditor-patch()
             border-color var(--l-simple-select--color,var(--lfe-color--primary,#3498db)) !important
             box-shadow none !important
             background none !important
+            animation .3s linear 0s textarea-checked
     
     *::placeholder, .lfe-placeholder
         color sec_text_color !important
@@ -674,6 +696,28 @@ mdeditor-patch()
         mix-blend-mode darken unless dark-mode
     span[data-v-263e39b8][style*="color: rgb(14"]
         filter brightness(3)
+    //动画
+    main,
+    .inner-card
+        animation .7s ease 0s show
+    .card:hover
+    .inner-card:hover
+    ul[data-v-01f8a102]:hover
+    .l-card:hover
+    .lg-index-contest:hover
+    .lg-article:hover
+    .am-comment:hover
+        transform translateY(-0.3em) !important
+    .card
+    .inner-card
+    ul[data-v-01f8a102]
+    .l-card
+    .lg-index-contest
+    .lg-article
+    .am-comment
+        transition transform .5s
+    #app > nav.lfe-body .popup a:hover
+        transition background .3s
      // 主站
 @-moz-document regexp("^(https?://www.luogu.com(.cn)?/)(?!(article/|problem/solution/|ranking)).*")
     /* 页面布局 */
@@ -797,19 +841,24 @@ mdeditor-patch()
         border-radius 6px
         // 卡片背景材质
         if card-acrylic
-            acrylic-bg(0.6,20px)
+            acrylic(0.6,20px)
         else
             background board_color !important
         
         color post_text_color !important
         position relative
+        &:hover
+            if card-acrylic
+                acrylic(0.6,20px)
+            else
+                background board_color !important
                 
     .card:not(body > div > .card)
         border-radius 6px
 
         // 卡片背景材质
         if card-acrylic
-            acrylic(0.6,20px)
+            acrylic-bg(0.6,20px)
         else
             background board_color !important
         
@@ -1096,6 +1145,7 @@ mdeditor-patch()
         border-radius 6px
         [data-v-c0f00ef2] > .lfe-caption[data-v-71731098]
             background none !important
+        animation 1s ease-in-out 0s inner-show
     .member:hover
         z-index 999
         transition-delay .12s
@@ -1206,6 +1256,8 @@ mdeditor-patch()
         padding-bottom .2em
     span[data-v-1fbfa3c2][title]
         white-space wrap
+    .lfe-h1[data-v-2dfcfd35]
+        animation 1s ease-in-out 0s title-show
         
     // 讨论区bug
     .row.reply-info[data-v-6febb0e8]
@@ -1370,6 +1422,10 @@ mdeditor-patch()
         position relative
         top 5em
         color sec_text_color !important
+    .toc:hover
+        transform translateY(-0.3em) !important
+    .toc
+        transition transform .5s
 // 洛谷专栏编辑
 @-moz-document regexp("^https?://www.luogu.com(.cn)?/(article|problem/solution|ranking).*$")
     swal-patch()
