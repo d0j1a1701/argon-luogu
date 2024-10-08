@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name                 氩洛谷 Re 2024
-@version              202410008.14.02
+@version              202410008.14.35
 @namespace            https://userstyles.world/style/12397/re-2024
 @description          洛谷美化样式。
 @author               d0j1a1701
@@ -479,7 +479,7 @@ mdeditor-patch()
      
     
     // 选择框掉出来的下拉框
-    .dropdown:not([data-v-1f03983a])
+    .dropdown:not(div[data-v-1f03983a])
         acrylic()
         color sec_text_color !important
         border none !important
@@ -641,13 +641,6 @@ mdeditor-patch()
                 text-decoration: underline!important;
                 color: white !important;
             }
-    // 高贵紫名
-    .name[style*="color: var(--lfe-color--purple-3);"],
-    span[data-v-0640126c][style*="color: rgb(157"]
-        color #c14aff !important
-    // 黑题
-    span[style*="color: rgb(14\, 29\, 105);"][data-v-263e39b8]
-        color rgb(82 105 221) !important
     // 旋转动画
     div[data-v-bbdab89a]
         border-color text_color text_color #fff0 text_color !important
@@ -677,6 +670,10 @@ mdeditor-patch()
         color sec_text_color !important
     svg[data-icon="square"]:hover
         color link_hover_color !important
+    span[data-v-0640126c][style*="color: rgb(82"]
+        mix-blend-mode darken unless dark-mode
+    span[data-v-263e39b8][style*="color: rgb(14"]
+        filter brightness(3)
      // 主站
 @-moz-document regexp("^(https?://www.luogu.com(.cn)?/)(?!(article/|problem/solution/|ranking)).*")
     /* 页面布局 */
@@ -732,7 +729,7 @@ mdeditor-patch()
     // 头像悬浮
     .center[data-v-1f03983a]
         color post_text_color
-        acrylic()
+        acrylic-bg()
         border none
         .ops > a.color-none:hover
             background button_hover_bg_color
@@ -1038,6 +1035,7 @@ mdeditor-patch()
         // 放大镜图标旁边那个勾选框
         .search-option
             margin-left -2em !important
+            color post_text_color
 
         // 分类窗口
         .modal > .center[data-v-14c11e75]
@@ -1045,6 +1043,8 @@ mdeditor-patch()
                 color post_text_color !important
             .tags > .tag:not(.selected)
                 background none !important
+        span[data-v-04eb14e9]
+            color sec_text_color !important
     
     // 题目列表翻页条容器
     .bottom.float-bottom
@@ -1239,23 +1239,6 @@ mdeditor-patch()
     div[data-v-a92a583a] > button
         position relative
         bottom 2px
-    .bottom-inner[data-v-b5709dda]
-        position relative
-        margin-bottom 1em
-    .bottom-inner[data-v-b5709dda] > .page-bar
-        acrylic-bg()
-        padding 1.2em
-        border-radius 6px
-        position absolute
-        top 0
-        bottom 0
-        left 0
-        right 0
-        display flex
-        flex-flow row
-        justify-content flex-end
-    .bottom-inner[data-v-b5709dda] > .page-bar > div[data-v-453d795e] > button
-        border-color sec_text_color !important
 // 洛谷专栏
 @-moz-document regexp("^https?://www.luogu.com(.cn)?/article/[A-Za-z0-9]{8}$")
     swal-patch()
