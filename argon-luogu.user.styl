@@ -1,9 +1,9 @@
 /* ==UserStyle==
 @name                 氩洛谷 Re 2024
-@version              20241009.14.21
-@namespace            https://userstyles.world/style/18510/argon-luogu-dev
+@version              20241009.16.47
 @description          洛谷美化样式。
 @author               d0j1a1701
+@namespace            https://userstyles.world/style/12397/argon-luogu-dev
 @license              MIT
 @preprocessor         stylus
 @var                  checkbox dark-mode "深色模式" 1
@@ -402,11 +402,6 @@ mdeditor-patch()
             transform translateY(1em)
         100%
             transform translateY(0em)
-    @keyframes title-show
-        0%
-            transform translateX(-1em)
-        100%
-            transform translateX(0em)
     @keyframes textarea-checked
         0%
             transform scale(1)
@@ -415,6 +410,13 @@ mdeditor-patch()
         70%
             transform scale(0.95)
         100%
+            transform scale(1)
+    @keyframes link_hover
+        0%
+            transform-origin 50% 50%
+            transform scale(0)
+        100%
+            transform-origin 50% 50%
             transform scale(1)
     *
         word-wrap break-word
@@ -503,7 +505,7 @@ mdeditor-patch()
      
     
     // 选择框掉出来的下拉框
-    .dropdown:not(div[data-v-1f03983a])
+    .dropdown:not(div[data-v-1f03983a],div[data-v-9d62b45a])
         acrylic()
         color sec_text_color !important
         border none !important
@@ -699,7 +701,6 @@ mdeditor-patch()
     a[href^="/user/"]:not(.color-none,.color-default)
     span.lg-punch-result
     span[data-v-1143714b]:not([data-v-8b7f80ba],[data-v-0640126c],.hide-side.color-default > span)
-    .info-rows[data-v-a92a583a]:not(data-v-70c65cc7) > div:nth-child(n+2):nth-child(-n+3) > span:last-child
         text-shadow 0 .5px line_color, .5px 0 line_color, -0.5px 0 line_color, 0 -0.5px line_color
     a[href="/discuss/show/142324"] > svg > path
         stroke line_color
@@ -728,8 +729,22 @@ mdeditor-patch()
     .am-comment
     .row.reply-info
         transition transform .5s
-    #app > nav.lfe-body .popup a:hover
+    #app > nav.lfe-body .popup a
         transition background .3s
+    a
+        transition color .3s
+    a
+        position relative
+    a:not(.color-none):hover::after
+        content ""
+        position absolute
+        left 0
+        right 0
+        top 99%
+        bottom -5%
+        background sec_text_color
+        z-index 6
+        animation link_hover .5s
      // 主站
 @-moz-document regexp("^(https?://www.luogu.com(.cn)?/)(?!(article/|problem/solution/|ranking)).*")
     /* 页面布局 */
@@ -1320,6 +1335,13 @@ mdeditor-patch()
         z-index 7 !important
 // 洛谷专栏
 @-moz-document regexp("^https?://www.luogu.com(.cn)?/article/[A-Za-z0-9]{8}$")
+    @keyframes bar
+        0%
+            transform-origin 0 50%
+            transform scaleX(0)
+        100%
+            transform-origin 0 50%
+            transform scaleX(1)
     swal-patch()
 
     .lside
@@ -1432,7 +1454,7 @@ mdeditor-patch()
                 color sec_text_color
 
     // 评论区用卡片，为什么正文不用卡片？不知道前端在想什么
-    .l-card 
+    .l-card:not(.float-card)
         acrylic-bg()
         color post_text_color
     
@@ -1452,6 +1474,24 @@ mdeditor-patch()
         transform translateY(-0.3em) !important
     .toc
         transition transform .5s
+    .top-bar::before
+        content ""
+        position absolute
+        top 0
+        left 0
+        right 0
+        height 5px
+        background sec_text_color
+    .top-bar::after
+        content ""
+        position absolute
+        top 0
+        left 0
+        right 0
+        height 5px
+        background text_color
+        animation bar 5s linear
+        animation-timeline scroll()
 // 洛谷专栏编辑
 @-moz-document regexp("^https?://www.luogu.com(.cn)?/(article|problem/solution|ranking).*$")
     swal-patch()
@@ -1624,3 +1664,7 @@ mdeditor-patch()
             transition opacity 0.5s ease-in-out
         .container:hover
             opacity 1 !important
+@-moz-document regexp("^https?://www.luogu.com(.cn)?/record/.*$")
+    .info-rows div:nth-child(n+2):not(:last-child) span:nth-child(2)
+    .name
+        text-shadow 0 .5px line_color, .5px 0 line_color, -0.5px 0 line_color, 0 -0.5px line_color
