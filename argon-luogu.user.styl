@@ -1438,7 +1438,7 @@ mdeditor-patch()
         transform translateY(-0.3em) !important
     .toc
         transition transform .5s
-// 洛谷专栏编辑
+// 洛谷新UI
 @-moz-document regexp("^https?://www.luogu.com(.cn)?/(article|problem/solution|ranking).*$")
     swal-patch()
     .lside,
@@ -1455,6 +1455,8 @@ mdeditor-patch()
                     filter none !important
         .title
             color navbar_text_color !important
+        &:before
+            bottom -11em
 
     .top-bar
         acrylic-bg() if header-acrylic
