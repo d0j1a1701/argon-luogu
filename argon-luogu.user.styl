@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name                 氩洛谷 Re 2024
-@version              20241009.09.05
+@version              20241009.10.32
 @namespace            https://userstyles.world/style/12397/re-2024
 @description          洛谷美化样式。
 @author               d0j1a1701
@@ -709,19 +709,19 @@ mdeditor-patch()
     main
     .inner-card
         animation .7s ease 0s show
-    .card:not(.info-card.center,[data-v-f1a6b270]):hover
+    .card:not(.info-card.center,[data-v-f1a6b270],.modal-card):hover
     .inner-card:hover
     ul[data-v-01f8a102]:hover
-    .l-card:hover
+    .l-card:not(.container.type-burger):hover
     .lg-index-contest:hover
     .lg-article:hover
     .am-comment:hover
     .row.reply-info:hover
         transform translateY(-0.3em) !important
-    .card:not(.info-card.center,[data-v-f1a6b270])
+    .card:not(.info-card.center,[data-v-f1a6b270],.modal-card)
     .inner-card
     ul[data-v-01f8a102]
-    .l-card
+    .l-card:not(.container.type-burger)
     .lg-index-contest
     .lg-article
     .am-comment
@@ -1303,6 +1303,8 @@ mdeditor-patch()
     div[data-v-a92a583a] > button
         position relative
         bottom 2px
+    .user-header-container
+        z-index 5
 //讨论区
 @-moz-document regexp("^(https?://www.luogu.com(.cn)?/discuss).*")
     .card:not(.reply-editor):hover
