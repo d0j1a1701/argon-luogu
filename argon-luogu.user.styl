@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name                 氩洛谷 Re 2024
-@version              20241010.15.00
+@version              20241010.18.30
 @namespace            https://userstyles.world/style/12397/re-2024
 @description          洛谷美化样式。
 @author               d0j1a1701
@@ -415,10 +415,10 @@ mdeditor-patch()
     @keyframes link_hover
         0%
             transform-origin 50% 50%
-            transform scale(0)
+            transform scaleX(0)
         100%
             transform-origin 50% 50%
-            transform scale(1)
+            transform scaleX(1)
     *
         word-wrap break-word
         word-break break-all
@@ -497,6 +497,7 @@ mdeditor-patch()
             color post_text_color !important
             background none !important
             border sec_text_color 1px solid !important
+            font-family font-stack
         svg
             color post_text_color !important
     button[data-v-04eb14e9]
@@ -507,9 +508,10 @@ mdeditor-patch()
     
     // 选择框掉出来的下拉框
     .dropdown:not(div[data-v-1f03983a],div[data-v-9d62b45a])
-        acrylic()
+        acrylic-bg()
         color sec_text_color !important
         border none !important
+        font-family font-stack
         & > ul > li:hover
             background button_hover_bg_color !important
     .user-stat-data > div > div > span
@@ -736,24 +738,32 @@ mdeditor-patch()
     .row.reply-info
         transition transform .5s
     #app > nav.lfe-body .popup a
+    .dropdown .center .ops a
         transition background .3s
+    .dropdown .center .ops a
+        border-radius 6px
     a
         transition color .3s
     a
         position relative
-    a:hover
+    a:not(nav *,[href="/discuss/new?forum=relevantaffairs"]):hover
         overflow visible
-    a:not(nav *):hover::after
+    a:not(nav *,[href="/discuss/new?forum=relevantaffairs"]):hover::after
         content ""
         position absolute
         left 0
         right 0
         top 99%
-        bottom -5%
-        min-height .2em
+        min-height .28em
         background sec_text_color
         z-index 6
         animation link_hover .5s
+    .dropdown.shown div .user-header-top
+        border-radius 6px 6px 0 0
+    .dropdown.shown div .user-info
+        border-radius 0 0 6px 6px
+    .dropdown.shown div .user-info *
+        font-family font-stack !important
      // 主站
 @-moz-document regexp("^(https?://www.luogu.com(.cn)?/)(?!(article/|problem/solution/|ranking)).*")
     /* 页面布局 */
@@ -1343,6 +1353,10 @@ mdeditor-patch()
         transition-delay .3s,0s !important
     .edit-reply-container
         z-index 7 !important
+    .page-bar
+        acrylic-bg()
+        padding 5pt 5pt 5pt 5pt
+        border-radius 6px
 // 洛谷专栏
 @-moz-document regexp("^https?://www.luogu.com(.cn)?/article/[A-Za-z0-9]{8}$")
     @keyframes bar
@@ -1468,9 +1482,6 @@ mdeditor-patch()
         acrylic-bg()
         color post_text_color
     
-    .comment-filter-line // 评论计数
-        color sec_text_color !important
-    
     .label, .lfe-caption
         color sec_text_color !important
     footer
@@ -1492,6 +1503,7 @@ mdeditor-patch()
         right 0
         height 5px
         background sec_text_color
+        opacity 0.5
     .top-bar::after
         content ""
         position absolute
@@ -1546,6 +1558,9 @@ mdeditor-patch()
                 background board_color !important
             
             color post_text_color
+    .comment-filter-line // 评论计数
+        color sec_text_color !important
+        font-family font-stack
     a[data-v-29ea9268-s]
             z-index 100
             position absolute
@@ -1580,7 +1595,7 @@ mdeditor-patch()
             justify-content: center;
     a[data-v-9f81deee]
             color text_color !important
-    div[data-v-83fd4045] .list-wrap .row-wrap .row[data-v-83fd4045]
+    div[data-v-83fd4045] .list-wrap .row-wrap .row[data-v-83fd4045]:not(.article-comment div[data-v-83fd4045] .list-wrap .row-wrap .row[data-v-83fd4045])
             if anymore-acrylic
                     acrylic-bg(0.6,2px)
             else
