@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name                 氩洛谷 Re 2024
-@version              20241010.14.42
+@version              20241010.14.53
 @namespace            https://userstyles.world/style/12397/re-2024
 @description          洛谷美化样式。
 @author               d0j1a1701
@@ -739,13 +739,16 @@ mdeditor-patch()
         transition color .3s
     a
         position relative
-    a:not(.color-none):hover::after
+    a:hover
+        overflow visible
+    a:not(nav *):hover::after
         content ""
         position absolute
         left 0
         right 0
         top 99%
         bottom -5%
+        min-height .2em
         background sec_text_color
         z-index 6
         animation link_hover .5s
@@ -773,10 +776,10 @@ mdeditor-patch()
             padding-top .7em // 这样不会显得离边太近
             .stat > .color-inverse > .field[data-v-3c4577b8]
                 // 无亚克力时 sec_text_color 太深看不清
-                border-left-color subtitle_color !important
+                border-left-color subtitle_color !important if header-acrylic
                 
-                color sec_text_color !important if header-acrylic
-                border-left-color sec_text_color !important if header-acrylic
+                color #fff !important if header-acrylic
+                border-left-color #fff !important if header-acrylic
 
     // 题目页面的 header-layout
     .header-layout.normal[data-v-7ddab1d5]
