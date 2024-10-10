@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name                 氩洛谷 Re 2024
-@version              20241010.14.19
+@version              20241010.14.42
 @namespace            https://userstyles.world/style/12397/re-2024
 @description          洛谷美化样式。
 @author               d0j1a1701
@@ -698,10 +698,13 @@ mdeditor-patch()
     svg[data-icon="square"]:hover
         color link_hover_color !important
     span[data-v-0640126c]:not(.lfe-caption,.text,.color-none.login > *,.hide-side.color-default span)
-    span[data-v-263e39b8]
+    span[data-v-263e39b8]:not(.color-none *)
     a[href^="/user/"]:not(.color-none,.color-default)
     span.lg-punch-result
-    span[data-v-1143714b]:not([data-v-8b7f80ba],[data-v-0640126c],.hide-side.color-default > span)
+    span[data-v-1143714b]:not([data-v-8b7f80ba],[data-v-0640126c],[data-v-f9624136])
+    a[href^="/problem/list?difficulty="]
+    a[href="https://help.luogu.com.cn/manual/luogu/problem/remote-judge"]
+    a[href^="/remoteJudgeRedirect/"]
         text-shadow 0 .5px line_color, .5px 0 line_color, -0.5px 0 line_color, 0 -0.5px line_color
     a[href="/discuss/show/142324"] > svg > path
         stroke line_color
@@ -1122,7 +1125,8 @@ mdeditor-patch()
                 background none !important
         span[data-v-04eb14e9]
             color sec_text_color !important
-    
+    div[currenttemplate="ProblemShow"] .side div:nth-child(1)
+        z-index 5
     // 题目列表翻页条容器
     .bottom.float-bottom
         acrylic-bg()
