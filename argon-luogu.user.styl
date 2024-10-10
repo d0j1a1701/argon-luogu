@@ -1,6 +1,7 @@
 /* ==UserStyle==
 @name                 氩洛谷 Re 2024
-@version              20241009.16.47
+@version              20241010.14.19
+@namespace            https://userstyles.world/style/12397/re-2024
 @description          洛谷美化样式。
 @author               d0j1a1701
 @namespace            https://userstyles.world/style/12397/argon-luogu-dev
@@ -1346,7 +1347,7 @@ mdeditor-patch()
 
     .lside
         background navbar_bg_color !important unless nav-acrylic
-        acrylic() if nav-acrylic
+        acrylic-bg() if nav-acrylic
         li
             color navbar_text_color !important
             border-radius 8px
@@ -1492,13 +1493,13 @@ mdeditor-patch()
         background text_color
         animation bar 5s linear
         animation-timeline scroll()
-// 洛谷专栏编辑
+// 洛谷新UI
 @-moz-document regexp("^https?://www.luogu.com(.cn)?/(article|problem/solution|ranking).*$")
     swal-patch()
     .lside,
     .rside
         background navbar_bg_color !important unless nav-acrylic
-        acrylic() if nav-acrylic
+        acrylic-bg() if nav-acrylic
         li
             color navbar_text_color !important
             border-radius 8px
