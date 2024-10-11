@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name                 Argon Luogu Dev
-@version              20241011.12.49
+@version              20241011.13.43
 @namespace            https://userstyles.world/style/12397/re-2024
 @description          洛谷美化样式。
 @author               d0j1a1701
@@ -424,6 +424,15 @@ mdeditor-patch()
         100%
             transform-origin 50% 50%
             transform scaleX(1)
+    @keyframes avatar-hover
+        0%
+            transform scale(1)
+        33%
+            transform scale(1.1)
+        66%
+            transform scale(0.9)
+        100%
+            transform scale(1)
     *
         word-wrap break-word
         word-break break-all
@@ -706,18 +715,20 @@ mdeditor-patch()
         color link_hover_color !important
     span[data-v-0640126c]:not(.lfe-caption,.text,.color-none.login > *,.hide-side.color-default span)
     span[data-v-263e39b8]:not(.color-none *)
-    a[href^="/user/"]:not(.color-none,.color-default)
+    a[href^="/user/"]:not(.color-none,.color-default,[data-v-bade3303])
     span.lg-punch-result
     span[data-v-1143714b]:not([data-v-8b7f80ba],[data-v-0640126c],[data-v-f9624136])
     a[href^="/problem/list?difficulty="]
     a[href="https://help.luogu.com.cn/manual/luogu/problem/remote-judge"]
     a[href^="/remoteJudgeRedirect/"]
     .list .item .avatar+div span:nth-child(1)
+    .name
         text-shadow 0 .5px line_color, .5px 0 line_color, -0.5px 0 line_color, 0 -0.5px line_color
     a[href="/discuss/show/142324"] > svg > path
         stroke line_color
     a[href="/discuss/142324"] > svg > g
     .list .item .avatar+div span:nth-child(1) svg g
+    .name+span[to="https://help.luogu.com.cn/manual/luogu/account/award-certify"] svg g
         stroke line_color
         stroke-width 20
     //动画
@@ -763,6 +774,10 @@ mdeditor-patch()
         background sec_text_color
         z-index 6
         animation link_hover .5s
+    .avatar:hover
+    .am-comment-avatar:hover
+    img[src^="https://cdn.luogu.com.cn/upload/usericon/"]:hover
+        animation avatar-hover .5s linear
     .dropdown.shown div .user-header-top
         border-radius 6px 6px 0 0
     .dropdown.shown div .user-info
@@ -771,6 +786,16 @@ mdeditor-patch()
         font-family font-stack !important
      // 主站
 @-moz-document regexp("^(https?://www.luogu.com(.cn)?/)(?!(article/|problem/solution/|ranking)).*")
+    @keyframes left-navbar-show
+        0%
+            transform translateX(-100%)
+        100%
+            transform translateX(0)
+    @keyframes top-navbar-show
+        0%
+            transform translateY(-100%)
+        100%
+            transform translateY(0)
     /* 页面布局 */
     // 覆盖掉洛谷主题自带的背景
     // 这几个排除是 mask
@@ -779,6 +804,11 @@ mdeditor-patch()
         filter none !important
 
     swal-patch()
+
+    nav[data-v-12f19ddc]
+        animation left-navbar-show .5s ease-out
+    .header-layout.tiny[data-v-43a0de31]
+        animation top-navbar-show .5s ease-out
 
     .header-layout
         acrylic() if header-acrylic
@@ -1373,7 +1403,6 @@ mdeditor-patch()
             transform-origin 0 50%
             transform scaleX(1)
     swal-patch()
-
     .lside
         background navbar_bg_color !important unless nav-acrylic
         acrylic-bg() if nav-acrylic
@@ -1453,7 +1482,6 @@ mdeditor-patch()
                                         acrylic()
                                 else
                                         background board_color
-                        top 1em
                     
                     .toc>ul>li[data-v-318b4974]:hover::before,
                     .article-content .toc>ul>li.active[data-v-318b4974]::before
@@ -1522,6 +1550,16 @@ mdeditor-patch()
         animation-timeline scroll()
 // 洛谷新UI
 @-moz-document regexp("^https?://www.luogu.com(.cn)?/(article|problem/solution|ranking).*$")
+    @keyframes left-navbar-show
+        0%
+            transform translateX(-100%)
+        100%
+            transform translateX(0)
+    @keyframes top-navbar-show
+        0%
+            transform translateY(-100%)
+        100%
+            transform translateY(0)
     swal-patch()
     .lside,
     .rside
@@ -1537,8 +1575,10 @@ mdeditor-patch()
                     filter none !important
         .title
             color navbar_text_color !important
-
+    .lside
+        animation left-navbar-show .5s ease-out
     .top-bar
+        animation top-navbar-show .5s ease-out
         acrylic-bg() if header-acrylic
         background navbar_bg_color !important unless header-acrylic 
         color subtitle_color !important
