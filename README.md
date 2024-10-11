@@ -25,4 +25,3 @@ A beautification style for [Luogu](https://www.luogu.com.cn).
 ![](./screenshots/2.webp)
 ![](./screenshots/3.webp)
 ![](./screenshots/4.webp)
-![](./screenshots/5.webp)
