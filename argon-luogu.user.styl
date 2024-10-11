@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name                 Argon Luogu Dev
-@version              20241010.18.30
+@version              20241011.12.49
 @namespace            https://userstyles.world/style/12397/re-2024
 @description          洛谷美化样式。
 @author               d0j1a1701
@@ -403,6 +403,11 @@ mdeditor-patch()
             transform translateY(1em)
         100%
             transform translateY(0em)
+    @keyframes title-show
+        0%
+            transform translateX(-1em)
+        100%
+            transform translateX(0m)
     @keyframes textarea-checked
         0%
             transform scale(1)
@@ -1303,6 +1308,7 @@ mdeditor-patch()
         align-items center
         padding-bottom .2em
     span[data-v-1fbfa3c2][title]
+    .lfe-h1[data-v-2dfcfd35]
         white-space wrap
     .lfe-h1[data-v-2dfcfd35]
         animation 1s ease-in-out 0s title-show
