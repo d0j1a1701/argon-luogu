@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name                 Argon Luogu Dev
-@version              20241011.13.43
+@version              20241011.14.19
 @namespace            https://userstyles.world/style/12397/re-2024
 @description          洛谷美化样式。
 @author               d0j1a1701
@@ -707,6 +707,8 @@ mdeditor-patch()
     span[data-v-beeebc6e][title]
         color text_color !important
         white-space nowrap !important
+    #app .main-container .wrapper[data-v-43a0de31]:last-child
+        animation footer-show .5s ease-out
     .footer
         padding-bottom 1.5em !important
     svg[data-icon="square"]
@@ -722,6 +724,7 @@ mdeditor-patch()
     a[href="https://help.luogu.com.cn/manual/luogu/problem/remote-judge"]
     a[href^="/remoteJudgeRedirect/"]
     .list .item .avatar+div span:nth-child(1)
+    .item img[src^="https://cdn.luogu.com.cn/upload/usericon/"]+span span:nth-child(1)
     .name
         text-shadow 0 .5px line_color, .5px 0 line_color, -0.5px 0 line_color, 0 -0.5px line_color
     a[href="/discuss/show/142324"] > svg > path
@@ -729,6 +732,7 @@ mdeditor-patch()
     a[href="/discuss/142324"] > svg > g
     .list .item .avatar+div span:nth-child(1) svg g
     .name+span[to="https://help.luogu.com.cn/manual/luogu/account/award-certify"] svg g
+    .item img[src^="https://cdn.luogu.com.cn/upload/usericon/"]+span span:nth-child(2) svg g
         stroke line_color
         stroke-width 20
     //动画
@@ -786,16 +790,22 @@ mdeditor-patch()
         font-family font-stack !important
      // 主站
 @-moz-document regexp("^(https?://www.luogu.com(.cn)?/)(?!(article/|problem/solution/|ranking)).*")
-    @keyframes left-navbar-show
+    @keyframes left-show
         0%
             transform translateX(-100%)
         100%
             transform translateX(0)
-    @keyframes top-navbar-show
+    @keyframes top-show
         0%
             transform translateY(-100%)
         100%
             transform translateY(0)
+    @keyframes footer-show
+        0%
+            transform translateY(100%)
+        100%
+            transform translateY(0)
+
     /* 页面布局 */
     // 覆盖掉洛谷主题自带的背景
     // 这几个排除是 mask
@@ -806,10 +816,9 @@ mdeditor-patch()
     swal-patch()
 
     nav[data-v-12f19ddc]
-        animation left-navbar-show .5s ease-out
-    .header-layout.tiny[data-v-43a0de31]
-        animation top-navbar-show .5s ease-out
-
+        animation left-show .5s ease-out
+    .header-layout.tiny
+        animation top-show .5s ease-out
     .header-layout
         acrylic() if header-acrylic
         // background navbar_bg_color unless header-acrylic
@@ -1525,6 +1534,7 @@ mdeditor-patch()
         position relative
         top 5em
         color sec_text_color !important
+        animation footer-show .5s ease-out
     .toc:hover
         transform translateY(-0.3em) !important
     .toc
