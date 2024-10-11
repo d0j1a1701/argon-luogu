@@ -19,7 +19,6 @@
 @var                  checkbox remove-ad "去除洛谷广告" 0
 @var                  checkbox remove-reply-container "隐藏讨论区「编辑回复」栏" 0
 @var                  checkbox lock-account "纯享壁纸版锁定账户 " 0
-@var                  checkbox part-mode "部件模式" 0
 ==/UserStyle== */
 
 //! 字体导入 ---------
@@ -855,7 +854,7 @@ mdeditor-patch()
     // 首页的 headey-layout
     .header-layout.tiny[data-v-7ddab1d5]
         acrylic() if header-acrylic
-        background navbar_bg_color !important unless header-acrylic or part-mode
+        background navbar_bg_color !important unless header-acrylic
         color subtitle_color !important
         a
             color post_text_color
