@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name                 Argon Luogu Dev
-@version              20241011.15.23
+@version              20241011.19.04
 @namespace            https://userstyles.world/style/12397/re-2024
 @description          洛谷美化样式。
 @author               d0j1a1701
@@ -766,9 +766,9 @@ mdeditor-patch()
         transition color .3s
     a
         position relative
-    a:not(nav *,[href="/discuss/new?forum=relevantaffairs"]):hover
+    a:not(nav *,[href^="/discuss/new"]):hover
         overflow visible
-    a:not(nav *,[href="/discuss/new?forum=relevantaffairs"]):hover::after
+    a:not(nav *,[href^="/discuss/new"]):hover::after
         content ""
         position absolute
         left 0
