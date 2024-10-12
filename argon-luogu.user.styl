@@ -17,6 +17,8 @@
 @var                  checkbox footer-acrylic "底栏亚克力效果" 1
 @var                  checkbox anymore-acrylic "其余亚克力效果" 1
 @var                  checkbox remove-ad "去除洛谷广告" 0
+@var                  checkbox animations "动画" 1
+@var                  checkbox prose-bar "阅读进度条" 1
 @var                  checkbox remove-reply-container "隐藏讨论区「编辑回复」栏" 0
 @var                  checkbox lock-account "纯享壁纸版锁定账户 " 0
 ==/UserStyle== */
@@ -513,7 +515,8 @@ mdeditor-patch()
             border-color var(--l-simple-select--color,var(--lfe-color--primary,#3498db)) !important
             box-shadow none !important
             background none !important
-            animation .3s linear 0s textarea-checked
+            if animations
+                animation .3s linear 0s textarea-checked
     
     // 输入框默认文字信息
     *::placeholder, .lfe-placeholder
@@ -728,7 +731,8 @@ mdeditor-patch()
         white-space nowrap !important
     // footer展示动画
     #app .main-container .wrapper[data-v-43a0de31]:last-child
-        animation footer-show .5s ease-out
+        if animations
+            animation footer-show .5s ease-out
     // 解决洛谷讨论区footer没有沉底
     .footer
         padding-bottom 1.5em !important
@@ -762,7 +766,8 @@ mdeditor-patch()
     // 页面展示动画
     main
     .inner-card
-        animation .7s ease 0s show
+        if animations
+            animation .7s ease 0s show
     // 鼠标悬浮动画
     .card:not(.info-card.center,[data-v-f1a6b270],.modal-card,.modal *,[currenttemplate="ImageList"] .full-container:last-child *):hover
     .inner-card:hover
@@ -772,7 +777,8 @@ mdeditor-patch()
     .lg-article:hover
     .am-comment:hover
     .row.reply-info:hover
-        transform translateY(-0.3em) !important
+        if animations
+            transform translateY(-0.3em) !important
     .card:not(.info-card.center,[data-v-f1a6b270],.modal-card,.modal *,[currenttemplate="ImageList"] .full-container:last-child *)
     .inner-card
     ul[data-v-01f8a102]
@@ -781,35 +787,40 @@ mdeditor-patch()
     .lg-article
     .am-comment
     .row.reply-info
-        transition transform .5s
+        if animations
+            transition transform .5s
     // 解决更多功能按钮背景颜色切换过快
     #app > nav.lfe-body .popup a
     .dropdown .center .ops a
-        transition background .3s
+        if animations
+            transition background .3s
     .dropdown .center .ops a
         border-radius 6px
     // 超链接悬浮下划线
-    a
-        transition color .3s
-    a
-        position relative
-    a:not(nav *,[href^="/discuss/new"]):hover
-        overflow visible
-    a:not(nav *,[href^="/discuss/new"]):hover::after
-        content ""
-        position absolute
-        left 0
-        right 0
-        top 99%
-        min-height .28em
-        background sec_text_color
-        z-index 6
-        animation link_hover .5s
+    if animations
+        a
+            if animations
+                transition color .3s
+        a
+            position relative
+        a:not(nav *,[href^="/discuss/new"]):hover
+            overflow visible
+        a:not(nav *,[href^="/discuss/new"]):hover::after
+            content ""
+            position absolute
+            left 0
+            right 0
+            top 99%
+            min-height .28em
+            background sec_text_color
+            z-index 6
+            animation link_hover .5s
     // 头像悬浮动画
     .avatar:hover
     .am-comment-avatar:hover
     img[src^="https://cdn.luogu.com.cn/upload/usericon/"]:hover
-        animation avatar-hover .5s linear
+        if animations
+            animation avatar-hover .5s linear
     // 给悬浮在名字上面是出现的卡片加上圆角
     .dropdown.shown div .user-header-top
         border-radius 6px 6px 0 0
@@ -849,11 +860,13 @@ mdeditor-patch()
     swal-patch()
     // 侧栏动画
     nav[data-v-12f19ddc]
-        animation left-show .5s ease-out
+        if animations
+            animation left-show .5s ease-out
     // 顶栏动画
     .header-layout.tiny
     .user-nav
-        animation top-show .5s ease-out
+        if animations
+            animation top-show .5s ease-out
     // 顶栏样式
     body > .header
         acrylic-bg() if header-acrylic
@@ -1274,7 +1287,8 @@ mdeditor-patch()
         border-radius 6px
         [data-v-c0f00ef2] > .lfe-caption[data-v-71731098]
             background none !important
-        animation 1s ease-in-out 0s inner-show
+        if animations
+            animation 1s ease-in-out 0s inner-show
     .member:hover
         z-index 999
         transition-delay .12s
@@ -1388,7 +1402,8 @@ mdeditor-patch()
     .lfe-h1[data-v-2dfcfd35]
         white-space wrap
     .lfe-h1[data-v-2dfcfd35]
-        animation 1s ease-in-out 0s title-show
+        if animations
+            animation 1s ease-in-out 0s title-show
         
     // 讨论区bug
     .row.reply-info[data-v-6febb0e8]
@@ -1580,30 +1595,35 @@ mdeditor-patch()
         position relative
         top 5em
         color sec_text_color !important
-        animation footer-show .5s ease-out
+        if animations
+            animation footer-show .5s ease-out
     .toc:hover
-        transform translateY(-0.3em) !important
+        if animations
+            transform translateY(-0.3em) !important
     .toc
-        transition transform .5s
-    .top-bar::before
-        content ""
-        position absolute
-        top 0
-        left 0
-        right 0
-        height 5px
-        background sec_text_color
-        opacity 0.5
-    .top-bar::after
-        content ""
-        position absolute
-        top 0
-        left 0
-        right 0
-        height 5px
-        background text_color
-        animation bar 5s linear
-        animation-timeline scroll()
+        if animations
+            transition transform .5s
+    
+    if prose-bar
+        .top-bar::before
+            content ""
+            position absolute
+            top 0
+            left 0
+            right 0
+            height 5px
+            background sec_text_color
+            opacity 0.5
+        .top-bar::after
+            content ""
+            position absolute
+            top 0
+            left 0
+            right 0
+            height 5px
+            background text_color
+            animation bar 5s linear
+            animation-timeline scroll()
 // 洛谷新UI
 @-moz-document regexp("^https?://www.luogu.com(.cn)?/(article|problem/solution|ranking).*$")
     // 侧栏展示动画
@@ -1637,10 +1657,12 @@ mdeditor-patch()
             color navbar_text_color !important
     // 侧栏展示动画
     .lside
-        animation left-navbar-show .5s ease-out
+        if animations
+            animation left-navbar-show .5s ease-out
     // 顶栏展示动画
     .top-bar
-        animation top-navbar-show .5s ease-out
+        if animations
+            animation top-navbar-show .5s ease-out
         acrylic-bg() if header-acrylic
         background navbar_bg_color !important unless header-acrylic 
         color subtitle_color !important
