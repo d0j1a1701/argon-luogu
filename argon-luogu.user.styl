@@ -317,8 +317,8 @@ swal-patch()
 cseditor-patch()
     .cs-main,
     .cs-header
+        font-family font-stack-codeblock
         background rgba(acrylic_bg_color,0.5) !important
-
     .cs-toolbar
         & > div > span > span > span > svg
             border none !important
@@ -327,42 +327,49 @@ cseditor-patch()
                 color link_hover_color !important
                 background link_hover_bg_color !important
     .cs-content
-        .cs-main { background: #2e3440!important; color: #d8dee9!important;font-family font-stack-codeblock !important; }
-        div.cm-selected { background: #434c5e!important; }
-        .cm-line { font-family: font-stack-codeblock !important; }
-        .cm-line::selection, .cm-line > span::selection, .cm-line > span > span::selection { background: #3b4252!important; }
-        .cm-line::-moz-selection, .cm-line > span::-moz-selection, .cm-line > span > span::-moz-selection { background: #3b4252!important; }
-        .cm-gutters { background: #2e3440!important; border-right: 0px!important; font-family: font-stack-codeblock !important;}
-        .cm-guttermarker { color: #4c566a!important; }
-        .cm-guttermarker-subtle { color: #4c566a!important; }
-        .cm-linenumber { color: #4c566a!important; }
-        .cm-cursor { border-left: 1px solid #f8f8f0!important; }
-        span.cm-comment { color: #4c566a!important; }
-        span.cm-atom { color: #b48ead!important; }
-        span.cm-number { color: #b48ead!important; }
-        span.cm-comment.cm-attribute { color: #97b757!important; }
-        span.cm-comment.cm-def { color: #bc9262!important; }
-        span.cm-comment.cm-tag { color: #bc6283!important; }
-        span.cm-comment.cm-type { color: #5998a6!important; }
-        span.cm-property, span.cm-attribute { color: #8FBCBB!important; }
-        span.cm-keyword { color: #81A1C1!important; }
-        span.cm-builtin { color: #81A1C1!important; }
-        span.cm-matchingBracket { color: #A3BE8C!important; }
-        span.cm-variable { color: #d8dee9!important; }
-        span.cm-variable-2 { color: #d8dee9!important; }
-        span.cm-variable-3, span.cm-type { color: #d8dee9!important; }
-        span.cm-def { color: #8FBCBB!important; }
-        span.cm-bracket { color: #81A1C1!important; }
-        span.cm-tag { color: #bf616a!important; }
-        span.ͼ7 { color: #b48ead!important; }
-        span.ͼ6.ͼ5 { color: #b48ead!important; }
-        span.cm-error { background: #bf616a!important; color: #f8f8f0!important; }
-        .cm-activeLine { background: #3b4252!important; }
-        .cm-matchingbracket {
-            text-decoration: underline!important;
-            color: white !important;
+        background: #2B2B2B !important;
+        .cs-main { background: #2B2B2B !important; color: #A9B7C6!important; }
+        span.ͼ7 {color: #A9B7C6!important;}
+        span.cs-meta { color: #BBB529!important; }
+        span.cs-number { color: #6897BB!important; }
+        span.cs-keyword { color: #CC7832!important; line-height: 1em!important; font-weight: bold!important; }
+        span.cs-def { color: #A9B7C6!important; font-style: italic!important; }
+        span.cs-variable { color: #A9B7C6!important; }
+        span.cs-variable-2 { color: #A9B7C6!important; }
+        span.cs-variable-3 { color: #9876AA!important; }
+        span.cs-type { color: #AABBCC!important; font-weight: bold!important; }
+        span.cs-property { color: #FFC66D!important; }
+        span.cs-operator { color: #A9B7C6!important; }
+        span.cs-string { color: #6A8759!important; }
+        span.cs-string-2 { color: #6A8759!important; }
+        span.ͼ5, span.ͼc { color: #61A151!important; font-style: italic!important; }
+        span.cs-link { color: #CC7832!important; }
+        span.cs-atom { color: #CC7832!important; }
+        span.cs-error { color: #BC3F3C!important; }
+        span.cs-tag { color: #629755!important; font-weight: bold!important; font-style: italic!important; text-decoration: underline!important; }
+        span.cs-attribute { color: #6897bb!important; }
+        span.cs-qualifier { color: #6A8759!important; }
+        span.cs-bracket { color: #A9B7C6!important; }
+        span.cs-builtin { color: #FF9E59!important; }
+        span.cs-special { color: #FF9E59!important; }
+        span.cs-matchhighlight { color: #FFFFFF!important; background-color: rgba(50, 89, 48, .7)!important; font-weight: normal!important;}
+        span.cs-searching { color: #FFFFFF!important; background-color: rgba(61, 115, 59, .7)!important; font-weight: normal!important;}
+        .cm-cursor { border-left: 1px solid #A9B7C6!important; }
+        .cs-activeline-background { background: #323232!important; }
+        .cm-gutters, .cm-activeLineGutter { background: #313335!important; border-right: 1px solid #313335!important; }
+        .cm-guttermarker { color: #FFEE80!important; }
+        .cm-guttermarker-subtle { color: #D0D0D0!important; }
+        .cs-linenumber { color: #606366!important; }
+        .cs-matchingbracket { background-color: #3B514D!important; color: #FFEF28 !important; font-weight: bold!important; }
+        div.cs-selected { background: #214283!important; }
+        .cm-hints {
+            color: #9C9E9E!important;
+            background-color: #3B3E3F !important;
         }
-        .cm-activeLineGutter { background: none !important;}
+        .cm-hints .cm-hint-active {
+            background-color: #494D4E !important;
+            color: #9C9E9E !important;
+        }
     .cs-footer
         acrylic-bg()
 mdeditor-patch()
@@ -376,6 +383,8 @@ mdeditor-patch()
                     background link_hover_bg_color !important
             .mp-divider
                 color line_color !important
+    .ͼ1 .cm-scroller
+        font-family font-stack-codeblock
     if dark-mode
         cseditor-patch()
     .cs-main
@@ -571,6 +580,9 @@ mdeditor-patch()
             background codeblock_bg_color !important
             color hljs_base_color !important
             font-family font-stack-codeblock !important
+    
+    .ace_editor
+        font 14pt/normal font-stack-codeblock !important
     // 提交代码样式
     if dark-mode
             .ace_gutter {
@@ -673,39 +685,47 @@ mdeditor-patch()
             .ace_indent-guide {
                 background: url("https://cdn.jsdelivr.net/npm/ace-builds@1.36.2/css/tomorrow_night-1.png") right repeat-y!important
              }
-            .CodeMirror { background: #2e3440!important; color: #d8dee9!important;font-family font-stack-codeblock !important; }
-            div.CodeMirror-selected { background: #434c5e!important; }
-            .CodeMirror-line::selection, .CodeMirror-line > span::selection, .CodeMirror-line > span > span::selection { background: #3b4252!important; }
-            .CodeMirror-line::-moz-selection, .CodeMirror-line > span::-moz-selection, .CodeMirror-line > span > span::-moz-selection { background: #3b4252!important; }
-            .CodeMirror-gutters { background: #2e3440!important; border-right: 0px!important; }
-            .CodeMirror-guttermarker { color: #4c566a!important; }
-            .CodeMirror-guttermarker-subtle { color: #4c566a!important; }
-            .CodeMirror-linenumber { color: #4c566a!important; }
-            .CodeMirror-cursor { border-left: 1px solid #f8f8f0!important; }
-            span.cm-comment { color: #4c566a!important; }
-            span.cm-atom { color: #b48ead!important; }
-            span.cm-number { color: #b48ead!important; }
-            span.cm-comment.cm-attribute { color: #97b757!important; }
-            span.cm-comment.cm-def { color: #bc9262!important; }
-            span.cm-comment.cm-tag { color: #bc6283!important; }
-            span.cm-comment.cm-type { color: #5998a6!important; }
-            span.cm-property, span.cm-attribute { color: #8FBCBB!important; }
-            span.cm-keyword { color: #81A1C1!important; }
-            span.cm-builtin { color: #81A1C1!important; }
-            span.cm-string { color: #A3BE8C!important; }
-            span.cm-variable { color: #d8dee9!important; }
-            span.cm-variable-2 { color: #d8dee9!important; }
-            span.cm-variable-3, span.cm-type { color: #d8dee9!important; }
-            span.cm-def { color: #8FBCBB!important; }
-            span.cm-bracket { color: #81A1C1!important; }
-            span.cm-tag { color: #bf616a!important; }
-            span.cm-header { color: #b48ead!important; }
-            span.cm-link { color: #b48ead!important; }
-            span.cm-error { background: #bf616a!important; color: #f8f8f0!important; }
-            .CodeMirror-activeline-background { background: #3b4252!important; }
-            .CodeMirror-matchingbracket {
-                text-decoration: underline!important;
-                color: white !important;
+            .CodeMirror { background: #2B2B2B !important; color: #A9B7C6!important; }
+            span.cm-header {color: #A9B7C6!important;}
+            span.cm-meta { color: #BBB529!important; }
+            span.cm-number { color: #6897BB!important; }
+            span.cm-keyword { color: #CC7832!important; line-height: 1em!important; font-weight: bold!important; }
+            span.cm-def { color: #A9B7C6!important; font-style: italic!important; }
+            span.cm-variable { color: #A9B7C6!important; }
+            span.cm-variable-2 { color: #A9B7C6!important; }
+            span.cm-variable-3 { color: #9876AA!important; }
+            span.cm-type { color: #AABBCC!important; font-weight: bold!important; }
+            span.cm-property { color: #FFC66D!important; }
+            span.cm-operator { color: #A9B7C6!important; }
+            span.cm-string { color: #6A8759!important; }
+            span.cm-string-2 { color: #6A8759!important; }
+            span.cm-comment { color: #61A151!important; font-style: italic!important; }
+            span.cm-link { color: #CC7832!important; }
+            span.cm-atom { color: #CC7832!important; }
+            span.cm-error { color: #BC3F3C!important; }
+            span.cm-tag { color: #629755!important; font-weight: bold!important; font-style: italic!important; text-decoration: underline!important; }
+            span.cm-attribute { color: #6897bb!important; }
+            span.cm-qualifier { color: #6A8759!important; }
+            span.cm-bracket { color: #A9B7C6!important; }
+            span.cm-builtin { color: #FF9E59!important; }
+            span.cm-special { color: #FF9E59!important; }
+            span.cm-matchhighlight { color: #FFFFFF!important; background-color: rgba(50, 89, 48, .7)!important; font-weight: normal!important;}
+            span.cm-searching { color: #FFFFFF!important; background-color: rgba(61, 115, 59, .7)!important; font-weight: normal!important;}
+            .CodeMirror-cursor { border-left: 1px solid #A9B7C6!important; }
+            .CodeMirror-activeline-background { background: #323232!important; }
+            .CodeMirror-gutters { background: #313335!important; border-right: 1px solid #313335!important; }
+            .CodeMirror-guttermarker { color: #FFEE80!important; }
+            .CodeMirror-guttermarker-subtle { color: #D0D0D0!important; }
+            .CodeMirrir-linenumber { color: #606366!important; }
+            .CodeMirror-matchingbracket { background-color: #3B514D!important; color: #FFEF28 !important; font-weight: bold!important; }
+            div.CodeMirror-selected { background: #214283!important; }
+            .CodeMirror-hints {
+                color: #9C9E9E!important;
+                background-color: #3B3E3F !important;
+            }
+            .CodeMirror-hints .CodeMirror-hint-active {
+                background-color: #494D4E !important;
+                color: #9C9E9E !important;
             }
     // 旋转动画
     div[data-v-bbdab89a]
@@ -752,7 +772,8 @@ mdeditor-patch()
     a[href^="/remoteJudgeRedirect/"]
     .list .item .avatar+div span:nth-child(1)
     .item img[src^="https://cdn.luogu.com.cn/upload/usericon/"]+span span:nth-child(1)
-    .name
+    .name:not([data-v-3ae85f6d])
+    .row .status
         text-shadow 0 .5px line_color, .5px 0 line_color, -0.5px 0 line_color, 0 -0.5px line_color
     // 给钩子加边框
     a[href="/discuss/show/142324"] > svg > path
@@ -771,7 +792,7 @@ mdeditor-patch()
     // 鼠标悬浮动画
     .card:not(.info-card.center,[data-v-f1a6b270],.modal-card,.modal *,[currenttemplate="ImageList"] .full-container:last-child *):hover
     .inner-card:hover
-    ul[data-v-01f8a102]:hover
+    ul[data-v-01f8a102] li:hover
     .l-card:not(.container.type-burger):hover
     .lg-index-contest:hover
     .lg-article:hover
@@ -781,7 +802,7 @@ mdeditor-patch()
             transform translateY(-0.3em) !important
     .card:not(.info-card.center,[data-v-f1a6b270],.modal-card,.modal *,[currenttemplate="ImageList"] .full-container:last-child *)
     .inner-card
-    ul[data-v-01f8a102]
+    ul[data-v-01f8a102] li
     .l-card:not(.container.type-burger)
     .lg-index-contest
     .lg-article
@@ -816,8 +837,6 @@ mdeditor-patch()
             z-index 6
             animation link_hover .5s
     // 头像悬浮动画
-    .avatar:hover
-    .am-comment-avatar:hover
     img[src^="https://cdn.luogu.com.cn/upload/usericon/"]:hover
         if animations
             animation avatar-hover .5s linear
@@ -829,6 +848,12 @@ mdeditor-patch()
     // 字体问题
     .dropdown.shown div .user-info *
         font-family font-stack !important
+    // 洛谷日爆样式
+    .page .page-bottom
+        margin-top 1em
+        padding-bottom 2em
+        border-radius 6px
+        acrylic-bg()
      // 主站
 @-moz-document regexp("^(https?://www.luogu.com(.cn)?/)(?!(article/|problem/solution/|ranking)).*")
     // 侧栏出现动画
