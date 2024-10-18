@@ -229,13 +229,13 @@ markdown-patch()
                 border-top-left-radius: 0 !important
                 border-top-right-radius: 0 !important
                 border-top: none !important
-        
+
         code
             background codeblock_bg_color !important
             border-radius 5px
             color hljs_base_color !important
             box-shadow none !important
-            
+
             .hljs-doctag,
             .hljs-keyword,
             .hljs-meta .hljs-keyword,
@@ -304,10 +304,10 @@ swal-patch()
         h1, h2, h3, h4, h5, h6
             color post_heading_color !important
         color text_color !important
-    
+
     .swal2-content
         color text_color !important
-    
+
     // 一些带动画的图标
     // 选择器只写了一半是因为逆天 Stylus 编译器会把逗号当作选择器
     .swal2-icon > *[style*='rgba(0'],
@@ -432,14 +432,6 @@ mdeditor-patch()
             transform scale(0.95)
         100%
             transform scale(1)
-    // 超链接下划线动画
-    @keyframes link_hover
-        0%
-            transform-origin 50% 50%
-            transform scaleX(0)
-        100%
-            transform-origin 50% 50%
-            transform scaleX(1)
     // 头像悬浮动画
     @keyframes avatar-hover
         0%
@@ -485,7 +477,7 @@ mdeditor-patch()
 
     code, .hljs
         font-family font-stack-codeblock, monospace !important
-    
+
     // MD渲染
     mdeditor-patch()
 
@@ -496,7 +488,7 @@ mdeditor-patch()
         background-size cover
         background-position center
         background-attachment fixed
-    
+
     // 输入框样式修改
     input[type=text], input[type=password]
         color sec_text_color !important
@@ -526,7 +518,7 @@ mdeditor-patch()
             background none !important
             if animations
                 animation .3s linear 0s textarea-checked
-    
+
     // 输入框默认文字信息
     *::placeholder, .lfe-placeholder
         color sec_text_color !important
@@ -545,8 +537,8 @@ mdeditor-patch()
         color sec_text_color !important
         background none !important
         border sec_text_color 1px solid !important
-     
-    
+
+
     // 选择框掉出来的下拉框
     .dropdown:not(div[data-v-1f03983a],div[data-v-9d62b45a])
         acrylic-bg()
@@ -580,7 +572,7 @@ mdeditor-patch()
             background codeblock_bg_color !important
             color hljs_base_color !important
             font-family font-stack-codeblock !important
-    
+
     .ace_editor
         font 14pt/normal font-stack-codeblock !important
     // 提交代码样式
@@ -817,25 +809,11 @@ mdeditor-patch()
             transition background .3s
     .dropdown .center .ops a
         border-radius 6px
-    // 超链接悬浮下划线
+    // 文字颜色变化
     if animations
         a
             if animations
                 transition color .3s
-        a
-            position relative
-        a:not(nav *,[href^="/discuss/new"]):hover
-            overflow visible
-        a:not(nav *,[href^="/discuss/new"]):hover::after
-            content ""
-            position absolute
-            left 0
-            right 0
-            top 99%
-            min-height .28em
-            background sec_text_color
-            z-index 6
-            animation link_hover .5s
     // 头像悬浮动画
     img[src^="https://cdn.luogu.com.cn/upload/usericon/"]:hover
         if animations
@@ -909,7 +887,7 @@ mdeditor-patch()
             .stat > .color-inverse > .field[data-v-3c4577b8]
                 // 无亚克力时 sec_text_color 太深看不清
                 border-left-color subtitle_color !important if header-acrylic
-                
+
                 color #fff !important if header-acrylic
                 border-left-color #fff !important if header-acrylic
 
@@ -919,7 +897,7 @@ mdeditor-patch()
         padding-bottom .7em // 防止时限栏距离边缘太近
         a:hover
                 color post_link_color
-    
+
     // 讨论区/题解 的 header-layout
     .header-layout.narrow[data-v-7ddab1d5]
         height auto !important
@@ -968,13 +946,13 @@ mdeditor-patch()
         .am-panel // 块里的块
             acrylic-bg(0.5,0)
             border none
-        
+
         .highcharts-root
             tspan
                 // 我也不知道为什么这个颜色不会变
                 // 随它去吧，反正我改了
                 color sec_text_color !important
-        
+
         .feed-selector > a // 「我关注的」「我发布的」
             border-radius 6px
             &:hover
@@ -998,7 +976,7 @@ mdeditor-patch()
                     acrylic-bg(0.6,10px,true)
                 else
                     background board_color !important
-            
+
             .feed-comment
                 markdown-patch() // 为什么犇犇里面能渲染代码块
 
@@ -1010,7 +988,7 @@ mdeditor-patch()
             acrylic-bg(0.6,20px)
         else
             background board_color !important
-        
+
         color post_text_color !important
         position relative
         &:hover
@@ -1018,7 +996,7 @@ mdeditor-patch()
                 acrylic(0.6,20px)
             else
                 background board_color !important
-                
+
     .card:not(body > div > .card)
         border-radius 6px
         // 卡片背景材质
@@ -1026,10 +1004,10 @@ mdeditor-patch()
             acrylic(0.6,20px)
         else
             background board_color !important
-        
+
         color post_text_color !important
         position relative
-        
+
         markdown-patch()
 
         // 「提交记录」「查看题解」等超链接按钮
@@ -1045,13 +1023,13 @@ mdeditor-patch()
         // 「查看算法标签」「查看讨论」等展开按钮
         .expand-tip > span[data-v-e4b7c2ca]
             color sec_text_color !important
-        
+
         // 「展开全文」
         .collapsed-wrapper > .expand > .expand
             background none
             border-radius 8px
             padding-top 5em // 拉长一点
-        
+
         // // 把「展开全文」挪到一个更加阳间的地方
         // .collapsed + .expand[data-v-15e4f65b]
         //     bottom -2.75em !important
@@ -1059,7 +1037,7 @@ mdeditor-patch()
         //「创建时间」等说明性小字（data-v-f9624136 是个人简介）
         .lfe-caption:not([data-v-f9624136])
             color sec_text_color
-        
+
         //「统计数据不实时更新」等小字
         .caption[data-v-1c7f56df]
             color sec_text_color
@@ -1079,7 +1057,7 @@ mdeditor-patch()
     // 提交代码
     .light-black[data-v-64ec303c]
         color sec_text_color !important
-    
+
     // 评测结果
     // 这一段从旧版贺来的，好看！
     // 我并不是很想改动这一坨
@@ -1164,15 +1142,15 @@ mdeditor-patch()
     // 讨论区
     .row-space-between[data-v-70c65cc7]
         color subtitle_color // sec_text_color 太浅看不清
-    
+
     if remove-reply-container
-        .edit-reply-container
+        .edit-reply-container:not(.in-position)
             display none !important
 
     // 「全部版块」页面
     .forum-name[data-v-d6def288]
         color sec_text_color !important
-    
+
     .time[data-v-b0d342de]
         color sec_text_color !important
 
@@ -1186,7 +1164,7 @@ mdeditor-patch()
         // 匹配各种时间小字（讨论区回帖，陶片放逐）
         & > .left > .time, & > .time > time
             color sec_text_color
-    
+
     // 讨论区楼主
     .grey[data-v-70c65cc7]
         color sec_text_color
@@ -1205,7 +1183,7 @@ mdeditor-patch()
     // 私信列表
     .item[data-v-4d6dca7a]:hover
         background button_hover_bg_color !important
-    
+
     .side > .panel-content[data-v-7821ddd5]
         max-width 60em
 
@@ -1236,11 +1214,11 @@ mdeditor-patch()
         span[data-v-beeebc6e][title]
             color text_color !important
             white-space nowrap !important
-        
+
         // 搜索框的放大镜图标
         .frame[data-v-66fcc50b]
             border none !important
-        
+
         .search-icon[data-v-04eb14e9]
             color sec_text_color !important
             position relative
@@ -1265,7 +1243,7 @@ mdeditor-patch()
     // 题目列表翻页条容器
     .bottom.float-bottom
         acrylic-bg()
-    
+
     // 翻页条
     .page-bar
         background transparent !important
@@ -1280,14 +1258,14 @@ mdeditor-patch()
             color sec_text_color !important
         img
             filter invert(1) !important
-    
+
     // 通知中心
     .title[data-v-71e80b39]
         color post_heading_color
-    
+
     .time[data-v-71e80b39]
         color sec_text_color
-    
+
     .content[data-v-71e80b39]
         color post_text_color
 
@@ -1298,7 +1276,7 @@ mdeditor-patch()
         box-sizing border-box
         padding 3px
         color post_link_color // 假装这是个链接...
-    
+
     // ⚡系统维护，该内容暂不可见⚡
     div[data-v-fe28b16c][data-v-f9624136][style*="border: 1px solid rgb(225"] // 妈的这 Styl 编译器什么垃圾
         display none !important
@@ -1331,7 +1309,7 @@ mdeditor-patch()
         position absolute
         margin -400px 0 0 -75px // 这个窗会莫名其妙飞走，为什么？我也不知道，反正这样能修好
 
-    // 一些小字    
+    // 一些小字
     .info-content[data-v-8b7f80ba], .caption[data-v-325cf452]
         color sec_text_color
 
@@ -1377,14 +1355,14 @@ mdeditor-patch()
 
             &:first-of-type // Logo
                 margin-top 10px !important
-            
+
             .icon
                 line-height 2.4em
                 font-size 18px
                 width 100%
                 margin 0 !important
                 transition all 0.3s ease
-            
+
             .text
                 opacity 0
                 margin-top -1em
@@ -1394,11 +1372,11 @@ mdeditor-patch()
             &:hover > .icon
                 line-height 1.5em
                 font-size 17px
-            
+
             &:hover > .text
                 opacity 1
                 margin-top 0.2em
-        
+
         & > div:first-child
             background none !important if dark-mode
             background navbar_text_color !important unless dark-mode
@@ -1429,7 +1407,7 @@ mdeditor-patch()
     .lfe-h1[data-v-2dfcfd35]
         if animations
             animation 1s ease-in-out 0s title-show
-        
+
     // 讨论区bug
     .row.reply-info[data-v-6febb0e8]
             padding 5pt 5pt 5pt 5pt
@@ -1514,7 +1492,7 @@ mdeditor-patch()
     // 顶栏样式
     .top-bar
         acrylic-bg() if header-acrylic
-        background navbar_bg_color !important unless header-acrylic 
+        background navbar_bg_color !important unless header-acrylic
         color subtitle_color !important
         .user-nav > a
             color post_text_color
@@ -1528,12 +1506,12 @@ mdeditor-patch()
             acrylic()
         else
             background board_color !important
-        
+
         // 这个栏本来和 .top-bar 是堆在一块的
         // 所以不加这个 position 会导致毛玻璃重叠
         position relative !important
         top 1em
-        
+
         // 将标题栏变成卡片式布局
         border-radius 6px
         box-sizing border-box
@@ -1565,7 +1543,7 @@ mdeditor-patch()
                     color sec_text_color !important
                     &:hover
                         color button_hover_bg_color !important
-                
+
                 // 右侧目录
                 .toc-wrapper
                     right -200px !important
@@ -1577,7 +1555,7 @@ mdeditor-patch()
                                         acrylic()
                                 else
                                         background board_color
-                    
+
                     .toc>ul>li[data-v-318b4974]:hover::before,
                     .article-content .toc>ul>li.active[data-v-318b4974]::before
                         background-color button_hover_bg_color !important
@@ -1610,7 +1588,7 @@ mdeditor-patch()
     .l-card:not(.float-card)
         acrylic-bg()
         color post_text_color
-    
+
     .label, .lfe-caption
         color sec_text_color !important
     footer
@@ -1628,7 +1606,7 @@ mdeditor-patch()
     .toc
         if animations
             transition transform .5s
-    
+
     if prose-bar
         .top-bar::before
             content ""
@@ -1689,20 +1667,20 @@ mdeditor-patch()
         if animations
             animation top-navbar-show .5s ease-out
         acrylic-bg() if header-acrylic
-        background navbar_bg_color !important unless header-acrylic 
+        background navbar_bg_color !important unless header-acrylic
         color subtitle_color !important
         .user-nav > a
             color post_text_color
             &:hover
                 color post_link_color
-    
+
     .theme-bg
         background none !important
 
     .theme-fg
         acrylic-bg() if header-acrylic
         background navbar_bg_color !important unless header-acrylic
-    
+
     main
         background none !important
         .l-card
@@ -1711,7 +1689,7 @@ mdeditor-patch()
                 acrylic-bg(0.6,20px)
             else
                 background board_color !important
-            
+
             color post_text_color
     .comment-filter-line // 评论计数
         color sec_text_color !important
@@ -1787,7 +1765,7 @@ mdeditor-patch()
                 acrylic-bg()
             else
                 background board_color !important
-            
+
             & > div > h3,
             & > div > div > h4
                 color text_color !important
